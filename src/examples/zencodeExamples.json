@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Generate many random cryptographic objects",
+        "zencode": "/examples/zencode_simple/SYM01.zen",
+        "keys": "",
+        "data": ""
+    },
+    {
+        "name": "Encrypt a message using a password",
+        "zencode": "/examples/zencode_simple/SYM02.zen",
+        "keys": "",
+        "data": ""
+    },
+    {
+        "name": "Decrypt a secret message using a password",
+        "zencode": "/examples/zencode_simple/SYM03.zen",
+        "keys": "/examples/zencode_simple/cipher_message.json",
+        "data": ""
+    },
+    {
+        "name": "Generate a keypair",
+        "zencode": "/examples/zencode_simple/alice_keygen.zen",
+        "keys": "",
+        "data": ""
+    },
+    {
+        "name": "Encrypt a message for a public key recipient",
+        "zencode": "/examples/zencode_simple/AES05.zen",
+        "keys": "/examples/zencode_simple/alice_keypair.json",
+        "data": "/examples/zencode_simple/bob_pub.json"
+    },
+    {
+        "name": "Decrypt a secret message using a-symmetric encryption",
+        "zencode": "/examples/zencode_simple/AES07.zen",
+        "keys": "/examples/zencode_simple/bob_keyring.json",
+        "data": "/examples/zencode_simple/alice_to_bob.json"
+    },
+    {
+        "name": "Sign a message using public-key encryption",
+        "zencode": "/examples/zencode_simple/DSA01.zen",
+        "keys": "/examples/zencode_simple/alice_keypair.json",
+        "data": "/examples/zencode_simple/alice_signs_to_bob.json"
+    },
+    {
+        "name": "Verify a signature using public-key encryption",
+        "zencode": "/examples/zencode_simple/DSA02.zen",
+        "keys": "/examples/zencode_simple/alice_pub.json",
+        "data": "/examples/zencode_simple/alice_signs_to_bob.json"
+    }
+]

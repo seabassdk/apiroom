@@ -1,0 +1,18 @@
+.dragger {
+    width: 90%;
+    height: 35px;
+    cursor: ns-resize;
+    border-top: 1px solid #ddd;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    background-color: transparent;
+    /* border: 1px solid red; */
+  }
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #e8e8e8;
+}

@@ -1,0 +1,51 @@
+.custom-button {
+    line-height: 1;
+}
+
+.custom-button button {
+    line-height: 1;
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btn-group
+/*
+.custom-button button.focus, .custom-button button:focus, .custom-button button:hover, .custom-button button.dropdown-toggle {
+    color: black;
+    background-color: #ddd;
+    border-color: #ddd;
+    box-shadow: #ddd;
+}
+
+.show>.btn-primary.dropdown-toggle {
+    color: black;
+    background-color: #ddd;
+    border-color: #ddd;
+    box-shadow: #ddd;
+} */
+
+
+
+.arrow-container {
+   margin-top: -5px;
+   margin-right: 5px; 
+   cursor: pointer;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
