@@ -17,9 +17,9 @@ import * as actions from '../../store/actions/index';
 import { hasJsonStructure } from '../../helpers/jsonHelper';
 
 const PopoverContent = props => {
-    const startValue = (props.mode === 'zencode') ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content
+    // const startValue = (props.mode === 'zencode') ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content
     const [contract, setContract] = useState(props.contract);
-    const [fieldValue, setFieldValue] = useState(startValue);
+    const [fieldValue, setFieldValue] = useState(state => props.mode === 'zencode' ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content);
 
     const onContractChange = (newValue) => {
         setContract(prevState => {
@@ -46,11 +46,16 @@ const PopoverContent = props => {
         });
         setFieldValue(newValue);
     }
+
+    useEffect(()=>{
+        setFieldValue(state => props.mode === 'zencode' ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content)
+    }, [props.content])
+
     return (
         <OverlayTrigger
             rootClose
             trigger="click"
-            key={'bottom'}
+            key={'bottom' + props.index}
             placement={'bottom'}
             overlay={
                 <Popover id={`popover-positioned-bottom`}>
@@ -101,9 +106,17 @@ const UserProfile = props => {
     useEffect(() => {
         props.onChangeLoadingError(false);
         props.onLoadContracts();
-    }, [props.onUpdateContractByIndex]);
+    }, []);
 
 
+    // useEffect(() => {
+    //     console.log('USEEFFECT FIRING LOCATION STATE: ');
+    //     if(props.location.state && props.location.state.updated) {
+    //         console.log('not null: ' + props.location.state.updated);
+    //         props.onChangeLoadingError(false);
+    //         props.onLoadContracts();
+    //     }
+    // }, [props.location.state]);
 
     // useEffect(() => {
 
@@ -113,8 +126,6 @@ const UserProfile = props => {
     //         setTableEmpty(false);
     //     }
     // }, [props.contracts]);
-
-    console.log(props.contracts);
 
     return (
         <div className={'pb-5 user-contracts pt-5'}>
@@ -178,6 +189,7 @@ const UserProfile = props => {
                                                             updateField={(contract) => props.onUpdateContractByIndex(contract, index)}
                                                             field={'zencode'}
                                                             contract={contract}
+                                                            index={index}
                                                         />
                                                 </div>
                                             </div>
@@ -199,6 +211,7 @@ const UserProfile = props => {
                                             updateField={(contract) => props.onUpdateContractByIndex(contract, index)}
                                             field={'keys'}
                                             contract={contract}
+                                            index={index}
                                         />
                                     </td>
                                     <td>
@@ -209,6 +222,7 @@ const UserProfile = props => {
                                             updateField={(contract) => props.onUpdateContractByIndex(contract, index)}
                                             field={'config'}
                                             contract={contract}
+                                            index={index}
                                         />
                                     </td>
                                     <td>
@@ -219,6 +233,7 @@ const UserProfile = props => {
                                             updateField={(contract) => props.onUpdateContractByIndex(contract, index)}
                                             field={'data'}
                                             contract={contract}
+                                            index={index}
                                         />
                                     </td>
                                     {/* <td>

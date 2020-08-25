@@ -8,6 +8,10 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/theme-ambiance.js";
 import "ace-builds/src-noconflict/mode-zencode";
 import "ace-builds/src-noconflict/mode-json5";
+import { addCompleter } from "ace-builds/src-noconflict/ext-language_tools";
+import { Json5HighlightRules } from 'ace-builds/src-noconflict/mode-json5';
+
+import introSpection from '../../../constants/introspection.json';
 
 let isResizing = null;
 let lastDownY = 0;
@@ -111,6 +115,16 @@ const ResizeableContainer = props => {
     const cbHandleMouseUp = React.useCallback(handleMouseup, []);
 
     useEffect(() => {
+        addCompleter({
+            getCompletions: function (editor, session, pos, prefix, callback) {
+                // console.log(callback);
+                // if (prefix === 'when ') {
+                    // console.log('Prefix is equal to power');
+                    callback(null, introSpection);
+                // }
+            },
+        });
+
         const newContractHeight = parent.current.clientHeight - 311;
         setBoxesHeight(state => {
             return {
@@ -127,7 +141,7 @@ const ResizeableContainer = props => {
 
                 <div className="header-container">
                     <h6 style={{ margin: 0 }}>Contract</h6>
-                    <AceDropDown collectionType={'zencodes'}/>
+                    <AceDropDown collectionType={'zencodes'} />
                 </div>
                 <div
                     className="dragger"
@@ -145,12 +159,17 @@ const ResizeableContainer = props => {
                     width='100%'
                     height={(boxesHeight.first - 39).toString() + 'px'}
                     value={props.zencode}
+                    setOptions={{
+                        enableLiveAutocompletion: true,
+                        // enableBasicAutocompletion: true,
+                        enableSnippets: true
+                    }}
                 />
             </div>
             <div ref={secondBox} style={{ height: boxesHeight.second, width: '100%', position: 'relative', backgroundColor: '#e8e8e8' }}>
                 <div className="header-container">
                     <h6 style={{ margin: 0 }}>Keys</h6>
-                    <AceDropDown collectionType={'keys'}/>
+                    <AceDropDown collectionType={'keys'} />
                 </div>
 
                 <div
@@ -169,12 +188,16 @@ const ResizeableContainer = props => {
                     width='100%'
                     height={(boxesHeight.second - 39).toString() + 'px'}
                     value={props.keys && hasJsonStructure(props.keys) ? JSON.stringify(JSON.parse(props.keys), null, '\t') : props.keys}
+                    setOptions={{
+                        enableLiveAutocompletion: true,
+                        enableSnippets: true
+                    }}
                 />
             </div>
             <div style={{ height: boxesHeight.third, width: '100%', position: 'relative', backgroundColor: '#e8e8e8' }}>
                 <div className="header-container">
                     <h6 style={{ margin: 0 }}>Data</h6>
-                    <AceDropDown collectionType={'datas'}/>
+                    <AceDropDown collectionType={'datas'} />
                 </div>
                 <div
                     className="dragger"
@@ -197,7 +220,7 @@ const ResizeableContainer = props => {
             <div style={{ height: boxesHeight.fourth, width: '100%', position: 'relative', backgroundColor: '#e8e8e8' }}>
                 <div className="header-container">
                     <h6 style={{ margin: 0 }}>Config</h6>
-                    <AceDropDown collectionType={'configs'}/>
+                    <AceDropDown collectionType={'configs'} />
                 </div>
                 <div
                     className="dragger"

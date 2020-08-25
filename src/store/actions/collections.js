@@ -117,7 +117,8 @@ export const loadContracts = () => {
             { headers: { 'auth-token': auth.token } }
         )
             .then(response => {
- 
+                console.log('RESPONSE DATA:');
+                console.log(response.data);
                 dispatch(changeIsLoading(false));
                 dispatch(changeContractCollection(response.data));
 

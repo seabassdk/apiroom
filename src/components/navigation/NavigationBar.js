@@ -84,7 +84,10 @@ const NavigationBar = props => {
                                                 <Button variant="outline-success" className="mr-sm-2" onClick={props.showSave}>Save As</Button>
                                                 <Button variant="outline-success" className="mr-sm-2" onClick={props.updateContract}>Save</Button>
                                                 {/* <Link to="/profile"><Button variant="outline-success" className="mr-sm-2" onClick={()=>{}}>Back</Button></Link> */}
-                                                <Link to="/profile">
+                                                <Link to={{
+                                                    pathname: '/profile',
+                                                    state: { updated: true }
+                                                }}>
                                                     <img
                                                         className={'ml-3'}
                                                         src={require('../../assets/images/right.png')}

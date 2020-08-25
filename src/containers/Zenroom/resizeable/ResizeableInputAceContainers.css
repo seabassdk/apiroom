@@ -16,3 +16,12 @@
   padding: 8px;
   background-color: #e8e8e8;
 }
+
+.ace_editor.ace_autocomplete.ace_dark.ace-ambiance {
+  width: 60%!important;
+}
+
+.ace_editor.ace_autocomplete .ace_scroller{
+  width: 100%!important;
+}
+

@@ -239,7 +239,6 @@ export const updateContract = (contract) => {
                 console.log('received response:');
                 console.log(response);
                 dispatch(actions.changeSavingSuccess(true));
-                // dispatch(changeSavingSuccess(true));
             }).catch(err => {
                 console.log('Saving error:');
                 console.log(err);

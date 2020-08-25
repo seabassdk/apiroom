@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Alert } from 'react-bootstrap';
 import './App.css';
 
-import exampleContracts from './examples/zencodeExamples.json';
+import exampleContracts from './examples/zencodeExamplesTwo.json';
 import NavigationBar from './components/navigation/NavigationBar';
 import Login from './containers/Auth/Auth';
 import Save from './containers/save/Save';
@@ -49,32 +49,20 @@ const App = props => {
   const onLoadExampleContract = (index) => {
     //load zencode
     if (exampleContracts[index].zencode) {
-      fetch(exampleContracts[index].zencode)
-        .then((r) => r.text())
-        .then(text => {
-          props.onChangeZencode(text);
-        })
+      props.onChangeZencode(exampleContracts[index].zencode)
     } else {
       props.onChangeZencode('');
     }
 
     //load keys
     if (exampleContracts[index].keys) {
-      fetch(exampleContracts[index].keys)
-        .then((r) => r.text())
-        .then(text => {
-          props.onChangeKeys(text);
-        })
+      props.onChangeKeys(JSON.stringify(exampleContracts[index].keys));
     } else {
       props.onChangeKeys('');
     }
     // load data
     if (exampleContracts[index].data) {
-      fetch(exampleContracts[index].data)
-        .then((r) => r.text())
-        .then(text => {
-          props.onChangeData(text);
-        })
+      props.onChangeData(JSON.stringify(exampleContracts[index].data));
     } else {
       props.onChangeData('')
     }
@@ -83,12 +71,6 @@ const App = props => {
   useEffect(() => {
     props.onTryAutoSignup();
   }, []);
-
-  // if(!props.isAuthenticated){
-  //   return(
-  //     <LandingPage/>
-  //   )
-  // }
 
   return (
     <div className={'container-fluid px-5'} >
