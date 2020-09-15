@@ -16,7 +16,7 @@
 	{
 		"author": "Dyne.org",
 		"name": "Encrypt a message using a password",
-		"zencode": "Scenario 'ecdh': Encrypt a message with the password\nGiven that I have a 'string' named 'password' inside 'mySecretStuff'\nGiven that I have a 'string' named 'header' inside 'mySecretStuff'\nGiven that I have a 'string' named 'message' inside 'mySecretStuff'\nWhen I encrypt the secret message 'message' with 'password'\nThen print the 'secret message'",
+		"zencode": "Scenario 'ecdh': Encrypt a message with the password \nGiven that I have a 'string' named 'password' \nGiven that I have a 'string' named 'header' \nGiven that I have a 'string' named 'message' \nWhen I encrypt the secret message 'message' with 'password' \nThen print the 'secret message'",
 		"keys": {
 			"password": "myVerySecretPassword"
 		},
@@ -28,7 +28,7 @@
 	{
 		"author": "Dyne.org",
 		"name": "Decrypt a secret message using a password",
-		"zencode": "Scenario 'ecdh': Decrypt the message with the password\nGiven that I have a valid 'secret message'\nGiven that I have a 'string' named 'password' inside 'mySecretStuff'\nWhen I decrypt the text of 'secret message' with 'password'\nWhen I rename the 'text' to 'textDecrypted'\nThen print the 'textDecrypted' as 'string'\n",
+		"zencode": "Scenario 'ecdh': Decrypt the message with the password \nGiven that I have a valid 'secret message' \nGiven that I have a 'string' named 'password' \nWhen I decrypt the text of 'secret message' with 'password' \nWhen I rename the 'text' to 'textDecrypted' \nThen print the 'textDecrypted' as 'string'\n",
 		"keys": {
 			"password": "myVerySecretPassword"
 		},
@@ -44,7 +44,7 @@
 	{
 		"author": "Dyne.org",
 		"name": "Alice encrypt a message for two recipients using  public keys",
-		"zencode": "Rule check version 1.0.0\nScenario 'ecdh': Alice encrypts a message for Bob\nGiven that I am known as 'Alice'\nGiven that I have my valid 'keypair'\nGiven that I have a valid 'public key' from 'Bob'\nGiven that I have a valid 'public key' from 'Carl'\nGiven that I have a 'string' named 'message'\nGiven that I have a 'string' named 'header'\nWhen I encrypt the secret message of 'message' for 'Bob'\nWhen I rename the 'secret message' to 'secretForBob'\nWhen I encrypt the secret message of 'message' for 'Carl'\nWhen I rename the 'secret message' to 'secretForCarl'\nThen print the 'secretForBob'\nThen print the 'secretForCarl'\n",
+		"zencode": "Rule check version 1.0.0 \nScenario 'ecdh': Alice encrypts a message for Bob \nGiven that I am known as 'Alice' \nGiven that I have my valid 'keypair' \nGiven that I have a valid 'public key' from 'Bob' \nGiven that I have a valid 'public key' from 'Carl'\nGiven that I have a 'string' named 'message' \nGiven that I have a 'string' named 'header' \nWhen I encrypt the secret message of 'message' for 'Bob' \nWhen I rename the 'secret message' to 'secretForBob' \nWhen I encrypt the secret message of 'message' for 'Carl'\nWhen I rename the 'secret message' to 'secretForCarl' \nThen print the 'secretForBob' \nThen print the 'secretForCarl' \n",
 		"keys": {
 			"Alice": {
 				"keypair": {
@@ -67,8 +67,8 @@
 	{
 		"author": "Dyne.org",
 		"name": "Bob decrypts a secret message using a-symmetric encryption",
-		"zencode": "Rule check version 1.0.0\nScenario 'ecdh': Bob decrypts the message from Alice\nGiven that I am known as 'Bob'\nGiven I have my 'keypair'\nGiven I have a 'public key' from 'Alice'\nGiven I have a 'secret message' named 'secretForBob'\nWhen I decrypt the text of 'secretForBob' from 'Alice'\nWhen I rename the 'text' to 'textForBob'\nThen print the 'textForBob' as 'string'\nThen print the 'header' as 'string' inside 'secretForBob'\n",
-		"keys":
+		"zencode": "Rule check version 1.0.0 \nScenario 'ecdh': Bob decrypts the message from Alice \nGiven that I am known as 'Bob' \nGiven I have my 'keypair' \nGiven I have a 'public key' from 'Alice' \nGiven I have a 'secret message' named 'secretForBob' \nWhen I decrypt the text of 'secretForBob' from 'Alice' \nWhen I rename the 'text' to 'textForBob' \nThen print the 'textForBob' as 'string' \nThen print the 'header' as 'string' inside 'secretForBob' \n",
+		"keys": 
 		{
 				"Bob": {
 					"keypair": {
@@ -76,13 +76,11 @@
 						"public_key": "BBA0kD35T9lUHR/WhDwBmgg/vMzlu1Vb0qtBjBZ8rbhdtW3AcX6z64a59RqF6FCV5q3lpiFNTmOgA264x1cZHE0="
 					}
 				}
-			}
-		
-		,
-		"data":
+			},
+		"data": 
 		{
 				"Alice": {
-					"public_key": "BNRzlJ4csYlWgycGGiK/wgoEw3OizCdx9MWg06rxUBTP5rP9qPASOW5KY8YgmNjW5k7lLpboboHrsApWsvgkMN4="	
+					"public_key": "BNRzlJ4csYlWgycGGiK/wgoEw3OizCdx9MWg06rxUBTP5rP9qPASOW5KY8YgmNjW5k7lLpboboHrsApWsvgkMN4="
 				},
 
 			  "secretForBob": {
@@ -102,7 +100,7 @@
 	{
 		"author": "Dyne.org",
 		"name": "Sign objects using public-key encryption",
-		"zencode": "Scenario 'ecdh': create the signature of an object\nGiven I am 'Andrea'\nGiven I have my 'keypair'\nGiven that I have a 'string' named 'myMessage' inside 'mySecretStuff'\nGiven I have a 'string array' named 'myStringArray'\nWhen I create the signature of 'myStringArray'\nWhen I rename the 'signature' to 'myStringArray.signature'\nWhen I create the signature of 'keypair'\nWhen I rename the 'signature' to 'keypair.signature'\nWhen I create the signature of 'myMessage'\nWhen I rename the 'signature' to 'myMessage.signature'\nThen print the 'myMessage'\nThen print the 'myMessage.signature'\nThen print the 'myStringArray'\nThen print the 'myStringArray.signature'\nThen print the 'keypair'\nThen print the 'keypair.signature'\n",
+		"zencode": "Scenario 'ecdh': create the signature of an object \nGiven I am 'Alice' \nGiven I have my 'keypair' \nGiven that I have a 'string' named 'myMessage' inside 'mySecretStuff' \nGiven I have a 'string array' named 'myStringArray' \nWhen I create the signature of 'myStringArray' \nWhen I rename the 'signature' to 'myStringArray.signature' \nWhen I create the signature of 'keypair'\nWhen I rename the 'signature' to 'keypair.signature' \nWhen I create the signature of 'myMessage' \nWhen I rename the 'signature' to 'myMessage.signature' \nThen print the 'myMessage' \nThen print the 'myMessage.signature' \nThen print the 'myStringArray' \nThen print the 'myStringArray.signature' \nThen print the 'keypair' \nThen print the 'keypair.signature' \n",
 		"keys": {
 			"Alice": {
 				"keypair": {
@@ -125,7 +123,7 @@
 	{
 		"author": "Dyne.org",
 		"name": "Verify a signature using public-key encryption",
-		"zencode": "rule check version 1.0.0\nScenario 'ecdh': Bob verifies the signature from Andrea\nGiven that I am known as 'Bob'\nGiven I have a 'public key' from 'Andrea'\nGiven I have a 'string' named 'myMessage'\nGiven I have a 'signature' named 'myMessage.signature'\nGiven I have a 'string array' named 'myStringArray'\nGiven I have a 'signature' named 'myStringArray.signature'\nWhen I verify the 'myMessage' has a signature in 'myMessage.signature' by 'Andrea'\nWhen I verify the 'myStringArray' has a signature in 'myStringArray.signature' by 'Andrea'\nThen print 'Zenroom certifies that signatures are all correct!' as 'string'\nThen print the 'myMessage' \n",
+		"zencode": "rule check version 1.0.0 \nScenario 'ecdh': Bob verifies the signature from Alice \nGiven that I am known as 'Bob' \nGiven I have a 'public key' from 'Alice' \nGiven I have a 'string' named 'myMessage' \nGiven I have a 'signature' named 'myMessage.signature'\nGiven I have a 'string array' named 'myStringArray' \nGiven I have a 'signature' named 'myStringArray.signature' \nWhen I verify the 'myMessage' has a signature in 'myMessage.signature' by 'Alice' \nWhen I verify the 'myStringArray' has a signature in 'myStringArray.signature' by 'Alice' \nThen print 'Zenroom certifies that signatures are all correct!' as 'string' \nThen print the 'myMessage'  \n",
 		"keys": {
 			"Alice": {
 					"public_key": "BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI="

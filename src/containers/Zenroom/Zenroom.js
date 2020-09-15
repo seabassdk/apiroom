@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Hook, Console, Decode } from 'console-feed';
 import ResizeableInputAceContainers from './resizeable/ResizeableInputAceContainers';
+import ColumnResizer from "react-column-resizer";
 
 import * as actions from '../../store/actions/index';
 
+import exampleContracts from '../../examples/zencodeExamplesTwo.json';
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
@@ -18,6 +19,28 @@ const Zenroom = props => {
     const clearResults = () => {
         props.onLogsChanged([]);
         props.onResultChanged([]);
+    }
+
+    const onLoadExampleContract = (index) => {
+        //load zencode
+        if (exampleContracts[index].zencode) {
+            props.onZencodeChanged(exampleContracts[index].zencode)
+        } else {
+            props.onZencodeChanged('');
+        }
+
+        //load keys
+        if (exampleContracts[index].keys) {
+            props.onKeysChanged(JSON.stringify(exampleContracts[index].keys));
+        } else {
+            props.onKeysChanged('');
+        }
+        // load data
+        if (exampleContracts[index].data) {
+            props.onDataChanged(JSON.stringify(exampleContracts[index].data));
+        } else {
+            props.onDataChanged('')
+        }
     }
 
     useEffect(() => {
@@ -55,7 +78,7 @@ const Zenroom = props => {
             const options = {
                 script: props.zencode,
                 data: props.data,
-                conf: null,
+                conf: props.config,
                 keys: props.keys ? JSON.parse(props.keys) : null,
                 print: printzenroom,
                 print_err: print_err_fn,
@@ -71,71 +94,86 @@ const Zenroom = props => {
 
         }
 
-        
+
     }, [props]);
 
     return (
-        <div className={"row m-0 p-0 justify-content-center flex-grow-1"}>
-            <div className={'col-md-8 m-0 p-0'} style={{ padding: 0 }}>
-                <ResizeableInputAceContainers
-                    zencode={props.zencode}
-                    zencodeChanged={props.onZencodeChanged}
-                    keys={props.keys}
-                    keysChanged={props.onKeysChanged}
-                    data={props.data}
-                    dataChanged={props.onDataChanged}
-                    config={props.config}
-                    configChanged={props.onConfigChanged}
+        <div style={{ width: '100%', paddingLeft: '15px', paddingRight: '15px' }}>
+            <table style={{width: '100%', height: '100%', borderSpacing: '0px', tableLayout: 'fixed'}}>
+                <tbody>
+                    <tr style={{paddingTop: '5px'}}>
+                        <td style={{width: '70%', height: '100%'}}>
+                            {/* <div style={{width: '70%', padding: 0, display: 'inline-block' }}> */}
+                            <ResizeableInputAceContainers
+                                zencode={props.zencode}
+                                zencodeChanged={props.onZencodeChanged}
+                                keys={props.keys}
+                                keysChanged={props.onKeysChanged}
+                                data={props.data}
+                                dataChanged={props.onDataChanged}
+                                config={props.config}
+                                configChanged={props.onConfigChanged}
+                                loadContract={onLoadExampleContract}
+                                contracts={exampleContracts}
+                            />
+                            {/* </div> */}
+                        </td>
+                        <ColumnResizer className="columnResizer"/>
+                        <td style={{width: '29%', height: '100%', paddingLeft: '0px', overflow: 'hidden'}}>
+                            {/* <div style={{width: '30%', height: '100%', display: 'inline-block'}}> */}
+                            <div style={{ border: '2px solid #e8e8e8', padding: 0, height: '100%' }}>
+                                <div style={{ padding: '10px 17px' }}>
+                                    <h6 style={{ marginBottom: '30px' }}>Result:</h6>
+                                    <div>
+                                        {props.result.length > 0 && props.result.map((result, index) => {
 
-                />
-            </div>
-            <div className={'col-md-4 m-0 p-0'} style={{ border: '2px solid #e8e8e8', padding: 0, marginBottom: 10 }}>
-                <div style={{ padding: '10px 17px' }}>
-                    <h6 style={{ marginBottom: '30px' }}>Result:</h6>
-                    <div>
-                        {props.result.length > 0 && props.result.map((result, index) => {
+                                            let displayResult = result.error
+                                                ? (<div style={{ overflowWrap: 'break-word', color: 'red' }} key={index}>
+                                                    {result.error}
+                                                </div>)
+                                                : (<div key={index}>
+                                                    <pre>
+                                                        {JSON.stringify(JSON.parse(result), null, '   ')}
+                                                    </pre>
+                                                </div>)
+                                            return displayResult;
 
-                            let displayResult = result.error
-                                ? (<div style={{ overflowWrap: 'break-word', color: 'red' }} key={index}>
-                                    {result.error}
-                                </div>)
-                                : (<div key={index}>
-                                    <pre>
-                                        {JSON.stringify(JSON.parse(result), null, '   ')}
-                                    </pre>
-                                </div>)
-                            return displayResult;
+                                        })}
 
-                        })}
+                                        {props.result.length > 0 && (
+                                            <div className={'d-flex justify-content-between mt-2'}>
+                                                <p><i>Executed in {executionTime} ms</i></p>
+                                                <div>
+                                                    <button type="button" className={"btn btn-secondary btn-sm mr-3"} onClick={clearResults}>Clear</button>
+                                                </div>
+                                            </div>
+                                        )}
 
-                        {props.result.length > 0 && (
-                            <div className={'d-flex justify-content-between mt-2'}>
-                                <p><i>Executed in {executionTime} ms</i></p>
-                                <div>
-                                    <button type="button" className={"btn btn-secondary btn-sm mr-3"} onClick={clearResults}>Clear</button>
+                                    </div>
+
+                                    {props.logs.length > 0 && (
+
+                                        <div style={{ marginTop: '50px', borderTop: '1px solid silver' }}>
+                                            <h5 style={{ color: 'red' }}>Logs:</h5>
+                                            <ul>
+                                                {props.logs.map((log, index) => {
+                                                    return (
+                                                        <li style={{ color: 'red' }} key={index}>
+                                                            {log}
+                                                        </li>
+                                                    )
+                                                })}
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
+                                {/* </div> */}
+                                {/* here is the parent */}
                             </div>
-                        )}
-
-                    </div>
-
-                    {props.logs.length > 0 && (
-
-                        <div style={{ marginTop: '50px', borderTop: '1px solid silver' }}>
-                            <h5 style={{ color: 'red' }}>Logs:</h5>
-                            <ul>
-                                {props.logs.map((log, index) => {
-                                    return (
-                                        <li style={{ color: 'red' }} key={index}>
-                                            {log}
-                                        </li>
-                                    )
-                                })}
-                            </ul>
-                        </div>
-                    )}
-                </div>
-            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 

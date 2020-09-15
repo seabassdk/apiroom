@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Dropdown, DropdownButton} from 'react-bootstrap'
 import AceDropDown from '../dropdown/AceDropDown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+
 import { hasJsonStructure } from '../../../helpers/jsonHelper';
 
 import './ResizeableInputAceContainers.css';
@@ -23,12 +27,11 @@ const ResizeableContainer = props => {
     const secondBox = useRef(null);
 
     const [boxesHeight, setBoxesHeight] = useState({
-        first: '80%',
-        second: 100,
-        third: 100,
-        fourth: 100
+        first: '65%',
+        second: 185,
+        third: 185,
+        fourth: 155
     });
-
 
     const zencodeChangeHandler = (newValue) => {
         props.zencodeChanged(newValue);
@@ -115,17 +118,24 @@ const ResizeableContainer = props => {
     const cbHandleMouseUp = React.useCallback(handleMouseup, []);
 
     useEffect(() => {
+
         addCompleter({
             getCompletions: function (editor, session, pos, prefix, callback) {
+
                 // console.log(callback);
                 // if (prefix === 'when ') {
-                    // console.log('Prefix is equal to power');
+
+                if (editor.id === 'editor1')
                     callback(null, introSpection);
                 // }
             },
         });
 
-        const newContractHeight = parent.current.clientHeight - 311;
+        let newContractHeight = parent.current.clientHeight - 250;
+
+        if (newContractHeight < 60)
+            newContractHeight = 60;
+
         setBoxesHeight(state => {
             return {
                 ...state,
@@ -135,20 +145,50 @@ const ResizeableContainer = props => {
     }, []);
 
 
+
+    const load = (index) => {
+        props.loadContract(index);
+    }
+
     return (
         <div ref={parent} style={{ width: '100%', height: '100%' }}>
-            <div ref={firstBox} style={{ height: boxesHeight.first, width: '100%', position: 'relative', backgroundColor: '#e8e8e8' }}>
+            <div ref={firstBox} style={{ height: boxesHeight.first, width: '100%', position: 'relative', backgroundColor: '#e8e8e8', overflow: 'hidden' }}>
 
-                <div className="header-container">
-                    <h6 style={{ margin: 0 }}>Contract</h6>
+                <div className="header-container-zencode" style={{ height: '27px' }}>
+                    <div className={'h-100 d-flex align-items-center zencode-controls'}>
+                        <h6 style={{ margin: 0, display: "inline-block", lineHeight: '1.2rem' }}>Zencode smart contract</h6>
+                        <a onClick={(e) => window.open('https://dev.zenroom.org/#/pages/zencode-cookbook-intro ', "_blank")} style={{fontSize: '1.1rem'}}>
+                            <FontAwesomeIcon
+                                icon={faQuestionCircle} size='1x'
+                                color='#6c757d'
+                                style={{ fontSize: '1.1rem', marginLeft: '10px', cursor: 'pointer' }}
+                            />
+                        </a>
+
+                        <DropdownButton className={'d-flex align-items-center h-100'} id="dropdown-variants-Secondary" title="Examples" variant='info' size='sm' style={{marginLeft: '15px', height: '100%'}}>
+                            {props.contracts.map((contract, index) => {
+                                return (
+                                    <Dropdown.Item key={index} onClick={() => { load(index) }}> {contract.name}</Dropdown.Item>
+                                );
+                            })
+                            }
+
+                        </DropdownButton>
+
+                    </div>
                     <AceDropDown collectionType={'zencodes'} />
                 </div>
-                <div
-                    className="dragger"
-                    onMouseDown={event => {
-                        handleMousedown(event, 'first');
-                    }}
-                />
+                <div style={{
+                    position: 'absolute',
+                    height: '19px',
+                    width: '100%',
+                    backgroundColor: 'white',
+                    bottom: 0,
+                    zIndex: 10,
+                    borderTop: '4px solid #ddd'
+                }}>
+
+                </div>
                 <AceEditor
                     mode="zencode"
                     theme="ambiance"
@@ -178,6 +218,17 @@ const ResizeableContainer = props => {
                         handleMousedown(event, 'second');
                     }}
                 />
+                <div style={{
+                    position: 'absolute',
+                    height: '19px',
+                    width: '100%',
+                    backgroundColor: 'white',
+                    bottom: 0,
+                    zIndex: 10,
+                    borderTop: '4px solid #ddd'
+                }}>
+                </div>
+
                 <AceEditor
                     mode="json5"
                     theme="ambiance"
@@ -205,6 +256,19 @@ const ResizeableContainer = props => {
                         handleMousedown(event, 'third');
                     }}
                 />
+
+                <div style={{
+                    position: 'absolute',
+                    height: '19px',
+                    width: '100%',
+                    backgroundColor: 'white',
+                    bottom: 0,
+                    zIndex: 10,
+                    borderTop: '4px solid #ddd'
+                }}>
+
+                </div>
+
                 <AceEditor
                     mode="json5"
                     theme="ambiance"

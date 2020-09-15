@@ -4,6 +4,8 @@ import { Navbar, Button, DropdownButton, Dropdown, OverlayTrigger, Popover, Tool
 // import Navbar from 'react-bootstrap/Navbar';
 // import Button from 'react-bootstrap/Button';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle, faUserAlt, faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom';
 import { linkToSwaggerUri } from '../../constants/api';
 
@@ -23,10 +25,11 @@ const NavigationBar = props => {
 
     return (
         <Navbar variant="light" expand="md" style={{ backgroundColor: 'white' }}>
-            <div className={'row w-100 m-0 p-0'}>
+            <div className={'row w-100 m-0 mb-2 p-0'}>
 
-                <div className={'col-md-8 m-0 p-0 d-flex justify-content-between'}>
+                <div className={'col-md-8 m-0 p-0 d-flex justify-content-between align-items-center'}>
                     <div className='d-flex align-items-center'>
+                        {/* BACK ARROW */}
                         {props.location.pathname === '/profile' &&
                             (<div className='d-inline'>
                                 <a onClick={onLeaveProfileScreen} style={{ cursor: 'pointer' }}>
@@ -39,7 +42,8 @@ const NavigationBar = props => {
                                 </a>
                             </div>)
                         }
-                        <Navbar.Brand className={'mr-auto'}>
+                        {/* APIROOM LOGO */}
+                        <Navbar.Brand >
                             <Link to="/">
                                 <img
                                     src={require('../../assets/images/logo.png')}
@@ -50,13 +54,42 @@ const NavigationBar = props => {
                                 />
                             </Link>
                         </Navbar.Brand>
+
+                        {/* ZENROOM LOGO */}
+                        {/* <div className={'ml-lg-2 ml-xl-5 mr-5 h-100 d-flex'}>
+                            <a onClick={() => window.open('https://zenroom.org', "_blank")} style={{ cursor: 'pointer' }}>
+                                <h6 className={'mx-2'} style={{ color: 'black', marginBlockEnd: '0.2em' }}>Powered by</h6>
+                                <img
+                                    src={require('../../assets/images/zlogo.png')}
+                                    // width="150"
+                                    height="20"
+                                    className="d-inline-block"
+                                    alt="Zenroom logo"
+                                />
+                            </a>
+                        </div> */}
+
+                        {/* INTRODUCTION LINK */}
+                        {/* <a onClick={() => window.open('https://dev.zenroom.org/#/pages/zencode-intro', "_blank")} className={'ml-lg-2 ml-xl-1'} style={{ cursor: 'pointer' }}>
+                            <div className={'h-100 d-flex align-items-center'}>
+
+                                <div className='d-inline-block h-100 flex-column'>
+                                    <h6 style={{ color: '#ab0060', margin: 0 }}>Check out our </h6>
+                                    <h6 style={{ color: '#ab0060', margin: 0 }}>introduction </h6>
+                                </div>
+                                <div className='d-inline-block h-100 ml-2'>
+                                    <FontAwesomeIcon icon={faExternalLinkAlt} size='lg' color='#ab0060' style={{ fontSize: '25px', cursor: 'pointer' }} />
+                                </div>
+
+                            </div>
+                        </a> */}
                     </div>
 
 
                     {/* Zenroom buttons */}
                     <div className={'col-md-4 m-0 p-0 d-flex justify-content-end'}>
-                        {/* Example button */}
-                        {props.location.pathname === '/' &&
+                        {/* EXAMPLE BUTTON */}
+                        {/* {props.location.pathname === '/' &&
                             <DropdownButton className={'mr-3'} id="dropdown-variants-Secondary" title="Examples" variant='info'>
                                 {props.contracts.map((contract, index) => {
                                     return (
@@ -66,23 +99,41 @@ const NavigationBar = props => {
                                 }
 
                             </DropdownButton>
+                        } */}
+                        {/* PLAY BUTTON */}
+                        {props.location.pathname === '/' &&
+                            <Fragment>
+                                {props.isAuthenticated 
+                                    ? <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showSave}>Create API</Button>
+                                    : <Button variant="outline-secondary" className="mr-sm-2" onClick={() => window.alert("You must be logged in to Save")}>Create API</Button>
+                                }   
+                                <Button className='play-button' variant="info" onClick={props.executeZenroom}>
+                                    Play
+                                <FontAwesomeIcon icon={faPlay} size='1x' color='white' style={{ fontSize: '12px', marginLeft: '8px', marginBottom: '2px' }} />
+                                </Button>
+                            </Fragment>
                         }
-                        {/* Play button */}
-                        {props.location.pathname === '/' && <Button variant="outline-success" className="" onClick={props.executeZenroom}>Play</Button>}
                     </div>
                 </div>
-                <div className={'col-md-4 p-0 m-0 d-flex justify-content-end'}>
+                <div className={'col-md-4 p-0 m-0 d-flex justify-content-end align-items-center'}>
                     {/* Settings buttons */}
                     {
                         !props.isAuthenticated
-                            ? <Button variant="outline-primary" className="mr-sm-2" onClick={props.showLogin}>Login</Button>
+                            ?
+                            <Fragment>
+                                {/* <Button variant="outline-secondary" className="mr-sm-2" onClick={() => window.alert("You must be logged in to Save")}>Create API</Button> */}
+                                <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showLogin}>Login</Button>
+                                <a onClick={(e) => window.open('https://dev.zenroom.org/#/pages/apiroom', "_blank")}>
+                                    <FontAwesomeIcon icon={faQuestionCircle} size='1x' color='#6c757d' style={{ fontSize: '30px', marginLeft: '15px', cursor: 'pointer' }} />
+                                </a>
+                            </Fragment>
                             : props.location.pathname === '/'
                                 ? (<div>
                                     {props.userLoaded
                                         ? (
-                                            <Fragment>
-                                                <Button variant="outline-success" className="mr-sm-2" onClick={props.showSave}>Save As</Button>
-                                                <Button variant="outline-success" className="mr-sm-2" onClick={props.updateContract}>Save</Button>
+                                            <div className='d-flex align-items-center'>
+                                                <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showSave}>Save As</Button>
+                                                <Button variant="outline-secondary" className="mr-sm-2" onClick={props.updateContract}>Save</Button>
                                                 {/* <Link to="/profile"><Button variant="outline-success" className="mr-sm-2" onClick={()=>{}}>Back</Button></Link> */}
                                                 <Link to={{
                                                     pathname: '/profile',
@@ -95,14 +146,19 @@ const NavigationBar = props => {
                                                         alt="Zenroom logo"
                                                     />
                                                 </Link>
-                                            </Fragment>
+                                            </div>
                                         )
                                         : (
-                                            <Fragment>
-                                                <Button variant="outline-success" className="mr-sm-2" onClick={props.showSave}>Save As</Button>
+                                            <div className='d-flex align-items-center'>
+                                                {/* SAVE AS BUTTON */}
+                                                {/* <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showSave}>Create API</Button> */}
+
+                                                {/* MY CONTRACTS BUTTON */}
                                                 <Link to="/profile">
-                                                    <Button variant="outline-success" className="mr-sm-2">My contracts</Button>
+                                                    <Button variant="outline-secondary" className="mr-sm-2">My contracts</Button>
                                                 </Link>
+
+                                                {/* PROFILE IMAGE DROPDOWN */}
                                                 < OverlayTrigger
                                                     trigger="click"
                                                     key={'bottom'}
@@ -111,21 +167,29 @@ const NavigationBar = props => {
                                                         <Popover id={'popover-positioned-bottom'}>
                                                             <Popover.Content style={{ padding: 0 }}>
                                                                 <div className={'list-group'}>
-                                                                    <a style={{ cursor: 'pointer' }} className={'list-group-item list-group-item-action'} onClick={() => props.logout()}><strong>Sign Out</strong></a>
+                                                                    <a style={{ cursor: 'pointer' }} className={'list-group-item list-group-item-action'} onClick={() => props.logout()}><strong>Sign out  as {props.username}</strong></a>
                                                                 </div>
                                                             </Popover.Content>
                                                         </Popover>
                                                     }
                                                 >
-                                                    <img
+                                                    {/* <img
                                                         style={{ cursor: 'pointer' }}
                                                         src={require('../../assets/images/user.png')}
                                                         width="auto"
                                                         height="40"
                                                         alt="User logo"
-                                                    />
+                                                    /> */}
+                                                    <FontAwesomeIcon icon={faUserAlt} size='1x' color='black' style={{ fontSize: '35px', marginLeft: '15px', cursor: 'pointer' }} />
                                                 </OverlayTrigger>
-                                            </Fragment>)
+
+                                                {/* QUESTION MARK IMAGE */}
+                                                {/* <div style={{border: '1px solid red', display: "inline-block"}}> */}
+                                                <a onClick={(e) => window.open('https://dev.zenroom.org/#/pages/apiroom', "_blank")}>
+                                                    <FontAwesomeIcon icon={faQuestionCircle} size='1x' color='#6c757d' style={{ fontSize: '30px', marginLeft: '15px', cursor: 'pointer' }} />
+                                                </a>
+                                                {/* </div> */}
+                                            </div>)
                                     }
                                 </div>)
                                 : null
@@ -143,9 +207,9 @@ const NavigationBar = props => {
                                     </Tooltip>
                                 }
                             >
-                                <Button variant="outline-success" className="mr-sm-2">Export</Button>
+                                <Button variant="outline-secondary" className="mr-sm-2">Export</Button>
                             </OverlayTrigger>
-                            <Button variant="outline-success" className="mr-sm-3" onClick={() => window.open(linkToSwaggerUri + props.username, "_blank")}>Swagger</Button>
+                            <Button variant="outline-secondary" className="mr-sm-3" onClick={() => window.open(linkToSwaggerUri + props.username, "_blank")}>Test APIs</Button>
                             <OverlayTrigger
                                 trigger="click"
                                 key={'bottom'}
@@ -154,20 +218,24 @@ const NavigationBar = props => {
                                     <Popover id={'popover-positioned-bottom'}>
                                         <Popover.Content style={{ padding: 0 }}>
                                             <div className={'list-group'}>
-                                                <a style={{ cursor: 'pointer' }} className={'list-group-item list-group-item-action'} onClick={() => props.logout()}><strong>Sign Out</strong></a>
+                                <a style={{ cursor: 'pointer' }} className={'list-group-item list-group-item-action'} onClick={() => props.logout()}><strong>Sign out as {props.username}</strong></a>
                                             </div>
                                         </Popover.Content>
                                     </Popover>
                                 }
                             >
-                                <img
+                                {/* <img
                                     style={{ cursor: 'pointer' }}
                                     src={require('../../assets/images/user.png')}
                                     width="auto"
                                     height="40"
                                     alt="User logo"
-                                />
+                                /> */}
+                                <FontAwesomeIcon icon={faUserAlt} size='1x' color='black' style={{ fontSize: '35px', marginLeft: '15px', cursor: 'pointer' }} />
                             </OverlayTrigger>
+                            <a onClick={(e) => window.open('https://dev.zenroom.org/#/pages/apiroom', "_blank")}>
+                                <FontAwesomeIcon icon={faQuestionCircle} size='1x' color='#6c757d' style={{ fontSize: '30px', marginLeft: '15px', cursor: 'pointer' }} />
+                            </a>
                         </Fragment>
                     )}
                 </div>

@@ -3,3 +3,58 @@
     background-color: #ab0060!important;
     border-color: #ab0060!important;
 }
+
+/* button {
+    height: 60px;
+} */
+
+a {
+    cursor: 'pointer'
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:hover h6 {
+    text-decoration: none;
+}
+
+.play-button:hover {
+    background-color: #d20076!important;
+    border-color: #d20076!important;
+}
+
+/* dropdown{
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    font: 400 13.3333px Arial;
+}
+
+{
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    font: 400 13.3333px Arial;
+} */

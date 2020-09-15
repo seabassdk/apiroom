@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.columnResizer {
+  /* border-right: 13px solid red; */
+  width: 1%;
+  background-color: transparent;
+}

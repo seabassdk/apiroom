@@ -128,7 +128,7 @@ const UserProfile = props => {
     // }, [props.contracts]);
 
     return (
-        <div className={'pb-5 user-contracts pt-5'}>
+        <div className={'pb-5 user-contracts pt-5'} style={{minHeight: '80vh'}}>
             {/* <h4 className={'mt-5'}>Saved Contracts</h4> */}
 
             {props.isLoading
@@ -144,7 +144,7 @@ const UserProfile = props => {
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Smart contract</th>
+                                <th>Zencode smart contract</th>
                                 <th>Keys (-k)</th>
                                 <th>Config (-c)</th>
                                 <th style={{ color: '#6c757d' }}>
@@ -154,7 +154,7 @@ const UserProfile = props => {
                                             placement='top'
                                             overlay={
                                                 <Tooltip id='tooltip-top'>
-                                                    <strong>Data parameter does not form part of the contract</strong>.
+                                                    <strong>What is stored in 'Data' will not be passed to the API, only what is stored in 'keys' is being used.</strong>.
                                                 </Tooltip>
                                             }
                                         >
@@ -177,9 +177,9 @@ const UserProfile = props => {
                                 return (<tr key={index}>
                                     <td><Form.Check aria-label="option 1" /></td>
                                     <td>
-                                        <div className="container display-menu-parent">
+                                        <div className="container display-menu-parent pl-0">
                                             <div className="row p-0 m-0">
-                                                <div className="col">
+                                                <div className="col pl-0">
                                                     <PopoverContent
                                                             name={contract.db.name}
                                                             content={contract.zencode}
@@ -195,7 +195,7 @@ const UserProfile = props => {
                                             </div>
                                             <div className="row p-0 m-0">
                                                 <div className="display-menu">
-                                                    <div className="col">
+                                                    <div className="col pl-0">
                                                         <a onClick={() => loadContract(contract.db.name, contract.zencode, contract.keys, contract.db.data, contract.config, index)} href="#">Edit</a>
                                                         <a className="ml-3" href="#" style={{ color: 'red' }} onClick={() => props.onDeleteContractByIndex(index)}>Delete</a>
                                                     </div>

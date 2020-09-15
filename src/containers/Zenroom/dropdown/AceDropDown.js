@@ -69,7 +69,19 @@ const AceDropDown = props => {
                 title={''}
                 renderMenuOnMount={false}
             >
-                <Dropdown.Header>Your {props.collectionType}</Dropdown.Header>
+                {props.collectionType === 'zencodes' &&
+                    <Dropdown.Header>Your stored Zencode scripts</Dropdown.Header>
+                }
+                {props.collectionType === 'keys' &&
+                    <Dropdown.Header>Your stored keys</Dropdown.Header>
+                }
+                {props.collectionType === 'datas' &&
+                    <Dropdown.Header>Your stored data</Dropdown.Header>
+                }
+                {props.collectionType === 'configs' &&
+                    <Dropdown.Header>Your stored config files</Dropdown.Header>
+                }
+
                 <Dropdown.Item eventKey="1">You must be logged in to use this feature</Dropdown.Item>
 
             </DropdownButton>
@@ -87,7 +99,18 @@ const AceDropDown = props => {
             title={''}
             renderMenuOnMount={false}
         >
-            <Dropdown.Header>Your {props.collectionType}</Dropdown.Header>
+            {props.collectionType === 'zencodes' &&
+                <Dropdown.Header>Your stored Zencode scripts</Dropdown.Header>
+            }
+            {props.collectionType === 'keys' &&
+                <Dropdown.Header>Your stored keys</Dropdown.Header>
+            }
+            {props.collectionType === 'datas' &&
+                <Dropdown.Header>Your stored data</Dropdown.Header>
+            }
+            {props.collectionType === 'configs' &&
+                <Dropdown.Header>Your stored config files</Dropdown.Header>
+            }
             {!props.isLoading
 
                 ? props.loadingError

@@ -1,11 +1,46 @@
 [
 	    {
+        "name": "Rule input format CBOR",
+        "value": "Rule input format CBOR",
+        "caption": "Rule input format CBOR",
+        "meta": "formats: CBOR|JSON"
+    },
+		    {
+        "name": "Rule output format CBOR",
+        "value": "Rule output format CBOR",
+        "caption": "Rule output format CBOR",
+        "meta": "formats: CBOR|JSON"
+    },
+	
+	    {
+        "name": "Rule input encoding hex",
+        "value": "Rule input encoding hex",
+        "caption": "Rule input encoding hex",
+        "meta": "encodings: hex|bin|base64|base58|url64|string|number"
+    },
+	
+		    {
+        "name": "Rule output encoding hex",
+        "value": "Rule output encoding hex",
+        "caption": "Rule output encoding hex",
+        "meta": "encodings: hex|bin|base64|base58|url64|string|number"
+    },
+	
+			    {
+        "name": "Rule check version 1.0.0",
+        "value": "Rule check version 1.0.0",
+        "caption": "Rule check version 1.0.0",
+        "meta": ""
+    },
+
+
+    {
         "name": "Given nothing",
         "value": "Given nothing",
         "caption": "Given nothing",
         "meta": ""
     },
-   
+      
 
    {
         "name": "Given I am 'userName'",
