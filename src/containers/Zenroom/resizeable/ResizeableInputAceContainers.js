@@ -165,7 +165,7 @@ const ResizeableContainer = props => {
                             />
                         </a>
 
-                        <DropdownButton className={'d-flex align-items-center h-100'} id="dropdown-variants-Secondary" title="Examples" variant='info' size='sm' style={{marginLeft: '15px', height: '100%'}}>
+                        {/* <DropdownButton className={'d-flex align-items-center h-100'} id="dropdown-variants-Secondary" title="Examples" variant='info' size='sm' style={{marginLeft: '15px', height: '100%'}}>
                             {props.contracts.map((contract, index) => {
                                 return (
                                     <Dropdown.Item key={index} onClick={() => { load(index) }}> {contract.name}</Dropdown.Item>
@@ -173,7 +173,7 @@ const ResizeableContainer = props => {
                             })
                             }
 
-                        </DropdownButton>
+                        </DropdownButton> */}
 
                     </div>
                     <AceDropDown collectionType={'zencodes'} />

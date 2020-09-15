@@ -25,6 +25,11 @@ a:hover h6 {
     border-color: #d20076!important;
 }
 
+.dropdown-toggle.btn.btn-info {
+    color: #ab0060!important;
+    background-color: white!important;
+}
+
 /* dropdown{
     display: inline-block;
     font-weight: 400;

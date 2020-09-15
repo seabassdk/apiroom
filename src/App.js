@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
+
 import NavigationBar from './components/navigation/NavigationBar';
 import Login from './containers/Auth/Auth';
 import Save from './containers/save/Save';
@@ -14,6 +15,8 @@ import UserProfile from './containers/UserProfile/UserProfile';
 import Footer from './containers/footer/Footer';
 
 import * as actions from './store/actions/index';
+
+import exampleContracts from './examples/zencodeExamples.json';
 
 const App = props => {
 
@@ -46,6 +49,28 @@ const App = props => {
         <Redirect to="/" />
       </Switch>
     );
+  }
+
+  const onLoadExampleContract = (index) => {
+    //load zencode
+    if (exampleContracts[index].zencode) {
+      props.onZencodeChanged(exampleContracts[index].zencode)
+    } else {
+      props.onZencodeChanged('');
+    }
+
+    //load keys
+    if (exampleContracts[index].keys) {
+      props.onKeysChanged(JSON.stringify(exampleContracts[index].keys));
+    } else {
+      props.onKeysChanged('');
+    }
+    // load data
+    if (exampleContracts[index].data) {
+      props.onDataChanged(JSON.stringify(exampleContracts[index].data));
+    } else {
+      props.onDataChanged('')
+    }
   }
 
   useEffect(() => {
@@ -101,6 +126,8 @@ const App = props => {
             updateContract={props.onUpdateContract}
             profileLeave={props.onChangeUserLoaded}
             username={props.username}
+            contracts={exampleContracts}
+            loadContract={onLoadExampleContract}
           />
           {props.savedSuccess &&
             <Alert variant={'success'} onClose={() => props.onSavedSuccess(false)} dismissible>
@@ -154,6 +181,10 @@ const mapDispatchToProps = dispatch => {
     onChangeIsLoading: (loading) => dispatch(actions.changeIsLoading(loading)),
     onChangeUserLoaded: (profile) => dispatch(actions.changeUserLoaded(profile)),
     onSavedSuccess: (success) => dispatch(actions.changeSavingSuccess(success)),
+    onZencodeChanged: (zencode) => dispatch(actions.changeZencode(zencode)),
+    onKeysChanged: (keys) => dispatch(actions.changeKeys(keys)),
+    onDataChanged: (data) => dispatch(actions.changeData(data)),
+    onConfigChanged: (config) => dispatch(actions.changeConfig(config)),
 
   }
 }

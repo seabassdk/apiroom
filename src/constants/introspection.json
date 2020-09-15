@@ -16,14 +16,14 @@
         "name": "Rule input encoding hex",
         "value": "Rule input encoding hex",
         "caption": "Rule input encoding hex",
-        "meta": "encodings: hex|bin|base64|base58|url64|string|number"
+        "meta": "encodings: string|number|hex|bin|base64|base58|url64"
     },
 	
 		    {
         "name": "Rule output encoding hex",
         "value": "Rule output encoding hex",
         "caption": "Rule output encoding hex",
-        "meta": "encodings: hex|bin|base64|base58|url64|string|number"
+        "meta": "encodings: string|number|hex|bin|base64|base58|url64"
     },
 	
 			    {
@@ -71,17 +71,17 @@
     },
 	
 	    {
-        "name": "Given I have a 'string|number|base64|(...) (array)' named 'nameOfObject'",
-        "value": "Given I have a 'string|number|base64|(...) (array)' named 'nameOfObject'",
-        "caption": "Given I have a 'string|number|base64|(...) (array)' named 'nameOfObject'",
-        "meta": ""
+        "name": "Given I have a 'string array' named 'nameOfObject'",
+        "value": "Given I have a 'string array' named 'nameOfObject'",
+        "caption": "Given I have a 'string array' named 'nameOfObject'",
+        "meta": "[Valid arrays: string|number|hex|bin|base64|base58|url64]"
     },
 
 	    {
-        "name": "Given I have a 'string|number|base64|(...) (array)' named 'nameOfObject' in 'nameOfComplexObject'",
-        "value": "Given I have a 'string|number|base64|(...) (array)' named 'nameOfObject' in 'nameOfComplexObject'",
-        "caption": "Given I have a 'string|number|base64|(...) (array)' named 'nameOfObject' in 'nameOfComplexObject'",
-        "meta": ""
+        "name": "Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
+        "value": "Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
+        "caption": "Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
+        "meta": "[Valid arrays: string|number|hex|bin|base64|base58|url64]"
     },
 
 	    {
@@ -304,10 +304,10 @@
         "meta": ""
     },
     {
-        "name": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string|number|base64|(...)'",
-        "value": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string|number|base64|(...)'",
-        "caption": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string|number|base64|(...)'",
-        "meta": ""
+        "name": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
+        "value": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
+        "caption": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
         "name": "When I set 'nameOfNewObject' to '10000' base '16'",
@@ -346,9 +346,15 @@
         "meta": ""
     },
 	 {
-        "name": "When I create the sum of 'nameOfNumberObject' and 'nameOfNumberObject'",
-        "value": "When I create the sum of 'nameOfNumberObject' and 'nameOfNumberObject'",
-        "caption": "When I create the sum of 'nameOfNumberObject' and 'nameOfNumberObject'",
+        "name": "When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
+        "value": "When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
+        "caption": "When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
+        "meta": ""
+    },
+	{
+        "name": "When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
+        "value": "When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
+        "caption": "When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
         "meta": ""
     },
     {
@@ -364,16 +370,16 @@
         "meta": ""
     },
     {
-        "name": "Then print 'nameOfObject' as 'string|number|base64|(...)'",
-        "value": "Then print  'nameOfObject' as 'string|number|base64|(...)'",
-        "caption": "Then print 'nameOfObject' as 'string|number|base64|(...)'",
-        "meta": ""
+        "name": "Then print 'nameOfObject' as 'string'",
+        "value": "Then print  'nameOfObject' as 'string'",
+        "caption": "Then print 'nameOfObject' as 'string'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
-        "name": "Then print 'nameOfObject' as 'string|number|base64|(...)' in 'nameOfComplexObject'",
-        "value": "Then print 'nameOfObject' as 'string|number|base64|(...)' in 'nameOfComplexObject'",
-        "caption": "Then print 'nameOfObject' as 'string|number|base64|(...)' in 'nameOfComplexObject'",
-        "meta": ""
+        "name": "Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+        "value": "Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+        "caption": "Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
         "name": "Then print data",
@@ -382,10 +388,10 @@
         "meta": ""
     },
     {
-        "name": "Then print data as 'string|number|base64|(...)'",
-        "value": "Then print data as 'string|number|base64|(...)'",
-        "caption": "Then print data as 'string|number|base64|(...)'",
-        "meta": ""
+        "name": "Then print data as 'string'",
+        "value": "Then print data as 'string'",
+        "caption": "Then print data as 'string'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
         "name": "Then print my 'nameOfObjectOrSchema'",
@@ -394,10 +400,10 @@
         "meta": ""
     },
     {
-        "name": "Then print my 'nameOfObjectOrSchema' as 'string|number|base64|(...)'",
-        "value": "Then print my 'nameOfObjectOrSchema' as 'string|number|base64|(...)'",
-        "caption": "Then print my 'nameOfObjectOrSchema' as 'string|number|base64|(...)'",
-        "meta": ""
+        "name": "Then print my 'nameOfObjectOrSchema' as 'string'",
+        "value": "Then print my 'nameOfObjectOrSchema' as 'string'",
+        "caption": "Then print my 'nameOfObjectOrSchema' as 'string'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
         "name": "Then print my 'nameOfObjectOrSchema' from 'userName'",
@@ -412,10 +418,10 @@
         "meta": ""
     },
     {
-        "name": "Then print my data as 'string|number|base64|(...)'",
-        "value": "Then print my data as 'string|number|base64|(...)'",
-        "caption": "Then print my data as 'string|number|base64|(...)'",
-        "meta": ""
+        "name": "Then print my data as 'string'",
+        "value": "Then print my data as 'string'",
+        "caption": "Then print my data as 'string'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
         "name": "Then print the 'nameOfObjectOrSchema'",
@@ -424,16 +430,16 @@
         "meta": ""
     },
     {
-        "name": "Then print the 'nameOfObjectOrSchema' as 'string|number|base64|(...)'",
-        "value": "Then print the 'nameOfObjectOrSchema' as 'string|number|base64|(...)'",
-        "caption": "Then print the 'nameOfObjectOrSchema' as 'string|number|base64|(...)'",
-        "meta": ""
+        "name": "Then print the 'nameOfObjectOrSchema' as 'string'",
+        "value": "Then print the 'nameOfObjectOrSchema' as 'string'",
+        "caption": "Then print the 'nameOfObjectOrSchema' as 'string'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
-        "name": "Then print the 'nameOfObject' as 'string|number|base64|(...)' in 'nameOfComplexObject'",
-        "value": "Then print the 'nameOfObject' as 'string|number|base64|(...)' in 'nameOfComplexObject'",
-        "caption": "Then print the 'nameOfObject' as 'string|number|base64|(...)' in 'nameOfComplexObject'",
-        "meta": ""
+        "name": "Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+        "value": "Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+        "caption": "Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
         "name": "Then print the 'nameOfObject' in 'nameOfComplexObject'",
@@ -532,9 +538,9 @@
 	"meta": ""
 	},
 	{
-	 "name": "When I move 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"value": "When I move 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"caption": "When I move 'nameOfSimpleObject' in 'nameOfDictionary'",
+	 "name": "When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
+	"value": "When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
+	"caption": "When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
 	"meta": ""
 	},
 	{

@@ -23,6 +23,7 @@ const NavigationBar = props => {
         props.history.push('/');
     }
 
+
     return (
         <Navbar variant="light" expand="md" style={{ backgroundColor: 'white' }}>
             <div className={'row w-100 m-0 mb-2 p-0'}>
@@ -85,28 +86,70 @@ const NavigationBar = props => {
                         </a> */}
                     </div>
 
+                    {/* EXAMPLE BUTTON */}
+                    {props.location.pathname === '/' &&
+                        <DropdownButton className={'col m-0 p-0 pl-5 d-flex justify-content-end ml-5'} id="dropdown-variants-Secondary" title="Examples" variant='info'>
+                            <Fragment>
+                                {/* <Dropdown.Item key='title' style={{ color: 'rgb(108, 117, 125)' }}> */}
+                                <div style={{ color: 'rgb(108, 117, 125)', padding: '.25rem 1.5rem' }}>
+                                    <b>Miscellaneous</b>
+                                </div>
+                                {/* </Dropdown.Item> */}
+                            </Fragment>
+                            {props.contracts.map((contract, index) => {
+                                return (
+
+                                    <Fragment>
+
+                                        {
+                                            contract.name !== 'separator'
+
+                                                ? <Dropdown.Item key={index} onClick={() => { load(index) }}>
+                                                    {contract.name}
+                                                </Dropdown.Item>
+
+                                                : <Fragment>
+                                                    <hr />
+                                                    {/* <Dropdown.Item key={index} onClick={() => { load(index) }} style={{ color: 'rgb(108, 117, 125)' }}>
+                                                        <b>{contract.title}</b>
+                                                    </Dropdown.Item> */}
+                                                    <div style={{ color: 'rgb(108, 117, 125)', padding: '.25rem 1.5rem' }}>
+                                                        <b>{contract.title}</b>
+                                                    </div>
+                                                </Fragment>
+                                        }
+                                    </Fragment>
+
+                                );
+                            })
+                            }
+
+                        </DropdownButton>
+                    }
 
                     {/* Zenroom buttons */}
-                    <div className={'col-md-4 m-0 p-0 d-flex justify-content-end'}>
-                        {/* EXAMPLE BUTTON */}
-                        {/* {props.location.pathname === '/' &&
-                            <DropdownButton className={'mr-3'} id="dropdown-variants-Secondary" title="Examples" variant='info'>
-                                {props.contracts.map((contract, index) => {
-                                    return (
-                                        <Dropdown.Item key={index} onClick={() => { load(index) }}> {contract.name}</Dropdown.Item>
-                                    );
-                                })
-                                }
+                    < div className={'col m-0 p-0 d-flex justify-content-end'} >
 
-                            </DropdownButton>
-                        } */}
                         {/* PLAY BUTTON */}
-                        {props.location.pathname === '/' &&
+                        {
+                            props.location.pathname === '/' &&
                             <Fragment>
-                                {props.isAuthenticated 
+                                {/* <DropdownButton className='mr-4' id="dropdown-variants-Secondary" title="Examples" variant='info'>
+                                    {props.contracts.map((contract, index) => {
+                                        return (
+                                            <Dropdown.Item key={index} onClick={() => { load(index) }}> {contract.name}</Dropdown.Item>
+                                        );
+                                    })
+                                    }
+
+                                </DropdownButton> */}
+
+
+                                {props.isAuthenticated
                                     ? <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showSave}>Create API</Button>
                                     : <Button variant="outline-secondary" className="mr-sm-2" onClick={() => window.alert("You must be logged in to Save")}>Create API</Button>
-                                }   
+                                }
+
                                 <Button className='play-button' variant="info" onClick={props.executeZenroom}>
                                     Play
                                 <FontAwesomeIcon icon={faPlay} size='1x' color='white' style={{ fontSize: '12px', marginLeft: '8px', marginBottom: '2px' }} />
@@ -218,7 +261,7 @@ const NavigationBar = props => {
                                     <Popover id={'popover-positioned-bottom'}>
                                         <Popover.Content style={{ padding: 0 }}>
                                             <div className={'list-group'}>
-                                <a style={{ cursor: 'pointer' }} className={'list-group-item list-group-item-action'} onClick={() => props.logout()}><strong>Sign out as {props.username}</strong></a>
+                                                <a style={{ cursor: 'pointer' }} className={'list-group-item list-group-item-action'} onClick={() => props.logout()}><strong>Sign out as {props.username}</strong></a>
                                             </div>
                                         </Popover.Content>
                                     </Popover>
