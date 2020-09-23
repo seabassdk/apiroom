@@ -168,6 +168,54 @@
 		}
 	},
 	{
+		"author":"Dyne.org",
+		"name":"Hash a dictionary",
+		"zencode":"Given I have a 'string dictionary' named 'myDictionaryToBeHashed' \nWhen I create the flattening of 'myDictionaryToBeHashed' \nWhen I rename the 'flattening' to 'myFlattenedArray' \nWhen I create the hash of 'myFlattenedArray' using 'sha512' \nWhen I rename the 'hash' to 'myHashedArray' \nThen print 'myFlattenedArray' \nThen print 'myHashedArray'",
+		"keys":{
+			
+		},
+		"data":{
+				"myDictionaryToBeHashed": {
+					"ABC-Transactions1Data": {
+						"timestamp": 1597573139,
+						"TransactionValue": 1000,
+						"PricePerKG": 2,
+						"TransferredProductAmount": 500
+					},
+					"ABC-Transactions2Data": {
+						"timestamp": 1597573239,
+						"TransactionValue": 1000,
+						"PricePerKG": 2,
+						"TransferredProductAmount": 500
+					},
+					"ABC-Transactions3Data": {
+						"timestamp": 1597573339,
+						"TransactionValue": 1000,
+						"PricePerKG": 2,
+						"TransferredProductAmount": 500
+					},
+					"ABC-Transactions4Data": {
+						"timestamp": 1597573439,
+						"TransactionValue": 2000,
+						"PricePerKG": 4,
+						"TransferredProductAmount": 500
+					},
+					"ABC-Transactions5Data": {
+						"timestamp": 1597573539,
+						"TransactionValue": 2000,
+						"PricePerKG": 4,
+						"TransferredProductAmount": 500
+					},
+					"ABC-Transactions6Data": {
+						"timestamp": 1597573639,
+						"TransactionValue": 2000,
+						"PricePerKG": 4,
+						"TransferredProductAmount": 500
+					}
+				}
+			}
+	},
+	{
 		"name":"separator",
 		"separator":"1",
 		"title":"Zero knowledge proof flow"

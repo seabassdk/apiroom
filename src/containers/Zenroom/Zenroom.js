@@ -7,7 +7,7 @@ import { hasJsonStructure } from '../../helpers/jsonHelper';
 
 import * as actions from "../../store/actions/index";
 
-import exampleContracts from '../../examples/zencodeExamplesTwo.json';
+import exampleContracts from '../../examples/zencodeExamples.json';
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
