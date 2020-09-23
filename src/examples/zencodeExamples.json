@@ -450,7 +450,7 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"[Issuer/Server] aggregate petition signatures",
+		"name":"[Service/Anyone] aggregate petition signatures",
 		"zencode":"# Note: this script should normally output the same files 'petitionApproved.json' that it takes as input, \n# in this script a different file is produced out of mere convenience in the testing phase.  \nScenario credential \nScenario petition: aggregate signature \nGiven that I have a valid 'petition signature' \nGiven I have a valid 'petition' \nGiven I have a valid 'verifiers' \nWhen the petition signature is not a duplicate \nWhen the petition signature is just one more \nWhen I add the signature to the petition \nThen print the 'petition' \nThen print the 'verifiers' \n",
 		"keys":{
 			"petition":{
@@ -495,7 +495,7 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"[Anyone/Service] tally the petition",
+		"name":"[Service/Anyone] tally the petition",
 		"zencode":"# The tally is the closing of the petition: you can only add signatures until the tally, \n# and can only count the signatures after the tally. \nScenario 'credential' \nScenario 'petition': tally the petition \nGiven that I am 'Alice' \nGiven I have my valid 'credential keypair' \nGiven I have a valid 'petition' \nWhen I create a petition tally \nThen print all data \n",
 		"keys":{
 			"Alice":{
@@ -535,7 +535,7 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"[Anyone] count the signatures",
+		"name":"[Service/Anyone] count the signatures",
 		"zencode":"Scenario 'credential' \nScenario 'petition': count the signatures in the petition \nGiven that I have a valid 'petition' \nGiven I have a valid 'petition tally' \nWhen I count the petition results \nThen print the 'petition results' as 'number' \nThen print the 'uid' inside 'petition' \n",
 		"keys":{
 			"credential_keypair":{
