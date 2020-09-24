@@ -20,8 +20,9 @@ ace.define(
         };
 
         var regexCheckRule = "rule check version";
+		var regexUnknownIgnoreRule = "Rule unknown ignore";
         var regexInputOutputRule = "rule (input|output) \\S+ \\S+";
-        var inputOutputRegex = "(url64|base64|hex|binary|number|string|array|keypair)";
+        var inputOutputRegex = "'\\s*(url64|base64|hex|binary|number|string|array|keypair)\\s*'";
 
         var scenarios = {"given" :"", "when": "", "then": ""};
 
@@ -36,6 +37,9 @@ ace.define(
             }, {
                 token: "support.function",
                 regex: regexCheckRule
+            },{
+                token: "support.function",
+                regex: regexUnknownIgnoreRule
             }, {
                 token: "support.function",
                 regex: regexInputOutputRule
@@ -48,20 +52,33 @@ ace.define(
             }],
             "scenario": [{
                 token: token["given"],
-                regex: "\\s*given ",
+                regex: "^\\s*given ",
                 next: "given"
             }, {
                 token: token["when"],
-                regex: "\\s*when ",
+                regex: "^\\s*when ",
                 next: "when"
             }, {
                 token: token["then"],
-                regex: "\\s*then ",
+                regex: "^\\s*then ",
                 next: "then"
             }, {
                 caseInsensitive: true
             }],
+            "scenario_error": [{
+                token: "invalid",
+                regex: "given ",
+            }, {
+                token: "invalid",
+                regex: "then ",
+            }, {
+                token: "invalid",
+                regex: "when ",
+            }],
             "given": [{
+                token: "support.function",
+                regex: inputOutputRegex,
+            }, {
                 token: "string",
                 regex: "'",
                 next: "given_string"
@@ -74,16 +91,21 @@ ace.define(
             }, {
                 include: "comment"
             }, {
-                include: "scenario"
-            }, {
                 token: "string",
                 regex: "$",
                 next: "given"
             }, {
+                include: "scenario"
+            }, {
+                include: "scenario_error"
+            }, {
                 token: "none",
-                regex: "^.*"
+                regex: "^.*",
             }],
             "then": [{
+                token: "support.function",
+                regex: inputOutputRegex,
+            }, {
                 token: "string",
                 regex: "'",
                 next: "then_string"
@@ -96,16 +118,21 @@ ace.define(
             }, {
                 include: "comment"
             }, {
-                include: "scenario"
-            }, {
                 token: "string",
                 regex: "$",
                 next: "then"
+            }, {
+                include: "scenario"
+            }, {
+                include: "scenario_error"
             }, {
                 token: "none",
                 regex: "^.*"
             }],
             "when": [{
+                token: "support.function",
+                regex: inputOutputRegex,
+            }, {
                 token: "string",
                 regex: "'",
                 next: "when_string"
@@ -118,11 +145,13 @@ ace.define(
             }, {
                 include: "comment"
             }, {
-                include: "scenario"
-            }, {
                 token: "string",
                 regex: "$",
                 next: "when"
+            }, {
+                include: "scenario"
+            }, {
+                include: "scenario_error"
             }, {
                 token: "none",
                 regex: "^.*"
@@ -155,9 +184,6 @@ ace.define(
                 include: "comment"
             }],
             "given_string": [{
-                token: "support.function",
-                regex: inputOutputRegex,
-            }, {
                 token: "string",
                 regex: "'",
                 next: "given"
@@ -165,9 +191,6 @@ ace.define(
                 defaultToken: "string",
             }],
             "then_string": [{
-                token: "support.function",
-                regex: inputOutputRegex,
-            }, {
                 token: "string",
                 regex: "'",
                 next: "then"
@@ -175,9 +198,6 @@ ace.define(
                 defaultToken: "string",
             }],
             "when_string": [{
-                token: "support.function",
-                regex: inputOutputRegex,
-            }, {
                 token: "string",
                 regex: "'",
                 next: "when"
