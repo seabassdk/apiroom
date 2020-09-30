@@ -219,12 +219,6 @@
         "caption": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
         "meta": ""
     },
-	{
-        "name": "When I create the 'nameOfNewObject'",
-        "value": "When I create the 'nameOfNewObject'",
-        "caption": "When I create the 'nameOfNewObject'",
-        "meta": ""
-    },
     {
         "name": "When I create the random object of '256' bits",
         "value": "When I create the random object of '256' bits",
