@@ -79,7 +79,7 @@ const App = props => {
 
   return (
     <Fragment>
-      <div className={'container-fluid p-0 m-0 main-construction-container mb-5'} >
+      <div className={'container-fluid p-0 m-0 main-construction-container mb-5 d-block d-sm-block d-md-none'} >
         <div className='d-flex align-items-center justify-content-center mb-5'>
           <img
             src={require('./assets/images/logo.png')}
@@ -112,7 +112,7 @@ const App = props => {
       </div>
 
 
-      <div className={'container-fluid p-0 m-0 main-zen-container'} >
+      <div className={'container-fluid p-0 m-0 main-zen-container d-none d-sm-none d-md-block'} >
         <div className="d-flex flex-column" style={{ paddingBottom: '30px' }} >
           <NavigationBar
             showLogin={() => showLoginHandler(true)}

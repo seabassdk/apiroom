@@ -28,7 +28,7 @@
   color: #61dafb;
 }
 
-@media (max-width: 575px) {  
+/* @media (max-width: 575px) {  
   .main-zen-container {
     display: none;
   }
@@ -43,7 +43,7 @@
   .main-construction-container{
     display: none;
   }
-}
+} */
 
 /* span.react-resizable-handle-n {
   top: 50px;
