@@ -8,6 +8,15 @@
 	},
 	{
 		"author":"Dyne.org",
+		"name":"Generate a keypair, reading identity from data",
+		"zencode":"Scenario 'ecdh': Create the keypair from external data\r\nGiven my name is in 'myName'\r\nWhen I create the keypair\r\nThen print my data",
+		"keys":"",
+		"data":{
+			"myName":"User123456"
+		}
+	},
+	{
+		"author":"Dyne.org",
 		"name":"Generate a random cryptographic object",
 		"zencode":"rule check version 1.0.0\nScenario simple: Generate a random object\nGiven nothing\nWhen I create the random object of '128' bits\nWhen I rename the 'random_object' to 'my128BitsRandom'\nThen print the 'my128BitsRandom'\n",
 		"keys":"",
@@ -96,7 +105,7 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"Sign objects using asymmetric cryptography (ECDH)",
+		"name":"Sign objects using asymmetric cryptography (ECDSA)",
 		"zencode":"Scenario 'ecdh': create the signature of an object \nGiven I am 'Alice' \nGiven I have my 'keypair' \nGiven that I have a 'string' named 'myMessage' inside 'mySecretStuff' \nGiven I have a 'string array' named 'myStringArray' \nWhen I create the signature of 'myStringArray' \nWhen I rename the 'signature' to 'myStringArray.signature' \nWhen I create the signature of 'keypair' \nWhen I rename the 'signature' to 'keypair.signature' \nWhen I create the signature of 'myMessage' \nWhen I rename the 'signature' to 'myMessage.signature' \nThen print the 'myMessage' \nThen print the 'myMessage.signature' \nThen print the 'myStringArray' \nThen print the 'myStringArray.signature' \nThen print the 'keypair' \nThen print the 'keypair.signature' \n",
 		"keys":{
 			"Alice":{
@@ -119,7 +128,7 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"Verify a signature using asymmetric cryptography (ECDH)",
+		"name":"Verify a signature using asymmetric cryptography (ECDSA)",
 		"zencode":"rule check version 1.0.0 \nScenario 'ecdh': Bob verifies the signature from Alice \nGiven that I am known as 'Bob' \n Given I have a 'public key' from 'Alice' \nGiven I have a 'string' named 'myMessage' \nGiven I have a 'signature' named 'myMessage.signature' \nGiven I have a 'string array' named 'myStringArray' \nGiven I have a 'signature' named 'myStringArray.signature' \nWhen I verify the 'myMessage' has a signature in 'myMessage.signature' by 'Alice' \nWhen I verify the 'myStringArray' has a signature in 'myStringArray.signature' by 'Alice' \nThen print 'Zenroom certifies that signatures are all correct!' as 'string' \nThen print the 'myMessage' \n",
 		"keys":{
 			"Alice":{
@@ -175,45 +184,89 @@
 			
 		},
 		"data":{
-				"myDictionaryToBeHashed": {
-					"ABC-Transactions1Data": {
-						"timestamp": 1597573139,
-						"TransactionValue": 1000,
-						"PricePerKG": 2,
-						"TransferredProductAmount": 500
-					},
-					"ABC-Transactions2Data": {
-						"timestamp": 1597573239,
-						"TransactionValue": 1000,
-						"PricePerKG": 2,
-						"TransferredProductAmount": 500
-					},
-					"ABC-Transactions3Data": {
-						"timestamp": 1597573339,
-						"TransactionValue": 1000,
-						"PricePerKG": 2,
-						"TransferredProductAmount": 500
-					},
-					"ABC-Transactions4Data": {
-						"timestamp": 1597573439,
-						"TransactionValue": 2000,
-						"PricePerKG": 4,
-						"TransferredProductAmount": 500
-					},
-					"ABC-Transactions5Data": {
-						"timestamp": 1597573539,
-						"TransactionValue": 2000,
-						"PricePerKG": 4,
-						"TransferredProductAmount": 500
-					},
-					"ABC-Transactions6Data": {
-						"timestamp": 1597573639,
-						"TransactionValue": 2000,
-						"PricePerKG": 4,
-						"TransferredProductAmount": 500
-					}
+			"myDictionaryToBeHashed":{
+				"ABC-Transactions1Data":{
+					"timestamp":1597573139,
+					"TransactionValue":1000,
+					"PricePerKG":2,
+					"TransferredProductAmount":500
+				},
+				"ABC-Transactions2Data":{
+					"timestamp":1597573239,
+					"TransactionValue":1000,
+					"PricePerKG":2,
+					"TransferredProductAmount":500
+				},
+				"ABC-Transactions3Data":{
+					"timestamp":1597573339,
+					"TransactionValue":1000,
+					"PricePerKG":2,
+					"TransferredProductAmount":500
+				},
+				"ABC-Transactions4Data":{
+					"timestamp":1597573439,
+					"TransactionValue":2000,
+					"PricePerKG":4,
+					"TransferredProductAmount":500
+				},
+				"ABC-Transactions5Data":{
+					"timestamp":1597573539,
+					"TransactionValue":2000,
+					"PricePerKG":4,
+					"TransferredProductAmount":500
+				},
+				"ABC-Transactions6Data":{
+					"timestamp":1597573639,
+					"TransactionValue":2000,
+					"PricePerKG":4,
+					"TransferredProductAmount":500
 				}
 			}
+		}
+	},
+	{
+		"author":"Dyne.org",
+		"name":"Operations with dictionaries",
+		"zencode":"Rule check version 1.0.0\r\nScenario 'ecdh': keypair management and ECDSA signature\r\n\r\n# Here we load everything we need\r\nGiven that I am 'JackInTheShop' \r\nGiven that I have my valid 'keypair' \r\nGiven that I have a 'string' named 'dictionaryToBeFound'\r\nGiven that I have a 'string dictionary' named 'TransactionsBatchA'\r\nGiven that I have a 'number' named 'salesStartTimestamp'\r\n\r\n# Here we search if a certain dictionary exists in the list\r\nWhen the 'dictionaryToBeFound' is found in 'TransactionsBatchA'\r\n\r\n# Here we find the highest value of an element, in all dictionaries\r\nWhen I find the max value 'PricePerKG' for dictionaries in 'TransactionsBatchA'\r\nand I rename the 'max value' to 'maxPricePerKG'\r\n\r\n# Here we sum the values of an element, from all dictionaries\r\nWhen I create the sum value 'TransactionValue' for dictionaries in 'TransactionsBatchA' \r\nand I rename the 'sum value' to 'sumValueAllTransactions'\r\n\r\n# Here we sum the values of an element, from all dictionaries, with a condition\r\nWhen I create the sum value 'TransferredProductAmount' for dictionaries in 'TransactionsBatchA' where 'timestamp' > 'salesStartTimestamp'\r\nand I rename the 'sum value' to 'transferredProductAmountafterSalesStart'\r\n\r\n# Here we create a dictionary\r\nWhen I create the 'number dictionary'\r\nand I rename the 'number dictionary' to 'salesReport'\r\n\r\n# Here we insert elements into the newly created dictionary\r\nWhen I insert 'maxPricePerKG' in 'salesReport' \r\nWhen I insert 'sumValueAllTransactions' in 'salesReport' \r\nWhen I insert 'transferredProductAmountafterSalesStart' in 'salesReport' \r\n\r\n# Here we produce an ECDSA signature the newly created dictionary using\r\nWhen I create the signature of 'salesReport'\r\nand I rename the 'signature' to 'salesReport.signature'\r\n\r\n#Print out the data we produced along \r\n# We also print the dictionary \"Information\" as hex, just for fun\r\nThen print the 'salesReport'\r\nThen print the 'salesReport.signature'\r\nThen print the 'Information' as 'hex' inside 'TransactionsBatchA' ",
+		"keys":{
+			"JackInTheShop":{
+				"keypair":{
+					"private_key":"Aku7vkJ7K01gQehKELav3qaQfTeTMZKgK+5VhaR3Ui0=",
+					"public_key":"BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI="
+				}
+			}
+		},
+		"data":{
+			"TransactionsBatchA":{
+				"Information":{
+					"Metadata":"TransactionsBatchB6789",
+					"Buyer":"John Doe"
+				},
+				"ABC-Transactions1Data":{
+					"timestamp":1597573139,
+					"TransactionValue":1500,
+					"PricePerKG":100,
+					"TransferredProductAmount":15,
+					"UndeliveredProductAmount":7,
+					"ProductPurchasePrice":50
+				},
+				"ABC-Transactions2Data":{
+					"timestamp":1597573239,
+					"TransactionValue":1600,
+					"TransferredProductAmount":20,
+					"PricePerKG":80
+				},
+				"ABC-Transactions3Data":{
+					"timestamp":1597573340,
+					"TransactionValue":700,
+					"PricePerKG":70,
+					"TransferredProductAmount":10
+				}
+			},
+			"dictionaryToBeFound":"Information",
+			"salesStartTimestamp":1597573200,
+			"PricePerKG":3
+		}
 	},
 	{
 		"name":"separator",
