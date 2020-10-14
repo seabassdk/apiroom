@@ -27,7 +27,7 @@
     "redux-thunk": "^2.3.0",
     "swagger-ui-react": "^3.25.4",
     "wasm-loader": "^1.3.0",
-    "zenroom": "^1.1.5-af41336"
+    "zenroom": "^1.1.5-5f417cb"
   },
   "scripts": {
     "setup:wasm": "cp ./node_modules/zenroom/dist/lib/zenroom.wasm ./public/",
@@ -35,7 +35,7 @@
     "setup:zenroom": "replace \"'wasmBinaryFile = locateFile'\" \"'//wasmBinaryFile = locateFile'\" node_modules/zenroom/dist/lib/zenroom.js",
     "prestart": "npm run setup:wasm && npm run setup:ace && npm run setup:zenroom",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run setup:wasm && npm run setup:ace && npm run setup:zenroom && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "zenroom:next": "npm uninstall zenroom && npm install zenroom@next",
