@@ -179,7 +179,7 @@
 	{
 		"author":"Dyne.org",
 		"name":"Hash a dictionary",
-		"zencode":"Given I have a 'string dictionary' named 'myDictionaryToBeHashed' \nWhen I create the flattening of 'myDictionaryToBeHashed' \nWhen I rename the 'flattening' to 'myFlattenedArray' \nWhen I create the hash of 'myFlattenedArray' using 'sha512' \nWhen I rename the 'hash' to 'myHashedArray' \nThen print 'myFlattenedArray' \nThen print 'myHashedArray'",
+		"zencode":"Given I have a 'string dictionary' named 'myDictionaryToBeHashed' \r\n\r\n# First we need to flatten the array, and rename it for convenience\r\nWhen I create the flattening of 'myDictionaryToBeHashed' \r\nWhen I rename the 'flattening' to 'myFlattenedArray' \r\n\r\n# Then we hash flattened array, and rename it for convenience\r\nWhen I create the hash of 'myFlattenedArray' using 'sha512' \r\nWhen I rename the 'hash' to 'myHashedArray' \r\n\r\n# Here we print the flattened array as string, and then the hash, \r\n# which is printed in base64\r\nThen print 'myFlattenedArray' as 'string' \r\nThen print 'myHashedArray'",
 		"keys":{
 			
 		},
