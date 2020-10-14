@@ -358,15 +358,21 @@
         "meta": ""
     },
     {
-        "name": "Then print 'nameOfObject'",
-        "value": "Then print 'nameOfObject'",
-        "caption": "Then print 'nameOfObject'",
+        "name": "Then print the 'nameOfObjectOrSchema'",
+        "value": "Then print the 'nameOfObjectOrSchema'",
+        "caption": "Then print the 'nameOfObjectOrSchema'",
         "meta": ""
     },
-    {
-        "name": "Then print 'nameOfObject' as 'string'",
-        "value": "Then print  'nameOfObject' as 'string'",
-        "caption": "Then print 'nameOfObject' as 'string'",
+	 {
+        "name": "Then print 'Hello world!'",
+        "value": "Then print the 'Hello world!'",
+        "caption": "Then print the 'Hello world!'",
+        "meta": ""
+    },
+	{
+        "name": "Then print the 'nameOfObjectOrSchema' as 'string'",
+        "value": "Then print the 'nameOfObjectOrSchema' as 'string'",
+        "caption": "Then print the 'nameOfObjectOrSchema' as 'string'",
         "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
@@ -415,18 +421,6 @@
         "name": "Then print my data as 'string'",
         "value": "Then print my data as 'string'",
         "caption": "Then print my data as 'string'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "Then print the 'nameOfObjectOrSchema'",
-        "value": "Then print the 'nameOfObjectOrSchema'",
-        "caption": "Then print the 'nameOfObjectOrSchema'",
-        "meta": ""
-    },
-    {
-        "name": "Then print the 'nameOfObjectOrSchema' as 'string'",
-        "value": "Then print the 'nameOfObjectOrSchema' as 'string'",
-        "caption": "Then print the 'nameOfObjectOrSchema' as 'string'",
         "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
     {
