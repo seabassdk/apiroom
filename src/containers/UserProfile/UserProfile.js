@@ -47,7 +47,7 @@ const PopoverContent = props => {
         setFieldValue(newValue);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setFieldValue(state => props.mode === 'zencode' ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content)
     }, [props.content])
 
@@ -79,7 +79,7 @@ const PopoverContent = props => {
             }
         >
             {props.name
-                ? (<a href="#">{props.name}</a>)
+                ? (<a href="#" onClick={(e)=>{e.preventDefault();}}>{props.name}</a>)
                 : props.content
                     ? (<a href="#">show</a>)
                     : (<a href="#" style={{ color: 'red' }}>empty</a>)
@@ -93,6 +93,7 @@ const PopoverContent = props => {
 const UserProfile = props => {
     const { userContracts } = useSelector(state => state.zenroom);
     const [tableEmpty, setTableEmpty] = useState(true);
+    const [scrollPosition, setScrollPosition] = useState(0);
 
     //go to edit screen with selected contract
     const loadContract = (name, zencode, keys, data, config, index) => {
@@ -100,6 +101,13 @@ const UserProfile = props => {
         props.onChangeUserLoaded(true);
         props.onSelectedIndex(index);
         props.history.push("/")
+
+    }
+
+    const onUpdateContractByIndexHandler = (contract, index) => {
+        console.log('The window scroll position: ' + window.pageYOffset);
+        props.onUpdateContractByIndex(contract, index);
+        
 
     }
 
@@ -128,7 +136,7 @@ const UserProfile = props => {
     // }, [props.contracts]);
 
     return (
-        <div className={'pb-5 user-contracts pt-5'} style={{minHeight: '80vh'}}>
+        <div className={'pb-5 user-contracts pt-5'} style={{ minHeight: '80vh' }}>
             {/* <h4 className={'mt-5'}>Saved Contracts</h4> */}
 
             {props.isLoading
@@ -181,16 +189,16 @@ const UserProfile = props => {
                                             <div className="row p-0 m-0">
                                                 <div className="col pl-0">
                                                     <PopoverContent
-                                                            name={contract.db.name}
-                                                            content={contract.zencode}
-                                                            mode={'zencode'}
-                                                            heading={'Zencode'}
-                                                            showTitle={false}
-                                                            updateField={(contract) => props.onUpdateContractByIndex(contract, index)}
-                                                            field={'zencode'}
-                                                            contract={contract}
-                                                            index={index}
-                                                        />
+                                                        name={contract.db.name}
+                                                        content={contract.zencode}
+                                                        mode={'zencode'}
+                                                        heading={'Zencode'}
+                                                        showTitle={false}
+                                                        updateField={(contract) => props.onUpdateContractByIndex(contract, index)}
+                                                        field={'zencode'}
+                                                        contract={contract}
+                                                        index={index}
+                                                    />
                                                 </div>
                                             </div>
                                             <div className="row p-0 m-0">
@@ -266,13 +274,13 @@ const UserProfile = props => {
                                     </td> */}
                                     <td>
                                         {/* <Link to={'/api/' + props.username + '/' + contract.db.file}>Link</Link> */}
-                                        { contract.switch === 'on' &&
-                                        <a href={'/api/' + props.username + '/' + contract.db.file} onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            window.open('/api/' + props.username + '/' + contract.db.file, "_blank")
+                                        {contract.switch === 'on' &&
+                                            <a href={'/api/' + props.username + '/' + contract.db.file} onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                window.open('/api/' + props.username + '/' + contract.db.file, "_blank")
                                             }}
-                                        >Link</a>
+                                            >Link</a>
                                         }
                                     </td>
                                 </tr>)
