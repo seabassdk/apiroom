@@ -421,7 +421,7 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"Create 5 shares, with quorum of 9",
+		"name":"Create 9 shares, with quorum of 5",
 		"zencode":"# Let's define the scenario, we'll need the 'secshare' here\r\nScenario secshare: create a shared secret\r\n\r\n# We'll start from a secret, which can be max 32 bytes in length\r\nGiven I have a 'string' named '32BytesSecret'\r\n\r\n# Here we are creating the \"secret shares\", the output will be an array of pairs of numbers\r\n# The quorum represents the minumum amount of secret shares needed to\r\n# rebuild the secret, and it can be configured\r\nWhen I create the secret shares of '32BytesSecret' with '9' quorum '5'\r\n\r\n# Here we rename the output and print it out\r\nand I rename the 'secret shares' to 'mySharedSecret'\r\nThen print the 'mySharedSecret'",
 		"keys":{
 			"32BytesSecret": "myMilkshakeBringsAllTheBoysTo..."
