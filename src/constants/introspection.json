@@ -184,40 +184,40 @@
         "meta": ""
     },
     {
-        "name": "When I create the hash of 'nameOfSimpleObject'",
-        "value": "When I create the hash of 'nameOfSimpleObject'",
-        "caption": "When I create the hash of 'nameOfSimpleObject'",
-        "meta": ""
+        "name": "When I create the hash of 'nameOfObject'",
+        "value": "When I create the hash of 'nameOfObject'",
+        "caption": "When I create the hash of 'nameOfObject'",
+        "meta": "Works with any object, returns sha256 hash"
     },
     {
-        "name": "When I create the hash of 'nameOfSimpleObject' using 'sha256|sha512'",
-        "value": "When I create the hash of 'nameOfSimpleObject' using 'sha256|sha512'",
-        "caption": "When I create the hash of 'nameOfSimpleObject' using 'sha256|sha512'",
-        "meta": ""
+        "name": "When I create the hash of 'nameOfObject' using 'sha512'",
+        "value": "When I create the hash of 'nameOfObject' using 'sha512'",
+        "caption": "When I create the hash of 'nameOfObject' using 'sha512'",
+        "meta": "Works with any object, for 'sha512' or 'sha256'"
     },
     {
-        "name": "When I create the hash to point 'ecp|ecp2' of each object in 'nameOfArray'",
-        "value": "When I create the hash to point 'ecp|ecp2' of each object in 'nameOfArray'",
-        "caption": "When I create the hash to point 'ecp|ecp2' of each object in 'nameOfArray'",
-        "meta": ""
+        "name": "When I create the hash to point 'ecp' of each object in 'nameOfArray'",
+        "value": "When I create the hash to point 'ecp' of each object in 'nameOfArray'",
+        "caption": "When I create the hash to point 'ecp' of each object in 'nameOfArray'",
+        "meta": "Works with 'ecp' and 'ecp2' "
     },
     {
         "name": "When I create the hashes of each object in 'nameOfArray'",
         "value": "When I create the hashes of each object in 'nameOfArray'",
         "caption": "When I create the hashes of each object in 'nameOfArray'",
-        "meta": ""
+        "meta": "Returns hash of each element of an array "
     },
     {
         "name": "When I create the key derivation of 'nameOfSimpleObject'",
         "value": "When I create the key derivation of 'nameOfSimpleObject'",
         "caption": "When I create the key derivation of 'nameOfSimpleObject'",
-        "meta": ""
+        "meta": "Hash using Key Derivation (KDF)"
     },
     {
         "name": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
         "value": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
         "caption": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
-        "meta": ""
+        "meta": "Hash using Password-Based Key Derivation (pbKDF)"
     },
     {
         "name": "When I create the random object of '256' bits",
@@ -229,42 +229,12 @@
         "name": "When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
         "value": "When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
         "caption": "When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the cbor of 'nameOfObject'",
-        "value": "When I create the cbor of 'nameOfObject'",
-        "caption": "When I create the cbor of 'nameOfObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the flattening of 'nameOfArray'",
-        "value": "When I create the flattening of 'nameOfArray'",
-        "caption": "When I create the flattening of 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the json of 'nameOfObject'",
-        "value": "When I create the json of 'nameOfObject'",
-        "caption": "When I create the json of 'nameOfObject'",
-        "meta": ""
+        "meta": "Appends object (e.g. a string) to an array"
     },
     {
         "name": "When I create the random 'nameOfNewObject'",
         "value": "When I create the random 'nameOfNewObject'",
         "caption": "When I create the random 'nameOfNewObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the serialization of 'nameOfArray'",
-        "value": "When I create the serialization of 'nameOfArray'",
-        "caption": "When I create the serialization of 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the serialization of data",
-        "value": "When I create the serialization of data",
-        "caption": "When I create the serialization of data",
         "meta": ""
     },
     {
@@ -393,6 +363,12 @@
         "caption": "Then print data as 'string'",
         "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
     },
+	{
+        "name": "Then print my data",
+        "value": "Then print my data",
+        "caption": "Then print my data",
+        "meta": "Nests output under JSON object named as the contract identity"
+    },
     {
         "name": "Then print my 'nameOfObjectOrSchema'",
         "value": "Then print my 'nameOfObjectOrSchema'",
@@ -409,12 +385,6 @@
         "name": "Then print my 'nameOfObjectOrSchema' from 'userName'",
         "value": "Then print my 'nameOfObjectOrSchema' from 'userName'",
         "caption": "Then print my 'nameOfObjectOrSchema' from 'userName'",
-        "meta": ""
-    },
-    {
-        "name": "Then print my data",
-        "value": "Then print my data",
-        "caption": "Then print my data",
         "meta": ""
     },
     {
@@ -439,67 +409,67 @@
 	"name": "When I create the keypair",
 	"value": "When I create the keypair",
 	"caption": "When I create the keypair",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I create the signature of 'nameOfObject'",
 	"value": "When I create the signature of 'nameOfObject'",
 	"caption": "When I create the signature of 'nameOfObject'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
 	"value": "When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
 	"caption": "When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
 	"value": "When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
 	"caption": "When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
 	"value": "When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
 	"caption": "When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
 	"value": "When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
 	"caption": "When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
 	"value": "When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
 	"caption": "When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	 "name": "When I verify the 'nameOfObject' is signed by 'userName'",
 	"value": "When I verify the 'nameOfObject' is signed by 'userName'",
 	"caption": "When I verify the 'nameOfObject' is signed by 'userName'",
-	"meta": "Scenario: 'ecdh'"
+	"meta": "Scenario 'ecdh'"
 	},
 	{
 	"name": "When I create the ephemeral ids for today",
 	"value": "When I create the ephemeral ids for today",
 	"caption": "When I create the ephemeral ids for today",
-	"meta": "Scenario: 'dp3t'"
+	"meta": "Scenario 'dp3t'"
 	},
 	{
 	 "name": "When I create the proximity tracing of infected ids",
 	"value": "When I create the proximity tracing of infected ids",
 	"caption": "When I create the proximity tracing of infected ids",
-	"meta": "Scenario: 'dp3t'"
+	"meta": "Scenario 'dp3t'"
 	},
 	{
 	 "name": "When I renew the secret day key to a new day",
 	"value": "When I renew the secret day key to a new day",
 	"caption": "When I renew the secret day key to a new day",
-	"meta": "Scenario: 'dp3t'"
+	"meta": "Scenario 'dp3t'"
 	},
 	{
 	"name": "When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
@@ -535,104 +505,132 @@
 	 "name": "When I aggregate the verifiers",
 	"value": "When I aggregate the verifiers",
 	"caption": "When I aggregate the verifiers",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I create the credential keypair",
 	"value": "When I create the credential keypair",
 	"caption": "When I create the credential keypair",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I create the credential proof",
 	"value": "When I create the credential proof",
 	"caption": "When I create the credential proof",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I create the credential request",
 	"value": "When I create the credential request",
 	"caption": "When I create the credential request",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I create the credential signature",
 	"value": "When I create the credential signature",
 	"caption": "When I create the credential signature",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I create the credentials",
 	"value": "When I create the credentials",
 	"caption": "When I create the credentials",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I create the issuer keypair",
 	"value": "When I create the issuer keypair",
 	"caption": "When I create the issuer keypair",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I verify the credential proof",
 	"value": "When I verify the credential proof",
 	"caption": "When I verify the credential proof",
-	"meta": "scenario: 'credential'"
+	"meta": "Scenario 'credential'"
 	},
 	{
 	 "name": "When I add the signature to the petition",
 	"value": "When I add the signature to the petition",
 	"caption": "When I add the signature to the petition",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When I count the petition results",
 	"value": "When I count the petition results",
 	"caption": "When I count the petition results",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When I create a petition tally",
 	"value": "When I create a petition tally",
 	"caption": "When I create a petition tally",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When I create the petition 'nameOfNewObject'",
 	"value": "When I create the petition 'nameOfNewObject'",
 	"caption": "When I create the petition 'nameOfNewObject'",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When I create the petition signature 'nameOfNewObject'",
 	"value": "When I create the petition signature 'nameOfNewObject'",
 	"caption": "When I create the petition signature 'nameOfNewObject'",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When the petition signature is just one more",
 	"value": "When the petition signature is just one more",
 	"caption": "When the petition signature is just one more",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When the petition signature is not a duplicate",
 	"value": "When the petition signature is not a duplicate",
 	"caption": "When the petition signature is not a duplicate",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When I verify the new petition to be empty",
 	"value": "When I verify the new petition to be empty",
 	"caption": "When I verify the new petition to be empty",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
 	},
 	{
 	 "name": "When I verify the signature proof is correct",
 	"value": "When I verify the signature proof is correct",
 	"caption": "When I verify the signature proof is correct",
-	"meta": "scenario: 'petition'"
+	"meta": "Scenario 'petition'"
+	},
+	{
+	 "name": "When I create the cbor of 'nameOfComplexObject'",
+	"value": "When I create the cbor of 'nameOfComplexObject'",
+	"caption": "When I create the cbor of 'nameOfComplexObject'",
+	"meta": "Outputs CBOR of arrays, dictionaries and schemas"
+	},
+	{
+	 "name": "When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
+	"value": "When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
+	"caption": "When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
+	"meta": "Scenario 'secshare': create a shared secret with a quorum"
+	},
+	{
+	 "name": "Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
+	"value": "Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
+	"caption": "Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
+	"meta": "Scenario 'secshare': loads the schema containing secret shares"
+	},
+	{
+	 "name": "When I compose the secret using  'nameOfSchemaSecretShare'",
+	"value": "When I compose the secret using  'nameOfSchemaSecretShare'",
+	"caption": "When I compose the secret using  'nameOfSchemaSecretShare'",
+	"meta": "Scenario 'secshare': composes secret shares to reconstruct the secret"
+	},
+	{
+	 "name": "When I create the json of 'nameOfComplexObject'",
+	"value": "When I create the json of 'nameOfComplexObject'",
+	"caption": "When I create the json of 'nameOfComplexObject'",
+	"meta": "Outputs JSON of arrays, dictionaries and schemas"
 	}
-
-
 ]

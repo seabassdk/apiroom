@@ -162,8 +162,8 @@
 	},
 	{
 		"author":"Dyne.org",
-		"name":"Hash an array",
-		"zencode":"Given I have a 'string array' named 'myArrayToBeHashed' \nWhen I create the flattening of 'myArrayToBeHashed' \nWhen I rename the 'flattening' to 'myFlattenedArray' \nWhen I create the hash of 'myFlattenedArray' using 'sha512' \nWhen I rename the 'hash' to 'myHashedArray' \nThen print 'myFlattenedArray' \nThen print 'myHashedArray' \n",
+		"name":"Operations with arrays: hash, insert, copy",
+		"zencode":"Given I have a 'string array' named 'myArrayToBeHashed' \r\nGiven I have a 'string' named 'myString'\r\n\r\n# Default hashing (using sha256) \r\nWhen I create the hash of 'myArrayToBeHashed' \r\nWhen I rename the 'hash' to 'myHashedArray'\r\n\r\n# Hashing using sha512\r\nWhen I create the hash of 'myArrayToBeHashed' using 'sha512' \r\nWhen I rename the 'hash' to 'mysha512HashedArray' \r\n\r\n# Copy one array element into a simple object\r\nWhen I create the copy of element '3' in array 'myArrayToBeHashed'\r\nWhen I rename the 'copy' to 'RingosEmail' \r\n\r\n# Insert the value of a simple object into an array \r\nWhen I insert 'myString' in 'myArrayToBeHashed'\r\n\r\nThen print 'myHashedArray' \r\nThen print 'mysha512HashedArray' \r\nThen print 'RingosEmail'",
 		"keys":{
 			
 		},
@@ -173,61 +173,14 @@
 				"paul@beatles.com",
 				"ringo@beatles.com",
 				"george@beatles.com"
-			]
+			],
+			"myString":"I love Liverpool!"
 		}
 	},
 	{
 		"author":"Dyne.org",
-		"name":"Hash a dictionary",
-		"zencode":"Given I have a 'string dictionary' named 'myDictionaryToBeHashed' \r\n\r\n# First we need to flatten the array, and rename it for convenience\r\nWhen I create the flattening of 'myDictionaryToBeHashed' \r\nWhen I rename the 'flattening' to 'myFlattenedArray' \r\n\r\n# Then we hash flattened array, and rename it for convenience\r\nWhen I create the hash of 'myFlattenedArray' using 'sha512' \r\nWhen I rename the 'hash' to 'myHashedArray' \r\n\r\n# Here we print the flattened array as string, and then the hash, \r\n# which is printed in base64\r\nThen print 'myFlattenedArray' as 'string' \r\nThen print 'myHashedArray'",
-		"keys":{
-			
-		},
-		"data":{
-			"myDictionaryToBeHashed":{
-				"ABC-Transactions1Data":{
-					"timestamp":1597573139,
-					"TransactionValue":1000,
-					"PricePerKG":2,
-					"TransferredProductAmount":500
-				},
-				"ABC-Transactions2Data":{
-					"timestamp":1597573239,
-					"TransactionValue":1000,
-					"PricePerKG":2,
-					"TransferredProductAmount":500
-				},
-				"ABC-Transactions3Data":{
-					"timestamp":1597573339,
-					"TransactionValue":1000,
-					"PricePerKG":2,
-					"TransferredProductAmount":500
-				},
-				"ABC-Transactions4Data":{
-					"timestamp":1597573439,
-					"TransactionValue":2000,
-					"PricePerKG":4,
-					"TransferredProductAmount":500
-				},
-				"ABC-Transactions5Data":{
-					"timestamp":1597573539,
-					"TransactionValue":2000,
-					"PricePerKG":4,
-					"TransferredProductAmount":500
-				},
-				"ABC-Transactions6Data":{
-					"timestamp":1597573639,
-					"TransactionValue":2000,
-					"PricePerKG":4,
-					"TransferredProductAmount":500
-				}
-			}
-		}
-	},
-	{
-		"author":"Dyne.org",
-		"name":"Operations with dictionaries",
-		"zencode":"Rule check version 1.0.0\r\nScenario 'ecdh': keypair management and ECDSA signature\r\n\r\n# Here we load everything we need\r\nGiven that I am 'JackInTheShop' \r\nGiven that I have my valid 'keypair' \r\nGiven that I have a 'string' named 'dictionaryToBeFound'\r\nGiven that I have a 'string dictionary' named 'TransactionsBatchA'\r\nGiven that I have a 'number' named 'salesStartTimestamp'\r\n\r\n# Here we search if a certain dictionary exists in the list\r\nWhen the 'dictionaryToBeFound' is found in 'TransactionsBatchA'\r\n\r\n# Here we find the highest value of an element, in all dictionaries\r\nWhen I find the max value 'PricePerKG' for dictionaries in 'TransactionsBatchA'\r\nand I rename the 'max value' to 'maxPricePerKG'\r\n\r\n# Here we sum the values of an element, from all dictionaries\r\nWhen I create the sum value 'TransactionValue' for dictionaries in 'TransactionsBatchA' \r\nand I rename the 'sum value' to 'sumValueAllTransactions'\r\n\r\n# Here we sum the values of an element, from all dictionaries, with a condition\r\nWhen I create the sum value 'TransferredProductAmount' for dictionaries in 'TransactionsBatchA' where 'timestamp' > 'salesStartTimestamp'\r\nand I rename the 'sum value' to 'transferredProductAmountafterSalesStart'\r\n\r\n# Here we create a dictionary\r\nWhen I create the 'number dictionary'\r\nand I rename the 'number dictionary' to 'salesReport'\r\n\r\n# Here we insert elements into the newly created dictionary\r\nWhen I insert 'maxPricePerKG' in 'salesReport' \r\nWhen I insert 'sumValueAllTransactions' in 'salesReport' \r\nWhen I insert 'transferredProductAmountafterSalesStart' in 'salesReport' \r\n\r\n# Here we produce an ECDSA signature the newly created dictionary using\r\nWhen I create the signature of 'salesReport'\r\nand I rename the 'signature' to 'salesReport.signature'\r\n\r\n#Print out the data we produced along \r\n# We also print the dictionary \"Information\" as hex, just for fun\r\nThen print the 'salesReport'\r\nThen print the 'salesReport.signature'\r\nThen print the 'Information' as 'hex' inside 'TransactionsBatchA' ",
+		"name":"Operations with dictionaries (large script)",
+		"zencode":"Rule check version 1.0.0\r\nScenario 'ecdh': keypair management and ECDSA signature\r\n\r\n# Here we load everything we need\r\nGiven that I am 'JackInTheShop' \r\nGiven that I have my valid 'keypair' \r\nGiven that I have a 'string' named 'dictionaryToBeFound'\r\nGiven that I have a 'string dictionary' named 'TransactionsBatchA'\r\nGiven that I have a 'number' named 'salesStartTimestamp'\r\n\r\n# Here we search if a certain dictionary exists in the list\r\nWhen the 'dictionaryToBeFound' is found in 'TransactionsBatchA'\r\n\r\n# Here we find the highest value of an element, in all dictionaries\r\nWhen I find the max value 'PricePerKG' for dictionaries in 'TransactionsBatchA'\r\nand I rename the 'max value' to 'maxPricePerKG'\r\n\r\n# Here we sum the values of an element, from all dictionaries\r\nWhen I create the sum value 'TransactionValue' for dictionaries in 'TransactionsBatchA' \r\nand I rename the 'sum value' to 'sumValueAllTransactions'\r\n\r\n# Here we sum the values of an element, from all dictionaries, with a condition\r\nWhen I create the sum value 'TransferredProductAmount' for dictionaries in 'TransactionsBatchA' where 'timestamp' > 'salesStartTimestamp'\r\nand I rename the 'sum value' to 'transferredProductAmountafterSalesStart'\r\n\r\n# Here we create a dictionary\r\nWhen I create the 'number dictionary'\r\nand I rename the 'number dictionary' to 'salesReport'\r\n\r\n# Copy a dictionary nested to the root level of data\r\nWhen I create the copy of 'Information' from dictionary 'TransactionsBatchA'\r\nand I rename the 'copy' to 'InformationBatchA'\r\n\r\n# Here we insert elements into the newly created dictionary\r\nWhen I insert 'maxPricePerKG' in 'salesReport' \r\nWhen I insert 'sumValueAllTransactions' in 'salesReport' \r\nWhen I insert 'transferredProductAmountafterSalesStart' in 'salesReport' \r\n\r\n# Hash dictionaries, using default (sha256) or sha512\r\nWhen I create the hash of 'InformationBatchA' \r\nWhen I rename the 'hash' to 'sha256hashOfInformationBatchA' \r\n\r\nWhen I create the hash of 'salesReport' using 'sha512' \r\nWhen I rename the 'hash' to 'sha512hashOfsalesReport' \r\n\r\n# Here we produce an ECDSA signature the newly created dictionary using\r\nWhen I create the signature of 'salesReport'\r\nand I rename the 'signature' to 'salesReport.signature'\r\n\r\n#Print out the data we produced along \r\n# We also print the dictionary \"Information\" as hex, just for fun\r\nThen print the 'salesReport'\r\nThen print the 'salesReport.signature'\r\nThen print the 'Information' as 'hex' inside 'TransactionsBatchA' \r\nThen print the 'InformationBatchA'\r\nThen print the 'sha256hashOfInformationBatchA' \r\nThen print the 'sha512hashOfsalesReport' ",
 		"keys":{
 			"JackInTheShop":{
 				"keypair":{
@@ -266,6 +219,20 @@
 			"dictionaryToBeFound":"Information",
 			"salesStartTimestamp":1597573200,
 			"PricePerKG":3
+		}
+	},
+	{
+		"author":"Dyne.org",
+		"name":"Create the CBOR of an array",
+		"zencode":"Given I have a 'string array' named 'myArrayToBeHashed' \r\nWhen I create the cbor of 'myArrayToBeHashed' \r\nWhen I rename the 'cbor' to 'myArrayInCBOR'\r\nThen print 'myArrayInCBOR'",
+		"keys":"",
+		"data":{
+			"myArrayToBeHashed":[
+				"john@beatles.com",
+				"paul@beatles.com",
+				"ringo@beatles.com",
+				"george@beatles.com"
+			]
 		}
 	},
 	{
@@ -445,6 +412,50 @@
 					"beta":"DxkhJCeC0LmNix2Q9XZxmHKwBv6fbYymNH6PGdvnOU6uD3NhZBbp+jA27kPon1CACigQ4IT/TpUGJwoy3M0o7l2x+mxPS6akE26kMrYARNC3fbYk6N9ugbjki8WX6uPQFheJJ1ZfSiiUQ02MFmIPTDKa0bRjXTyHak41+2SbQpPU1BYreIlIrDmzP8XrEaz0H0287Mg85L/iAXdtSpOk5qRyXm+lGa6QldyYkQ22xmNN6Ch0mIb3Ds9/e8EN1bM0"
 				}
 			}
+		}
+	},
+		{
+		"name":"separator",
+		"separator":"1",
+		"title":"Secret sharing"
+	},
+	{
+		"author":"Dyne.org",
+		"name":"Create 5 shares, with quorum of 9",
+		"zencode":"# Let's define the scenario, we'll need the 'secshare' here\r\nScenario secshare: create a shared secret\r\n\r\n# We'll start from a secret, which can be max 32 bytes in length\r\nGiven I have a 'string' named '32BytesSecret'\r\n\r\n# Here we are creating the \"secret shares\", the output will be an array of pairs of numbers\r\n# The quorum represents the minumum amount of secret shares needed to\r\n# rebuild the secret, and it can be configured\r\nWhen I create the secret shares of '32BytesSecret' with '9' quorum '5'\r\n\r\n# Here we rename the output and print it out\r\nand I rename the 'secret shares' to 'mySharedSecret'\r\nThen print the 'mySharedSecret'",
+		"keys":{
+			"32BytesSecret": "myMilkshakeBringsAllTheBoysTo..."
+		},
+		"data":""
+	},
+		{
+		"author":"Dyne.org",
+		"name":"Recompose the secret from 5 shares (out of 9)",
+		"zencode":"Scenario secshare: recompose the secret shares\r\n\r\n# Here we are loading the \"secret shares\" \r\nGiven I have a 'secret shares' named 'my5partsOfTheSharedSecret'\r\n\r\n# Here we are testing if the secret shares can be recomposed to form the password\r\n# in case the quorum isn't reached or isn't correct, Zenroom will anyway output a string,\r\n# that will be different from the original secret.\r\n# if the quorum is correct, the original secret should be printed out.\r\nwhen I compose the secret using 'my5partsOfTheSharedSecret'\r\nThen print the 'secret' as 'string'",
+		"keys":"",
+		"data":{
+			"my5partsOfTheSharedSecret": [
+				{
+				  "x": "Ut5SRQceAzJ4Tl4oQGLJtT9exHMS9MZjr8FTyeLNCoI=",
+				  "y": "yOh0IHDQVQGPQshkWOcba/SoN2hzEsM/PPHw+7AoPIg="
+				},
+				{
+				  "x": "XStq5PU+KhUqaPlTyskhB2SCT1JFlh6mon2/mfwtMtM=",
+				  "y": "oVmB7/16L4QgHAaYottjouvyxi7w+eq1bptNN7tQtMc="
+				},
+				{
+				  "x": "kLmRePcPru3of6WbNnyBsUmeKT52qkrVQsyjPQoJOGo=",
+				  "y": "4sSGlM4rUxYM4LC8dwnbY+es7HaEbhWD4+JDJGegrKo="
+				},
+				{
+				  "x": "tuQr29Ep4Zyi/qmw2Bv/U1qtlE3c5fT/l72Ma+lA6Pw=",
+				  "y": "cCMMDuX+7CTd8Sinj6cPFw5qFh+CIt7TlPk8uM/st40="
+				},
+				{
+				  "x": "6RVZxMwQHQ3LcEcmrM9D/SZV4BeC9tFGV70uBVVfCbo=",
+				  "y": "hwpgXGUIGjJA/zwDo/CWkaGUU9CEZXZTq/4Yj9n9x4s="
+				}
+		  ]
 		}
 	},
 	{
