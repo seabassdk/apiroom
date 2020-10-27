@@ -40,13 +40,17 @@
         "caption": "Given nothing",
         "meta": ""
     },
-      
-
-   {
+    {
         "name": "Given I am 'userName'",
         "value": "Given I am 'userName'",
         "caption": "Given I am 'userName'",
         "meta": ""
+    },
+	{
+        "name": "Given my name is in a 'string' named 'nameOfSimpleObject'",
+        "value": "Given my name is in a 'string' named 'nameOfSimpleObject'",
+        "caption": "Given my name is in a 'string' named 'nameOfSimpleObject'",
+        "meta": "Loads the identity of the executor from parameter, accepts (string|bin|base64|base58|url64)"
     },
 
 	    {
