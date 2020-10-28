@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
+
 import './App.css';
 
 
@@ -13,6 +14,7 @@ import Save from './containers/save/Save';
 import Zenroom from './containers/Zenroom/Zenroom';
 import UserProfile from './containers/UserProfile/UserProfile';
 import Footer from './containers/footer/Footer';
+import Disclaimer from './components/disclaimer/Disclaimer';
 
 import * as actions from './store/actions/index';
 
@@ -75,10 +77,17 @@ const App = props => {
 
   useEffect(() => {
     props.onTryAutoSignup();
-  }, []);
 
+
+  }, []);
+console.log('THE DISCLAIMER: ');
+console.log(localStorage.getItem('disclaimer'));
   return (
     <Fragment>
+
+      {localStorage.getItem('disclaimer') !== 'accepted' &&
+        <Disclaimer/>
+      }
       <div className={'container-fluid p-0 m-0 main-construction-container mb-5 d-block d-sm-block d-md-none'} >
         <div className='d-flex align-items-center justify-content-center mb-5'>
           <img

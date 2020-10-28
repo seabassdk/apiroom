@@ -58,9 +58,9 @@ const Zenroom = (props) => {
 
       const options = {
         script: props.zencode,
-        data: props.data,
-        conf: props.config,
-        keys: props.keys ? JSON.parse(props.keys) : null,
+        data: props.keys ? JSON.parse(JSON.stringify(props.data)) : null,
+        conf: props.keys ? JSON.parse(JSON.stringify(props.config)) : null,
+        keys: props.keys ? JSON.parse(JSON.stringify(props.keys)) : null,
         print: print,
         print_err: print_err,
         success: onSuccess,
