@@ -81,8 +81,8 @@ const PopoverContent = props => {
             {props.name
                 ? (<a href="#" onClick={(e)=>{e.preventDefault();}}>{props.name}</a>)
                 : props.content
-                    ? (<a href="#">show</a>)
-                    : (<a href="#" style={{ color: 'red' }}>empty</a>)
+                    ? (<a href="#" onClick={(e)=>{e.preventDefault();}}>show</a>)
+                    : (<a href="#" onClick={(e)=>{e.preventDefault();}} style={{ color: 'red' }}>empty</a>)
             }
 
         </OverlayTrigger>
