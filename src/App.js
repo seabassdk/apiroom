@@ -93,9 +93,9 @@ console.log(localStorage.getItem('disclaimer'));
           <img
             src={require('./assets/images/logo.png')}
             width="150"
-            height="30"
+            height="35"
             className='mt-5'
-            alt="Zenroom logo"
+            alt="Apiroom logo"
           />
         </div>
         <div className='w-100 h-100 pb-5'>
