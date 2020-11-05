@@ -49,9 +49,9 @@ const NavigationBar = props => {
                                 <img
                                     src={require('../../assets/images/logo.png')}
                                     width="150"
-                                    height="30"
+                                    height="35"
                                     className="d-inline-block align-top"
-                                    alt="Zenroom logo"
+                                    alt="Apiroom logo"
                                 />
                             </Link>
                         </Navbar.Brand>
