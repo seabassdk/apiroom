@@ -73,6 +73,12 @@ const App = props => {
     } else {
       props.onDataChanged('')
     }
+    // load config
+    if (exampleContracts[index].config) {
+      props.onConfigChanged(JSON.stringify(exampleContracts[index].config));
+    } else {
+      props.onConfigChanged('')
+    }
   }
 
   useEffect(() => {
@@ -80,13 +86,13 @@ const App = props => {
 
 
   }, []);
-console.log('THE DISCLAIMER: ');
-console.log(localStorage.getItem('disclaimer'));
+  console.log('THE DISCLAIMER: ');
+  console.log(localStorage.getItem('disclaimer'));
   return (
     <Fragment>
 
       {localStorage.getItem('disclaimer') !== 'accepted' &&
-        <Disclaimer/>
+        <Disclaimer />
       }
       <div className={'container-fluid p-0 m-0 main-construction-container mb-5 d-block d-sm-block d-md-none'} >
         <div className='d-flex align-items-center justify-content-center mb-5'>
@@ -114,7 +120,7 @@ console.log(localStorage.getItem('disclaimer'));
             </div>
           </div>
           <div className='d-flex align-items-center justify-content-center mt-5'>
-            <FontAwesomeIcon icon={faTools} size='6x' color='#ab0060'/>
+            <FontAwesomeIcon icon={faTools} size='6x' color='#ab0060' />
           </div>
         </div>
 

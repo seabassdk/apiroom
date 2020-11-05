@@ -11,23 +11,35 @@ export const changeZencode = (zencode) => {
 }
 
 export const changeKeys = (keys) => {
+    let keyjson = keys;
+    if (keys && typeof keys === "object")
+        keyjson = JSON.stringify(keys);
+
     return {
         type: actionTypes.KEYS,
-        keys
+        keys: keyjson
     };
 }
 
 export const changeData = (data) => {
+    let datajson = data;
+    if (data && typeof data === "object")
+        datajson = JSON.stringify(data);
+
     return {
         type: actionTypes.DATA,
-        data
+        data: datajson
     };
 }
 
 export const changeConfig = (config) => {
+    let configjson = config;
+    if (config && typeof config === "object")
+        configjson = JSON.stringify(config);
+
     return {
         type: actionTypes.CONFIG,
-        config
+        config: configjson
     };
 }
 
@@ -133,19 +145,18 @@ export const saveContract = (name) => {
             config: zenroom.config,
             username: auth.username
         };
-
         axios.post(saveContractUri,
             contract,
             { headers: { 'auth-token': auth.token } }
         )
             .then(response => {
                 dispatch(changeSavingSuccess(true));
-            }).catch(error => {
+            })
+            .catch(error => {
                 console.log('Saving error:');
                 console.log(error);
                 dispatch(changeSavingFailure(error.response.data));
             })
-
     }
 };
 
@@ -413,8 +424,7 @@ export const getDocker = (obj) => {
                 console.log(response);
 
                 const element = document.createElement("a");
-                const file = new Blob([response.data],
-                    { type: 'text/plain;charset=utf-8' });
+                const file = new Blob([response.data]);
                 element.href = URL.createObjectURL(file);
                 element.download = "Dockerfile";
                 document.body.appendChild(element);

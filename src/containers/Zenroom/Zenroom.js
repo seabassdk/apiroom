@@ -75,8 +75,9 @@ const Zenroom = (props) => {
 
     }
 
-
   }, [props]);
+
+
 
   return (
     <div style={{ width: '100%', paddingLeft: '15px', paddingRight: '15px' }}>

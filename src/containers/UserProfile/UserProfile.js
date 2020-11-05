@@ -176,7 +176,8 @@ const UserProfile = props => {
                     : (<Table responsive>
                         <thead>
                             <tr>
-                                <th className="pl-5">Zencode smart contract</th>
+                            <th></th>
+                                <th>Zencode smart contract</th>
                                 <th>Keys (-k)</th>
                                 <th>Config (-c)</th>
                                 <th style={{ color: '#6c757d' }}>
@@ -202,14 +203,13 @@ const UserProfile = props => {
                                 {/* <th></th> */}
                                 <th></th>
                                 <th></th>
-                                <th>Export</th>
                             </tr>
                         </thead>
                         <tbody>
                             {props.contracts && props.contracts.map((contract, index) => {
                                 return (<tr key={index}>
-
-                                    <td className="pl-5">
+                                    <td><Form.Check aria-label="option 1" name={contract.db.file} onChange={e => onCheckedHandler(e)} /></td>
+                                    <td>
                                         <div className="container display-menu-parent pl-0">
                                             <div className="row p-0 m-0">
                                                 <div className="col pl-0">
@@ -308,7 +308,7 @@ const UserProfile = props => {
                                             >Link</a>
                                         }
                                     </td>
-                                    <td className="pl-3"><Form.Check aria-label="option 1" name={contract.db.file} onChange={e => onCheckedHandler(e)} /></td>
+                                    
                                 </tr>)
                             })
                             }
