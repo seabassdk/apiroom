@@ -23,3 +23,6 @@ yarn-error.log*
 node_modules
 yarn.lock
 package-lock.json
+
+# zenroom
+/public/zenroom.wasm

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import * as actions from './index';
-import { loadContractsUri, saveContractUri, saveTypeUri, updateContractUri, updateContractByindexUri, deleteContractByIndexUri, switchContractByIndexUri } from '../../constants/api';
+import { loadContractsUri, saveContractUri, saveTypeUri, updateContractUri, updateContractByindexUri, deleteContractByIndexUri, switchContractByIndexUri, getDockerFileUri } from '../../constants/api';
 
 export const changeZencode = (zencode) => {
     return {
@@ -105,6 +105,12 @@ export const changeUserLoaded = (userLoaded) => {
     }
 }
 
+export const changeDockerExport = (dockerExport) => {
+    return {
+        type: actionTypes.DOCKER_EXPORT,
+        dockerExport
+    }
+}
 
 
 export const saveContract = (name) => {
@@ -372,6 +378,54 @@ export const switchContractByIndex = (index) => {
                 console.log(error);
                 dispatch(actions.changeIsLoading(false));
                 dispatch(actions.changeLoadingError(error.response.data));
+            })
+
+    }
+
+};
+
+export const getDocker = (obj) => {
+
+    return (dispatch, getState) => {
+        const { auth } = getState();
+
+        //check if auth valid
+        if (!auth.username || !auth.token)
+            return dispatch(changeSavingFailure('You must be logged in to save.'));
+
+        //check contracts
+        // if (!contracts && !contracts.isArray && contracts.length === 0)
+        //     return dispatch(changeSavingFailure('There is no content to save.'));
+
+        const uri = getDockerFileUri;
+        const payload = {
+            contracts: obj.contracts,
+            username: auth.username
+        }
+
+        console.log('Making post request to get docker file.');
+        axios.post(uri,
+            payload,
+            { headers: { 'auth-token': auth.token } }
+        )
+            .then(response => {
+                console.log('received response:');
+                console.log(response);
+
+                const element = document.createElement("a");
+                const file = new Blob([response.data],
+                    { type: 'text/plain;charset=utf-8' });
+                element.href = URL.createObjectURL(file);
+                element.download = "Dockerfile";
+                document.body.appendChild(element);
+                element.click();
+                element.parentNode.removeChild(element);
+
+
+            }).catch(err => {
+                console.log('Saving error:');
+                console.log(err);
+                // dispatch(changeSavingFailure('Failed to save! reason: ' + err));
             })
 
     }

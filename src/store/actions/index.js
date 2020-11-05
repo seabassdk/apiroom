@@ -17,7 +17,9 @@ export {
     changeSelectedIndex,
     updateContractByIndex,
     deleteContractByIndex,
-    switchContractByIndex
+    switchContractByIndex,
+    changeDockerExport,
+    getDocker
 } from './zenroom';
 export {
     auth,

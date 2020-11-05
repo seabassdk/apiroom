@@ -12,6 +12,7 @@ export const USER_CONTRACTS = 'USER_CONTRACTS';
 export const CONTRACT = 'CONTRACT';
 export const USER_LOADED = 'USER_LOADED';
 export const SELECTED_INDEX = 'SELECTED_INDEX';
+export const DOCKER_EXPORT = 'DOCKER_EXPORT';
 
 
 

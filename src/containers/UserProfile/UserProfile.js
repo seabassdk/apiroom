@@ -79,10 +79,10 @@ const PopoverContent = props => {
             }
         >
             {props.name
-                ? (<a href="#" onClick={(e)=>{e.preventDefault();}}>{props.name}</a>)
+                ? (<a href="#" onClick={(e) => { e.preventDefault(); }}>{props.name}</a>)
                 : props.content
-                    ? (<a href="#" onClick={(e)=>{e.preventDefault();}}>show</a>)
-                    : (<a href="#" onClick={(e)=>{e.preventDefault();}} style={{ color: 'red' }}>empty</a>)
+                    ? (<a href="#" onClick={(e) => { e.preventDefault(); }}>show</a>)
+                    : (<a href="#" onClick={(e) => { e.preventDefault(); }} style={{ color: 'red' }}>empty</a>)
             }
 
         </OverlayTrigger>
@@ -94,6 +94,7 @@ const UserProfile = props => {
     const { userContracts } = useSelector(state => state.zenroom);
     const [tableEmpty, setTableEmpty] = useState(true);
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [exportContracts, setExportContracts] = useState({ contracts: [] });
 
     //go to edit screen with selected contract
     const loadContract = (name, zencode, keys, data, config, index) => {
@@ -107,7 +108,7 @@ const UserProfile = props => {
     const onUpdateContractByIndexHandler = (contract, index) => {
         console.log('The window scroll position: ' + window.pageYOffset);
         props.onUpdateContractByIndex(contract, index);
-        
+
 
     }
 
@@ -116,6 +117,30 @@ const UserProfile = props => {
         props.onLoadContracts();
     }, []);
 
+    useEffect(() => {
+        if (props.docker) {
+            console.log('EXPORT DOCKER!');
+            props.onDockerExport(false);
+            props.onGetDocker(exportContracts)
+        }
+
+    }, [props.docker]);
+
+    const onCheckedHandler = (e) => {
+        let tmp = exportContracts.contracts;
+        if (e.target.checked) {
+            tmp.push(e.target.name);
+            setExportContracts({ contracts: tmp });
+        } else {
+            tmp = tmp.filter(n => n !== e.target.name);
+            setExportContracts({ contracts: tmp });
+        }
+    }
+
+    useEffect(() => {
+        console.log('new export state:');
+        console.log(exportContracts);
+    }, [exportContracts]);
 
     // useEffect(() => {
     //     console.log('USEEFFECT FIRING LOCATION STATE: ');
@@ -151,14 +176,13 @@ const UserProfile = props => {
                     : (<Table responsive>
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Zencode smart contract</th>
+                                <th className="pl-5">Zencode smart contract</th>
                                 <th>Keys (-k)</th>
                                 <th>Config (-c)</th>
                                 <th style={{ color: '#6c757d' }}>
                                     <div>
                                         <OverlayTrigger
-                                            trigger='hover'
+                                            trigger={['hover', 'focus']}
                                             placement='top'
                                             overlay={
                                                 <Tooltip id='tooltip-top'>
@@ -178,13 +202,14 @@ const UserProfile = props => {
                                 {/* <th></th> */}
                                 <th></th>
                                 <th></th>
+                                <th>Export</th>
                             </tr>
                         </thead>
                         <tbody>
                             {props.contracts && props.contracts.map((contract, index) => {
                                 return (<tr key={index}>
-                                    <td><Form.Check aria-label="option 1" /></td>
-                                    <td>
+
+                                    <td className="pl-5">
                                         <div className="container display-menu-parent pl-0">
                                             <div className="row p-0 m-0">
                                                 <div className="col pl-0">
@@ -283,6 +308,7 @@ const UserProfile = props => {
                                             >Link</a>
                                         }
                                     </td>
+                                    <td className="pl-3"><Form.Check aria-label="option 1" name={contract.db.file} onChange={e => onCheckedHandler(e)} /></td>
                                 </tr>)
                             })
                             }
@@ -300,7 +326,8 @@ const mapStateToProps = state => {
         contracts: state.collections.contractCollection,
         isLoading: state.collections.isLoading,
         loadingError: state.collections.loadingError,
-        username: state.auth.username
+        username: state.auth.username,
+        docker: state.zenroom.dockerExport
     };
 }
 
@@ -315,6 +342,8 @@ const mapDispatchToProps = dispatch => {
         onDeleteContractByIndex: (index) => dispatch(actions.deleteContractByIndex(index)),
         onChangeLoadingError: (error) => dispatch(actions.changeLoadingError(error)),
         onSwitchContractByIndex: (index) => dispatch(actions.switchContractByIndex(index)),
+        onDockerExport: (docker) => dispatch(actions.changeDockerExport(docker)),
+        onGetDocker: (contracts) => dispatch(actions.getDocker(contracts)),
     }
 }
 

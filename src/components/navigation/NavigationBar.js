@@ -241,7 +241,7 @@ const NavigationBar = props => {
                     {/* DOCKER SWAGGER AND PROFILE BUTTON FOR PROFILE PATH */}
                     {props.location.pathname === '/profile' && (
                         <Fragment>
-                            <OverlayTrigger
+                            {/* <OverlayTrigger
                                 key={'bottom'}
                                 placement={'bottom'}
                                 overlay={
@@ -251,7 +251,8 @@ const NavigationBar = props => {
                                 }
                             >
                                 <Button variant="outline-secondary" className="mr-sm-2">Export</Button>
-                            </OverlayTrigger>
+                            </OverlayTrigger> */}
+                            <Button variant="outline-secondary" className="mr-sm-2" onClick={() => props.dockerExport()}>Export Docker</Button>
                             <Button variant="outline-secondary" className="mr-sm-3" onClick={() => window.open(linkToSwaggerUri + props.username, "_blank")}>Test APIs</Button>
                             <OverlayTrigger
                                 trigger="click"

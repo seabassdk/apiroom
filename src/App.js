@@ -137,6 +137,7 @@ console.log(localStorage.getItem('disclaimer'));
             username={props.username}
             contracts={exampleContracts}
             loadContract={onLoadExampleContract}
+            dockerExport={() => props.onDockerExport(true)}
           />
           {props.savedSuccess &&
             <Alert variant={'success'} onClose={() => props.onSavedSuccess(false)} dismissible>
@@ -194,6 +195,7 @@ const mapDispatchToProps = dispatch => {
     onKeysChanged: (keys) => dispatch(actions.changeKeys(keys)),
     onDataChanged: (data) => dispatch(actions.changeData(data)),
     onConfigChanged: (config) => dispatch(actions.changeConfig(config)),
+    onDockerExport: (docker) => dispatch(actions.changeDockerExport(docker)),
 
   }
 }

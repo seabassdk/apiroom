@@ -15,7 +15,13 @@ const initialState = {
     savedFail: false,
     userLoaded: false,
     userContracts: null,
-    selectedIndex: null
+    selectedIndex: null,
+    dockerExport: false
+};
+
+const changeDockerExport = ( state, action ) => {
+    const updatedDockerExport = {dockerExport: action.dockerExport}
+    return updateObject( state, updatedDockerExport );
 };
 
 const changeUserLoaded = ( state, action ) => {
@@ -110,7 +116,8 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.USER_CONTRACTS: return changeUserContracts( state, action );
         case actionTypes.CONTRACT: return changeContract( state, action ); 
         case actionTypes.USER_LOADED: return changeUserLoaded( state, action ); 
-        case actionTypes.SELECTED_INDEX: return changeSelectedIndex( state, action ); 
+        case actionTypes.SELECTED_INDEX: return changeSelectedIndex( state, action );
+        case actionTypes.DOCKER_EXPORT: return changeDockerExport( state, action );
         
         
         
