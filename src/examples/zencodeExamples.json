@@ -225,15 +225,15 @@
 		"author":"Dyne.org",
 		"name":"Create the CBOR of an array",
 		"zencode":"Given I have a 'string array' named 'myArrayToBeHashed' \r\nWhen I create the cbor of 'myArrayToBeHashed' \r\nWhen I rename the 'cbor' to 'myArrayInCBOR'\r\nThen print 'myArrayInCBOR'",
-		"keys":"",
-		"data":{
+		"keys":{
 			"myArrayToBeHashed":[
 				"john@beatles.com",
 				"paul@beatles.com",
 				"ringo@beatles.com",
 				"george@beatles.com"
 			]
-		}
+		},
+		"data":""
 	},
 	{
 		"name":"separator",
