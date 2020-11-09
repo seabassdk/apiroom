@@ -11,64 +11,83 @@ import exampleContracts from '../../examples/zencodeExamples.json';
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
-import zenroom from "zenroom";
+import { zenroom_exec, zencode_exec } from 'zenroom'
 
 const Zenroom = (props) => {
   const [executionTime, setExecutionTime] = useState(0);
   const [logs, setLogs] = useState([]);
 
   const clearResults = () => {
-    props.onLogsChanged([]);
-    props.onResultChanged([]);
+    props.onLogsChanged(null);
+    props.onResultChanged(null);
   };
 
 
   useEffect(() => {
     if (props.execute) {
-      const zenResult = [];
-      const zenErrors = [];
-      const startTime = new Date();
+      // const zenResult = [];
+      // const zenErrors = [];
+      // const startTime = new Date();
 
-      //save the result
-      const print = (text) => {
-        zenResult.push(text);
-      };
+      // //save the result
+      // const print = (text) => {
+      //   zenResult.push(text);
+      // };
 
-      //Save any error
-      const print_err = (text) => {
-        zenErrors.push(text);
-      };
+      // //Save any error
+      // const print_err = (text) => {
+      //   zenErrors.push(text);
+      // };
 
-      //zenroom returns successfully
-      const onSuccess = () => {
-        props.onLogsChanged(zenErrors);
-        props.onResultChanged(zenResult);
+      // //zenroom returns successfully
+      // const onSuccess = () => {
+      //   props.onLogsChanged(zenErrors);
+      //   props.onResultChanged(zenResult);
 
-        const timeTaken = new Date() - startTime;
-        setExecutionTime(timeTaken);
-      };
+      //   const timeTaken = new Date() - startTime;
+      //   setExecutionTime(timeTaken);
+      // };
 
-      //zenroom returns with error
-      const onError = () => {
-        props.onResultChanged([
-          { error: "Error detected. Execution aborted." },
-        ]);
-        props.onLogsChanged(zenErrors);
-      };
+      // //zenroom returns with error
+      // const onError = () => {
+      //   props.onResultChanged([
+      //     { error: "Error detected. Execution aborted." },
+      //   ]);
+      //   props.onLogsChanged(zenErrors);
+      // };
+
+      // const options = {
+      //   script: props.zencode,
+      //   data: props.keys ? JSON.parse(JSON.stringify(props.data)) : null,
+      //   conf: props.keys ? JSON.parse(JSON.stringify(props.config)) : null,
+      //   keys: props.keys ? JSON.parse(JSON.stringify(props.keys)) : null,
+      //   print: print,
+      //   print_err: print_err,
+      //   success: onSuccess,
+      //   error: onError,
+      // };
+
+      //execute zenroom
+      // zenroom.init(options).zencode_exec();
+      // const result = await zencode_exec(props.zencode, options);
 
       const options = {
-        script: props.zencode,
         data: props.keys ? JSON.parse(JSON.stringify(props.data)) : null,
         conf: props.keys ? JSON.parse(JSON.stringify(props.config)) : null,
         keys: props.keys ? JSON.parse(JSON.stringify(props.keys)) : null,
-        print: print,
-        print_err: print_err,
-        success: onSuccess,
-        error: onError,
       };
 
-      //execute zenroom
-      zenroom.init(options).zencode_exec();
+      const startTime = new Date();
+
+      zencode_exec(props.zencode, options)
+        .then(result => {
+          const timeTaken = new Date() - startTime;
+          props.onResultChanged(result);
+          setExecutionTime(timeTaken);
+        })
+        .catch(error => props.onLogsChanged(error))
+
+
 
       // set executing false
       props.onExecute(false);
@@ -77,7 +96,30 @@ const Zenroom = (props) => {
 
   }, [props]);
 
+  const executeZencode = async (inputs) => {
+    const options = {
+      data: props.keys ? JSON.parse(JSON.stringify(inputs.data)) : null,
+      conf: props.keys ? JSON.parse(JSON.stringify(inputs.config)) : null,
+      keys: props.keys ? JSON.parse(JSON.stringify(inputs.keys)) : null,
+      // print: print,
+      // print_err: print_err,
+      // success: onSuccess,
+      // error: onError,
+    };
 
+    let result = 'No zencode result';
+    try {
+      const result = await zencode_exec(props.zencode, options);
+      props.onResultChanged(result);
+      console.log('The result from executing:');
+      console.log(result);
+    } catch (error) {
+      // props.onResultChanged([
+      //   { error: "Error detected. Execution aborted." },
+      // ]);
+      props.onLogsChanged(error);
+    }
+  }
 
   return (
     <div style={{ width: '100%', paddingLeft: '15px', paddingRight: '15px' }}>
@@ -107,7 +149,12 @@ const Zenroom = (props) => {
                 <div style={{ padding: '10px 17px' }}>
                   <h6 style={{ marginBottom: '30px' }}>Result:</h6>
                   <div>
-                    {props.result.length > 0 && props.result.map((result, index) => {
+                    {props.result &&
+                      <pre>
+                        {hasJsonStructure(props.result) && props.result ? JSON.stringify(JSON.parse(props.result), null, '   ') : props.result}
+                      </pre>
+                    }
+                    {/* {props.result.length > 0 && props.result.map((result, index) => {
 
                       let displayResult = result.error
                         ? (<div style={{ overflowWrap: 'break-word', color: 'red' }} key={index}>
@@ -120,9 +167,9 @@ const Zenroom = (props) => {
                         </div>)
                       return displayResult;
 
-                    })}
+                    })} */}
 
-                    {props.result.length > 0 && (
+                    {props.result && (
                       <div className={'d-flex justify-content-between mt-2'}>
                         <p><i>Executed in {executionTime} ms</i></p>
                         <div>
@@ -133,20 +180,21 @@ const Zenroom = (props) => {
 
                   </div>
 
-                  {props.logs.length > 0 && (
+                  {props.logs && (
                     <Fragment>
                       <hr />
                       <div style={{ marginTop: '50px' }}>
                         <h6>Logs:</h6>
-                        <ul>
-                          {props.logs.map((log, index) => {
+                        {/* <ul> */}
+                        {props.logs}
+                          {/* {props.logs.map((log, index) => {
                             return (
                               <li style={log.includes('[W]') ? { color: 'orange' } : log.includes('[!]') ? { color: 'red' } : { color: 'black' }} key={index}>
                                 {log}
                               </li>
                             )
-                          })}
-                        </ul>
+                          })} */}
+                        {/* </ul> */}
                       </div>
                     </Fragment>
                   )}
