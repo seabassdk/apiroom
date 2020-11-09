@@ -96,30 +96,6 @@ const Zenroom = (props) => {
 
   }, [props]);
 
-  const executeZencode = async (inputs) => {
-    const options = {
-      data: props.keys ? JSON.parse(JSON.stringify(inputs.data)) : null,
-      conf: props.keys ? JSON.parse(JSON.stringify(inputs.config)) : null,
-      keys: props.keys ? JSON.parse(JSON.stringify(inputs.keys)) : null,
-      // print: print,
-      // print_err: print_err,
-      // success: onSuccess,
-      // error: onError,
-    };
-
-    let result = 'No zencode result';
-    try {
-      const result = await zencode_exec(props.zencode, options);
-      props.onResultChanged(result);
-      console.log('The result from executing:');
-      console.log(result);
-    } catch (error) {
-      // props.onResultChanged([
-      //   { error: "Error detected. Execution aborted." },
-      // ]);
-      props.onLogsChanged(error);
-    }
-  }
 
   return (
     <div style={{ width: '100%', paddingLeft: '15px', paddingRight: '15px' }}>
