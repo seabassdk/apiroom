@@ -15,61 +15,15 @@ import { zenroom_exec, zencode_exec } from 'zenroom'
 
 const Zenroom = (props) => {
   const [executionTime, setExecutionTime] = useState(0);
-  const [logs, setLogs] = useState([]);
 
   const clearResults = () => {
-    props.onLogsChanged(null);
-    props.onResultChanged(null);
+    props.onLogsChanged(false);
+    props.onResultChanged(false);
   };
 
 
   useEffect(() => {
     if (props.execute) {
-      // const zenResult = [];
-      // const zenErrors = [];
-      // const startTime = new Date();
-
-      // //save the result
-      // const print = (text) => {
-      //   zenResult.push(text);
-      // };
-
-      // //Save any error
-      // const print_err = (text) => {
-      //   zenErrors.push(text);
-      // };
-
-      // //zenroom returns successfully
-      // const onSuccess = () => {
-      //   props.onLogsChanged(zenErrors);
-      //   props.onResultChanged(zenResult);
-
-      //   const timeTaken = new Date() - startTime;
-      //   setExecutionTime(timeTaken);
-      // };
-
-      // //zenroom returns with error
-      // const onError = () => {
-      //   props.onResultChanged([
-      //     { error: "Error detected. Execution aborted." },
-      //   ]);
-      //   props.onLogsChanged(zenErrors);
-      // };
-
-      // const options = {
-      //   script: props.zencode,
-      //   data: props.keys ? JSON.parse(JSON.stringify(props.data)) : null,
-      //   conf: props.keys ? JSON.parse(JSON.stringify(props.config)) : null,
-      //   keys: props.keys ? JSON.parse(JSON.stringify(props.keys)) : null,
-      //   print: print,
-      //   print_err: print_err,
-      //   success: onSuccess,
-      //   error: onError,
-      // };
-
-      //execute zenroom
-      // zenroom.init(options).zencode_exec();
-      // const result = await zencode_exec(props.zencode, options);
 
       const options = {
         data: props.keys ? JSON.parse(JSON.stringify(props.data)) : null,
@@ -80,14 +34,40 @@ const Zenroom = (props) => {
       const startTime = new Date();
 
       zencode_exec(props.zencode, options)
-        .then(result => {
+        .then(resObj => {
           const timeTaken = new Date() - startTime;
-          props.onResultChanged(result);
           setExecutionTime(timeTaken);
+
+          let logs = resObj.logs.split('\n').map(log => {
+            if (log.includes(' . ')) {
+              return log.replace(' . ', '');
+            }
+            return log;
+          });
+          logs = logs.filter(log => log !== '');
+
+          props.onResultChanged({
+            success: true,
+            msg: resObj.result,
+            logs
+          });
+          
         })
-        .catch(error => props.onLogsChanged(error))
+        .catch(error => {
+          let logs = error.logs.split('\n').map(log => {
+            if (log.includes(' . ')) {
+              return log.replace(' . ', '');
+            }
+            return log;
+          });
+          logs = logs.filter(log => log !== '');
 
-
+          props.onResultChanged({
+            success: false,
+            msg: 'Something went wrong. Check logs.',
+            logs
+          });
+        })
 
       // set executing false
       props.onExecute(false);
@@ -103,7 +83,6 @@ const Zenroom = (props) => {
         <tbody>
           <tr style={{ paddingTop: '5px' }}>
             <td style={{ width: '70%', height: '100%' }}>
-              {/* <div style={{width: '70%', padding: 0, display: 'inline-block' }}> */}
               <ResizeableInputAceContainers
                 zencode={props.zencode}
                 zencodeChanged={props.onZencodeChanged}
@@ -116,36 +95,23 @@ const Zenroom = (props) => {
                 // loadContract={onLoadExampleContract}
                 contracts={exampleContracts}
               />
-              {/* </div> */}
             </td>
             <ColumnResizer className="columnResizer" />
             <td style={{ width: '29%', height: '100%', paddingLeft: '0px', overflow: 'hidden' }}>
-              {/* <div style={{width: '30%', height: '100%', display: 'inline-block'}}> */}
               <div style={{ border: '2px solid #e8e8e8', padding: 0, height: '100%' }}>
                 <div style={{ padding: '10px 17px' }}>
                   <h6 style={{ marginBottom: '30px' }}>Result:</h6>
                   <div>
-                    {props.result &&
-                      <pre>
-                        {hasJsonStructure(props.result) && props.result ? JSON.stringify(JSON.parse(props.result), null, '   ') : props.result}
-                      </pre>
+                    {props.result && props.result.success
+                      ? (<pre>
+                        {hasJsonStructure(props.result.msg) && props.result ? JSON.stringify(JSON.parse(props.result.msg), null, '   ') : props.result.msg}
+                      </pre>)
+                      : (<div style={{ overflowWrap: 'break-word', color: 'red' }} >
+                        {props.result.msg}
+                      </div>)
                     }
-                    {/* {props.result.length > 0 && props.result.map((result, index) => {
 
-                      let displayResult = result.error
-                        ? (<div style={{ overflowWrap: 'break-word', color: 'red' }} key={index}>
-                          {result.error}
-                        </div>)
-                        : (<div key={index}>
-                          <pre>
-                            {hasJsonStructure(result) && result ? JSON.stringify(JSON.parse(result), null, '   ') : result}
-                          </pre>
-                        </div>)
-                      return displayResult;
-
-                    })} */}
-
-                    {props.result && (
+                    {props.result && props.result.success && (
                       <div className={'d-flex justify-content-between mt-2'}>
                         <p><i>Executed in {executionTime} ms</i></p>
                         <div>
@@ -156,27 +122,24 @@ const Zenroom = (props) => {
 
                   </div>
 
-                  {props.logs && (
+                  {props.result && props.result.logs && (
                     <Fragment>
                       <hr />
                       <div style={{ marginTop: '50px' }}>
                         <h6>Logs:</h6>
-                        {/* <ul> */}
-                        {props.logs}
-                          {/* {props.logs.map((log, index) => {
+                        <ul>
+                          {props.result.logs.map((log, index) => {
                             return (
                               <li style={log.includes('[W]') ? { color: 'orange' } : log.includes('[!]') ? { color: 'red' } : { color: 'black' }} key={index}>
                                 {log}
                               </li>
                             )
-                          })} */}
-                        {/* </ul> */}
+                          })}
+                        </ul>
                       </div>
                     </Fragment>
                   )}
                 </div>
-                {/* </div> */}
-                {/* here is the parent */}
               </div>
             </td>
           </tr>
