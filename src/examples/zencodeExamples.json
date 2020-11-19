@@ -10,10 +10,10 @@
 		"author":"Dyne.org",
 		"name":"Generate a keypair, reading identity from data",
 		"zencode":"Scenario 'ecdh': Create the keypair from a name passed from data/keys\r\n\r\n# Here we load the identity of the executor\r\nGiven my name is in a 'string' named 'myName'\r\n\r\n# Here we generate and print the keypair\r\nWhen I create the keypair\r\nThen print my data",
-		"keys":"",
-		"data":{
+		"keys":{
 			"myName":"User123456"
-		}
+		},
+		"data":""
 	},
 	{
 		"author":"Dyne.org",
@@ -238,6 +238,31 @@
 	{
 		"name":"separator",
 		"separator":"1",
+		"title":"[R]Restroom-mw: these contain statements that only work as API"
+	},
+	{
+		"author":"Dyne.org",
+		"name":"Read the output of an endpoint",
+		"zencode":"# The \"Rule unknown ignore\" is required when using a restroom-mw statement\r\nRule unknown ignore \r\n\r\n# we'll need to create a keypair to produce an ECDSA signature later\r\nScenario 'ecdh': Create the keypair\r\nGiven that I am known as 'Alice'\r\n\r\n# Those are restroom-mw statements: define the endpoints\r\nGiven that I have an endpoint named 'endpoint' \r\nGiven that I have an endpoint named 'timeServer' \r\n\r\n# We need those object to store the output of the endpoints\r\nGiven I have a 'string dictionary' named 'dataFromEndpoint'\r\nGiven I have a 'number' named 'timestamp'\r\n\r\n# Those are restroom-mw statements: connect to endpoints and store their output into Zenroom's objects\r\nGiven I connect to 'endpoint' and save the output into 'dataFromEndpoint'\r\nGiven I connect to 'timeServer' and save the output into 'timestamp'\r\n\r\n# Create a string dictionary to format the output \r\nWhen I create the 'string dictionary'\r\nand I rename the 'string dictionary' to 'outputData'\r\n\r\n# Organize the output of the endpoints in the string dictionary\r\nWhen I insert 'dataFromEndpoint' in 'outputData'\r\nWhen I insert 'timestamp' in 'outputData'\r\n\r\n# ECDSA signature\r\nWhen I create the keypair\r\nWhen I create the signature of 'outputData'\r\nWhen I rename the 'signature' to 'outputData.signature'\r\n\r\n# Printing the output\r\nThen print the 'outputData'\r\nThen print the 'outputData.signature'",
+		"keys":{
+			"endpoint":"https://apiroom.net/api/dyneorg/512-bits-random-generator",
+			"timeServer":"http://showcase.api.linx.twenty57.net/UnixTime/tounix?date=now"
+		},
+		"data":""
+	},
+	{
+		"author":"Dyne.org",
+		"name":"Send the output to an endpoint via REST call",
+		"zencode":"Rule unknown ignore \r\nScenario 'ecdh': Create the keypair \r\n\r\n# [R] Restroom-mw statements: state endpoints\r\nGiven that I have an endpoint named 'timeServer'  \r\nGiven that I have an endpoint named 'outputEndpoint'  \r\n\r\n# We need this object to store the output of the timestamp endpoint\r\nGiven I have a 'number' named 'timestamp'\r\n\r\n# [R] Restroom-mw statements: connect to endpoints and store the output\r\nGiven I connect to 'timeServer' and save the output into 'timestamp'\r\n\r\n# Let's create an array of random objects\r\nWhen I create the array of '8' random objects of '256' bits\r\nand I rename the 'array' to 'randomArray'\r\n\r\n# Create a string dictionary to format the output \r\nWhen I create the 'base64 dictionary'\r\nand I rename the 'base64 dictionary' to 'outputData'\r\n\r\n# Organize the output of the endpoints in the string dictionary\r\nWhen I insert 'timestamp' in 'outputData'\r\nWhen I insert 'randomArray' in 'outputData'\r\n\r\n# Informative string\r\nWhen I write string 'see the results in https://beeceptor.com/console/dyneorg' in 'outputString'\r\n\r\n# Print the output\r\nThen print all data\r\n\r\n# [R] Restroom-mw statements: send the output to an endpoint via a REST call  \r\nThen pass the output to 'outputEndpoint'\r\n\r\n\r\n",
+		"keys":{
+			"timeServer":"http://showcase.api.linx.twenty57.net/UnixTime/tounix?date=now",
+			"outputEndpoint":"https://dyneorg.free.beeceptor.com"
+		},
+		"data":""
+	},
+	{
+		"name":"separator",
+		"separator":"1",
 		"title":"Zero knowledge proof flow"
 	},
 	{
@@ -414,7 +439,7 @@
 			}
 		}
 	},
-		{
+	{
 		"name":"separator",
 		"separator":"1",
 		"title":"Secret sharing"
@@ -424,38 +449,38 @@
 		"name":"Create 9 shares, with quorum of 5",
 		"zencode":"# Let's define the scenario, we'll need the 'secshare' here\r\nScenario secshare: create a shared secret\r\n\r\n# We'll start from a secret, which can be max 32 bytes in length\r\nGiven I have a 'string' named '32BytesSecret'\r\n\r\n# Here we are creating the \"secret shares\", the output will be an array of pairs of numbers\r\n# The quorum represents the minumum amount of secret shares needed to\r\n# rebuild the secret, and it can be configured\r\nWhen I create the secret shares of '32BytesSecret' with '9' quorum '5'\r\n\r\n# Here we rename the output and print it out\r\nand I rename the 'secret shares' to 'mySharedSecret'\r\nThen print the 'mySharedSecret'",
 		"keys":{
-			"32BytesSecret": "myMilkshakeBringsAllTheBoysTo..."
+			"32BytesSecret":"myMilkshakeBringsAllTheBoysTo..."
 		},
 		"data":""
 	},
-		{
+	{
 		"author":"Dyne.org",
 		"name":"Recompose the secret from 5 shares (out of 9)",
 		"zencode":"Scenario secshare: recompose the secret shares\r\n\r\n# Here we are loading the \"secret shares\" \r\nGiven I have a 'secret shares' named 'my5partsOfTheSharedSecret'\r\n\r\n# Here we are testing if the secret shares can be recomposed to form the password\r\n# in case the quorum isn't reached or isn't correct, Zenroom will anyway output a string,\r\n# that will be different from the original secret.\r\n# if the quorum is correct, the original secret should be printed out.\r\nwhen I compose the secret using 'my5partsOfTheSharedSecret'\r\nThen print the 'secret' as 'string'",
 		"keys":"",
 		"data":{
-			"my5partsOfTheSharedSecret": [
+			"my5partsOfTheSharedSecret":[
 				{
-				  "x": "Ut5SRQceAzJ4Tl4oQGLJtT9exHMS9MZjr8FTyeLNCoI=",
-				  "y": "yOh0IHDQVQGPQshkWOcba/SoN2hzEsM/PPHw+7AoPIg="
+					"x":"Ut5SRQceAzJ4Tl4oQGLJtT9exHMS9MZjr8FTyeLNCoI=",
+					"y":"yOh0IHDQVQGPQshkWOcba/SoN2hzEsM/PPHw+7AoPIg="
 				},
 				{
-				  "x": "XStq5PU+KhUqaPlTyskhB2SCT1JFlh6mon2/mfwtMtM=",
-				  "y": "oVmB7/16L4QgHAaYottjouvyxi7w+eq1bptNN7tQtMc="
+					"x":"XStq5PU+KhUqaPlTyskhB2SCT1JFlh6mon2/mfwtMtM=",
+					"y":"oVmB7/16L4QgHAaYottjouvyxi7w+eq1bptNN7tQtMc="
 				},
 				{
-				  "x": "kLmRePcPru3of6WbNnyBsUmeKT52qkrVQsyjPQoJOGo=",
-				  "y": "4sSGlM4rUxYM4LC8dwnbY+es7HaEbhWD4+JDJGegrKo="
+					"x":"kLmRePcPru3of6WbNnyBsUmeKT52qkrVQsyjPQoJOGo=",
+					"y":"4sSGlM4rUxYM4LC8dwnbY+es7HaEbhWD4+JDJGegrKo="
 				},
 				{
-				  "x": "tuQr29Ep4Zyi/qmw2Bv/U1qtlE3c5fT/l72Ma+lA6Pw=",
-				  "y": "cCMMDuX+7CTd8Sinj6cPFw5qFh+CIt7TlPk8uM/st40="
+					"x":"tuQr29Ep4Zyi/qmw2Bv/U1qtlE3c5fT/l72Ma+lA6Pw=",
+					"y":"cCMMDuX+7CTd8Sinj6cPFw5qFh+CIt7TlPk8uM/st40="
 				},
 				{
-				  "x": "6RVZxMwQHQ3LcEcmrM9D/SZV4BeC9tFGV70uBVVfCbo=",
-				  "y": "hwpgXGUIGjJA/zwDo/CWkaGUU9CEZXZTq/4Yj9n9x4s="
+					"x":"6RVZxMwQHQ3LcEcmrM9D/SZV4BeC9tFGV70uBVVfCbo=",
+					"y":"hwpgXGUIGjJA/zwDo/CWkaGUU9CEZXZTq/4Yj9n9x4s="
 				}
-		  ]
+			]
 		}
 	},
 	{
