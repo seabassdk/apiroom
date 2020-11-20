@@ -1,640 +1,650 @@
 [
-	    {
-        "name": "Rule input format CBOR",
-        "value": "Rule input format CBOR",
-        "caption": "Rule input format CBOR",
-        "meta": "formats: CBOR|JSON"
-    },
-		    {
-        "name": "Rule output format CBOR",
-        "value": "Rule output format CBOR",
-        "caption": "Rule output format CBOR",
-        "meta": "formats: CBOR|JSON"
-    },
-	
-	    {
-        "name": "Rule input encoding hex",
-        "value": "Rule input encoding hex",
-        "caption": "Rule input encoding hex",
-        "meta": "encodings: string|number|hex|bin|base64|base58|url64"
-    },
-	
-		    {
-        "name": "Rule output encoding hex",
-        "value": "Rule output encoding hex",
-        "caption": "Rule output encoding hex",
-        "meta": "encodings: string|number|hex|bin|base64|base58|url64"
-    },
-	
-			    {
-        "name": "Rule check version 1.0.0",
-        "value": "Rule check version 1.0.0",
-        "caption": "Rule check version 1.0.0",
-        "meta": ""
-    },
-
-
-    {
-        "name": "Given nothing",
-        "value": "Given nothing",
-        "caption": "Given nothing",
-        "meta": ""
-    },
-    {
-        "name": "Given I am 'userName'",
-        "value": "Given I am 'userName'",
-        "caption": "Given I am 'userName'",
-        "meta": ""
-    },
 	{
-        "name": "Given my name is in a 'string' named 'nameOfSimpleObject'",
-        "value": "Given my name is in a 'string' named 'nameOfSimpleObject'",
-        "caption": "Given my name is in a 'string' named 'nameOfSimpleObject'",
-        "meta": "Loads the identity of the executor from parameter, accepts (string|bin|base64|base58|url64)"
-    },
-
-	    {
-        "name": "Given I have a 'nameOfObjectOrSchema'",
-        "value": "Given I have a 'nameOfObjectOrSchema'",
-        "caption": "Given I have a 'nameOfObjectOrSchema'",
-        "meta": ""
-    },
-
-	    {
-        "name": "Given I have a 'nameOfObjectOrSchema' from 'userName'",
-        "value": "Given I have a 'nameOfObjectOrSchema' from 'userName'",
-        "caption": "Given I have a 'nameOfObjectOrSchema' from 'userName'",
-        "meta": ""
-    },
-
-	    {
-        "name": "Given I have a 'nameOfObjectOrSchema' in 'nameOfComplexObject'",
-        "value": "Given I have a 'nameOfObjectOrSchema' in 'nameOfComplexObject'",
-        "caption": "Given I have a 'nameOfObjectOrSchema' in 'nameOfComplexObject'",
-        "meta": ""
-    },
-	
-	    {
-        "name": "Given I have a 'string array' named 'nameOfObject'",
-        "value": "Given I have a 'string array' named 'nameOfObject'",
-        "caption": "Given I have a 'string array' named 'nameOfObject'",
-        "meta": "[Valid arrays: string|number|hex|bin|base64|base58|url64]"
-    },
-
-	    {
-        "name": "Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
-        "value": "Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
-        "caption": "Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
-        "meta": "[Valid arrays: string|number|hex|bin|base64|base58|url64]"
-    },
-
-	    {
-        "name": "Given I have my 'nameOfObjectOrSchema'",
-        "value": "Given I have my 'nameOfObjectOrSchema'",
-        "caption": "Given I have my 'nameOfObjectOrSchema'",
-        "meta": ""
-    },
-	    {
-        "name": "Given I have my 'nameOfObjectOrSchema' named 'nameOfObject'",
-        "value": "Given I have my 'nameOfObjectOrSchema' named 'nameOfObject'",
-        "caption": "Given I have my 'nameOfObjectOrSchema' named 'nameOfObject'",
-        "meta": ""
-    },
-
-	    {
-        "name": "Given my 'nameOfObjectOrSchema' is valid",
-        "value": "Given my 'nameOfObjectOrSchema' is valid",
-        "caption": "Given my 'nameOfObjectOrSchema' is valid",
-        "meta": ""
-    },
-
-
-	    {
-        "name": "Given the 'nameOfObjectOrSchema' is valid",
-        "value": "Given the 'nameOfObjectOrSchema' is valid",
-        "caption": "Given the 'nameOfObjectOrSchema' is valid",
-        "meta": ""
-    },
-    {
-        "name": "When I create the aggregation of array 'nameOfArray'",
-        "value": "When I create the aggregation of array 'nameOfArray'",
-        "caption": "When I create the aggregation of array 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the array of '15' random numbers",
-        "value": "When I create the array of '15' random numbers",
-        "caption": "When I create the array of '15' random numbers",
-        "meta": ""
-    },
-    {
-        "name": "When I create the array of '14' random numbers modulo '1000'",
-        "value": "When I create the array of '14' random numbers modulo '1000'",
-        "caption": "When I create the array of '14' random numbers modulo '1000'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the array of '12' random objects",
-        "value": "When I create the array of '12' random objects",
-        "caption": "When I create the array of '12' random objects",
-        "meta": ""
-    },
-    {
-        "name": "When I create the array of '13' random objects of '256' bits",
-        "value": "When I create the array of '13' random objects of '256' bits",
-        "caption": "When I create the array of '13' random objects of '256' bits",
-        "meta": ""
-    },
-    {
-        "name": "When I insert the 'nameOfSimpleObject' in 'nameOfArray'",
-        "value": "When I insert the 'nameOfSimpleObject' in 'nameOfArray'",
-        "caption": "When I insert the 'nameOfSimpleObject' in 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When I pick the random object in 'nameOfArray'",
-        "value": "When I pick the random object in 'nameOfArray'",
-        "caption": "When I pick the random object in 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When I randomize the 'nameOfArray' array",
-        "value": "When I randomize the 'nameOfArray' array",
-        "caption": "When I randomize the 'nameOfArray' array",
-        "meta": ""
-    },
-    {
-        "name": "When I remove the 'nameOfSimpleObject' from 'nameOfArray'",
-        "value": "When I remove the 'nameOfSimpleObject' from 'nameOfArray'",
-        "caption": "When I remove the 'nameOfSimpleObject' from 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When the 'nameOfSimpleObject' is found in 'nameOfArray'",
-        "value": "When the 'nameOfSimpleObject' is found in 'nameOfArray'",
-        "caption": "When the 'nameOfSimpleObject' is found in 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When the 'nameOfSimpleObject' is not found in 'nameOfArray'",
-        "value": "When the 'nameOfSimpleObject' is not found in 'nameOfArray'",
-        "caption": "When the 'nameOfSimpleObject' is not found in 'nameOfArray'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the HMAC of 'nameOfSimpleObject' with key 'nameOfSimpleObject'",
-        "value": "When I create the HMAC of 'nameOfSimpleObject' with key 'nameOfSimpleObject'",
-        "caption": "When I create the HMAC of 'nameOfSimpleObject' with key 'nameOfSimpleObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I create the hash of 'nameOfObject'",
-        "value": "When I create the hash of 'nameOfObject'",
-        "caption": "When I create the hash of 'nameOfObject'",
-        "meta": "Works with any object, returns sha256 hash"
-    },
-    {
-        "name": "When I create the hash of 'nameOfObject' using 'sha512'",
-        "value": "When I create the hash of 'nameOfObject' using 'sha512'",
-        "caption": "When I create the hash of 'nameOfObject' using 'sha512'",
-        "meta": "Works with any object, for 'sha512' or 'sha256'"
-    },
-    {
-        "name": "When I create the hash to point 'ecp' of each object in 'nameOfArray'",
-        "value": "When I create the hash to point 'ecp' of each object in 'nameOfArray'",
-        "caption": "When I create the hash to point 'ecp' of each object in 'nameOfArray'",
-        "meta": "Works with 'ecp' and 'ecp2' "
-    },
-    {
-        "name": "When I create the hashes of each object in 'nameOfArray'",
-        "value": "When I create the hashes of each object in 'nameOfArray'",
-        "caption": "When I create the hashes of each object in 'nameOfArray'",
-        "meta": "Returns hash of each element of an array "
-    },
-    {
-        "name": "When I create the key derivation of 'nameOfSimpleObject'",
-        "value": "When I create the key derivation of 'nameOfSimpleObject'",
-        "caption": "When I create the key derivation of 'nameOfSimpleObject'",
-        "meta": "Hash using Key Derivation (KDF)"
-    },
-    {
-        "name": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
-        "value": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
-        "caption": "When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
-        "meta": "Hash using Password-Based Key Derivation (pbKDF)"
-    },
-    {
-        "name": "When I create the random object of '256' bits",
-        "value": "When I create the random object of '256' bits",
-        "caption": "When I create the random object of '256' bits",
-        "meta": ""
-    },
-    {
-        "name": "When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
-        "value": "When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
-        "caption": "When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
-        "meta": "Appends object (e.g. a string) to an array"
-    },
-    {
-        "name": "When I create the random 'nameOfNewObject'",
-        "value": "When I create the random 'nameOfNewObject'",
-        "caption": "When I create the random 'nameOfNewObject'",
-        "meta": ""
-    },
-    {
-        "name": "When number 'nameOfNumberObject' is less or equal than 'nameOfNumberObject'",
-        "value": "When number 'nameOfNumberObject' is less or equal than 'nameOfNumberObject'",
-        "caption": "When number 'nameOfNumberObject' is less or equal than 'nameOfNumberObject'",
-        "meta": ""
-    },
-    {
-        "name": "When number 'nameOfNumberObject' is less than 'nameOfNumberObject'",
-        "value": "When number 'nameOfNumberObject' is less than 'nameOfNumberObject'",
-        "caption": "When number 'nameOfNumberObject' is less than 'nameOfNumberObject'",
-        "meta": ""
-    },
-    {
-        "name": "When number 'nameOfNumberObject' is more or equal than 'nameOfNumberObject'",
-        "value": "When number 'nameOfNumberObject' is more or equal than 'nameOfNumberObject'",
-        "caption": "When number 'nameOfNumberObject' is more or equal than 'nameOfNumberObject'",
-        "meta": ""
-    },
-    {
-        "name": "When number 'nameOfNumberObject' is more than 'nameOfNumberObject'",
-        "value": "When number 'nameOfNumberObject' is more than 'nameOfNumberObject'",
-        "caption": "When number 'nameOfNumberObject' is more than 'nameOfNumberObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I rename the 'nameOfSimpleObject' to 'nameOfNewObject'",
-        "value": "When I rename the 'nameOfSimpleObject' to 'nameOfNewObject'",
-        "caption": "When I rename the 'nameOfSimpleObject' to 'nameOfNewObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
-        "value": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
-        "caption": "When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "When I set 'nameOfNewObject' to '10000' base '16'",
-        "value": "When I set 'nameOfNewObject' to '10000' base '16'",
-        "caption": "When I set 'nameOfNewObject' to '10000' base '16'",
-        "meta": ""
-    },
-    {
-        "name": "When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
-        "value": "When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
-        "caption": "When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
-        "value": "When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
-        "caption": "When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I verify 'nameOfSimpleObject' is equal to 'nameOfSimpleObject'",
-        "value": "When I verify 'nameOfSimpleObject' is equal to 'nameOfSimpleObject'",
-        "caption": "When I verify 'nameOfSimpleObject' is equal to 'nameOfSimpleObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I verify 'nameOfSimpleObject' is not equal to 'nameOfSimpleObject'",
-        "value": "When I verify 'nameOfSimpleObject' is not equal to 'nameOfSimpleObject'",
-        "caption": "When I verify 'nameOfSimpleObject' is not equal to 'nameOfSimpleObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I write number '8' in 'nameOfNewObject'",
-        "value": "When I write number '8' in 'nameOfNewObject'",
-        "caption": "When I write number '8' in 'nameOfNewObject'",
-        "meta": ""
-    },
-	 {
-        "name": "When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
-        "value": "When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
-        "caption": "When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
-        "meta": ""
-    },
-	{
-        "name": "When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
-        "value": "When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
-        "caption": "When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
-        "meta": ""
-    },
-    {
-        "name": "When I write string 'HELLO WORLD!' in 'nameOfNewObject'",
-        "value": "When I write string 'HELLO WORLD!' in 'nameOfNewObject'",
-        "caption": "When I write string 'HELLO WORLD!' in 'nameOfNewObject'",
-        "meta": ""
-    },
-    {
-        "name": "Then print the 'nameOfObjectOrSchema'",
-        "value": "Then print the 'nameOfObjectOrSchema'",
-        "caption": "Then print the 'nameOfObjectOrSchema'",
-        "meta": ""
-    },
-	 {
-        "name": "Then print 'Hello world!'",
-        "value": "Then print the 'Hello world!'",
-        "caption": "Then print the 'Hello world!'",
-        "meta": ""
-    },
-	{
-        "name": "Then print the 'nameOfObjectOrSchema' as 'string'",
-        "value": "Then print the 'nameOfObjectOrSchema' as 'string'",
-        "caption": "Then print the 'nameOfObjectOrSchema' as 'string'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
-        "value": "Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
-        "caption": "Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "Then print data",
-        "value": "Then print data",
-        "caption": "Then print data",
-        "meta": ""
-    },
-    {
-        "name": "Then print data as 'string'",
-        "value": "Then print data as 'string'",
-        "caption": "Then print data as 'string'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-	{
-        "name": "Then print my data",
-        "value": "Then print my data",
-        "caption": "Then print my data",
-        "meta": "Nests output under JSON object named as the contract identity"
-    },
-    {
-        "name": "Then print my 'nameOfObjectOrSchema'",
-        "value": "Then print my 'nameOfObjectOrSchema'",
-        "caption": "Then print my 'nameOfObjectOrSchema'",
-        "meta": ""
-    },
-    {
-        "name": "Then print my 'nameOfObjectOrSchema' as 'string'",
-        "value": "Then print my 'nameOfObjectOrSchema' as 'string'",
-        "caption": "Then print my 'nameOfObjectOrSchema' as 'string'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "Then print my 'nameOfObjectOrSchema' from 'userName'",
-        "value": "Then print my 'nameOfObjectOrSchema' from 'userName'",
-        "caption": "Then print my 'nameOfObjectOrSchema' from 'userName'",
-        "meta": ""
-    },
-    {
-        "name": "Then print my data as 'string'",
-        "value": "Then print my data as 'string'",
-        "caption": "Then print my data as 'string'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
-        "value": "Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
-        "caption": "Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
-        "meta": "[Valid encodings: string|number|hex|bin|base64|base58|url64]"
-    },
-    {
-        "name": "Then print the 'nameOfObject' in 'nameOfComplexObject'",
-        "value": "Then print the 'nameOfObject' in 'nameOfComplexObject'",
-        "caption": "Then print the 'nameOfObject' in 'nameOfComplexObject'",
-        "meta": ""
-    },
-	{
-	"name": "When I create the keypair",
-	"value": "When I create the keypair",
-	"caption": "When I create the keypair",
-	"meta": "Scenario 'ecdh'"
+		"name":"Rule input format CBOR",
+		"value":"Rule input format CBOR",
+		"caption":"Rule input format CBOR",
+		"meta":"formats: CBOR|JSON"
 	},
 	{
-	 "name": "When I create the signature of 'nameOfObject'",
-	"value": "When I create the signature of 'nameOfObject'",
-	"caption": "When I create the signature of 'nameOfObject'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Rule output format CBOR",
+		"value":"Rule output format CBOR",
+		"caption":"Rule output format CBOR",
+		"meta":"formats: CBOR|JSON"
 	},
 	{
-	 "name": "When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
-	"value": "When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
-	"caption": "When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Rule input encoding hex",
+		"value":"Rule input encoding hex",
+		"caption":"Rule input encoding hex",
+		"meta":"encodings: string|number|hex|bin|base64|base58|url64"
 	},
 	{
-	 "name": "When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"value": "When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"caption": "When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Rule output encoding hex",
+		"value":"Rule output encoding hex",
+		"caption":"Rule output encoding hex",
+		"meta":"encodings: string|number|hex|bin|base64|base58|url64"
 	},
 	{
-	 "name": "When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"value": "When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"caption": "When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Rule check version 1.0.0",
+		"value":"Rule check version 1.0.0",
+		"caption":"Rule check version 1.0.0",
+		"meta":""
 	},
 	{
-	 "name": "When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
-	"value": "When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
-	"caption": "When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Given nothing",
+		"value":"Given nothing",
+		"caption":"Given nothing",
+		"meta":""
 	},
 	{
-	 "name": "When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
-	"value": "When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
-	"caption": "When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Given I am 'userName'",
+		"value":"Given I am 'userName'",
+		"caption":"Given I am 'userName'",
+		"meta":""
 	},
 	{
-	 "name": "When I verify the 'nameOfObject' is signed by 'userName'",
-	"value": "When I verify the 'nameOfObject' is signed by 'userName'",
-	"caption": "When I verify the 'nameOfObject' is signed by 'userName'",
-	"meta": "Scenario 'ecdh'"
+		"name":"Given my name is in a 'string' named 'nameOfSimpleObject'",
+		"value":"Given my name is in a 'string' named 'nameOfSimpleObject'",
+		"caption":"Given my name is in a 'string' named 'nameOfSimpleObject'",
+		"meta":"Loads the identity of the executor from parameter, accepts (string|bin|base64|base58|url64)"
 	},
 	{
-	"name": "When I create the ephemeral ids for today",
-	"value": "When I create the ephemeral ids for today",
-	"caption": "When I create the ephemeral ids for today",
-	"meta": "Scenario 'dp3t'"
+		"name":"Given I have a 'nameOfObjectOrSchema'",
+		"value":"Given I have a 'nameOfObjectOrSchema'",
+		"caption":"Given I have a 'nameOfObjectOrSchema'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the proximity tracing of infected ids",
-	"value": "When I create the proximity tracing of infected ids",
-	"caption": "When I create the proximity tracing of infected ids",
-	"meta": "Scenario 'dp3t'"
+		"name":"Given I have a 'nameOfObjectOrSchema' from 'userName'",
+		"value":"Given I have a 'nameOfObjectOrSchema' from 'userName'",
+		"caption":"Given I have a 'nameOfObjectOrSchema' from 'userName'",
+		"meta":""
 	},
 	{
-	 "name": "When I renew the secret day key to a new day",
-	"value": "When I renew the secret day key to a new day",
-	"caption": "When I renew the secret day key to a new day",
-	"meta": "Scenario 'dp3t'"
+		"name":"Given I have a 'nameOfObjectOrSchema' in 'nameOfComplexObject'",
+		"value":"Given I have a 'nameOfObjectOrSchema' in 'nameOfComplexObject'",
+		"caption":"Given I have a 'nameOfObjectOrSchema' in 'nameOfComplexObject'",
+		"meta":""
 	},
 	{
-	"name": "When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"value": "When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"caption": "When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"meta": ""
+		"name":"Given I have a 'string' named 'nameOfObject'",
+		"value":"Given I have a 'string' named 'nameOfObject'",
+		"caption":"Given I have a 'string' named 'nameOfObject'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
 	},
 	{
-	 "name": "When I create the sum value 'nameOfNewObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' > 'nameOfNumberObject'",
-	"value": "When I create the sum value 'nameOfNewObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' > 'nameOfNumberObject'",
-	"caption": "When I create the sum value 'nameOfNewObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' > 'nameOfNumberObject'",
-	"meta": ""
+		"name":"Given I have a 'string array' named 'nameOfObject'",
+		"value":"Given I have a 'string array' named 'nameOfObject'",
+		"caption":"Given I have a 'string array' named 'nameOfObject'",
+		"meta":"[Valid arrays: string|number|hex|bin|base64|base58|url64]"
 	},
 	{
-	 "name": "When I find the 'nameOfNumberObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' = 'nameOfNumberObject'",
-	"value": "When I find the 'nameOfNumberObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' = 'nameOfNumberObject'",
-	"caption": "When I find the 'nameOfNumberObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' = 'nameOfNumberObject'",
-	"meta": ""
+		"name":"Given I have a 'string dictionary' named 'nameOfObject'",
+		"value":"Given I have a 'string dictionary' named 'nameOfObject'",
+		"caption":"Given I have a 'string dictionary' named 'nameOfObject'",
+		"meta":"[Valid dictionaries: string|number|hex|bin|base64|base58|url64]"
 	},
 	{
-	 "name": "When I find the max value 'nameOfNumberObject' for dictionaries in 'nameOfDictionary'",
-	"value": "When I find the max value 'nameOfNumberObject' for dictionaries in 'nameOfDictionary'",
-	"caption": "When I find the max value 'nameOfNumberObject' for dictionaries in 'nameOfDictionary'",
-	"meta": ""
+		"name":"Given I have a 'string' named 'nameOfObject' in 'nameOfComplexObject'",
+		"value":"Given I have a 'string' named 'nameOfObject' in 'nameOfComplexObject'",
+		"caption":"Given I have a 'string' named 'nameOfObject' in 'nameOfComplexObject'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
 	},
 	{
-	 "name": "When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"value": "When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"caption": "When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
-	"meta": ""
+		"name":"Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
+		"value":"Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
+		"caption":"Given I have a 'string array' named 'nameOfObject' in 'nameOfComplexObject'",
+		"meta":"[Valid arrays: string|number|hex|bin|base64|base58|url64]"
 	},
 	{
-	 "name": "When I aggregate the verifiers",
-	"value": "When I aggregate the verifiers",
-	"caption": "When I aggregate the verifiers",
-	"meta": "Scenario 'credential'"
+		"name":"Given I have a 'string dictionary' named 'nameOfObject' in 'nameOfComplexObject'",
+		"value":"Given I have a 'string dictionary' named 'nameOfObject' in 'nameOfComplexObject'",
+		"caption":"Given I have a 'string dictionary' named 'nameOfObject' in 'nameOfComplexObject'",
+		"meta":"[Valid dictionaries: string|number|hex|bin|base64|base58|url64]"
 	},
 	{
-	 "name": "When I create the credential keypair",
-	"value": "When I create the credential keypair",
-	"caption": "When I create the credential keypair",
-	"meta": "Scenario 'credential'"
+		"name":"Given I have my 'nameOfObjectOrSchema'",
+		"value":"Given I have my 'nameOfObjectOrSchema'",
+		"caption":"Given I have my 'nameOfObjectOrSchema'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the credential proof",
-	"value": "When I create the credential proof",
-	"caption": "When I create the credential proof",
-	"meta": "Scenario 'credential'"
+		"name":"Given I have my 'nameOfObjectOrSchema' named 'nameOfObject'",
+		"value":"Given I have my 'nameOfObjectOrSchema' named 'nameOfObject'",
+		"caption":"Given I have my 'nameOfObjectOrSchema' named 'nameOfObject'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the credential request",
-	"value": "When I create the credential request",
-	"caption": "When I create the credential request",
-	"meta": "Scenario 'credential'"
+		"name":"Given my 'nameOfObjectOrSchema' is valid",
+		"value":"Given my 'nameOfObjectOrSchema' is valid",
+		"caption":"Given my 'nameOfObjectOrSchema' is valid",
+		"meta":""
 	},
 	{
-	 "name": "When I create the credential signature",
-	"value": "When I create the credential signature",
-	"caption": "When I create the credential signature",
-	"meta": "Scenario 'credential'"
+		"name":"Given the 'nameOfObjectOrSchema' is valid",
+		"value":"Given the 'nameOfObjectOrSchema' is valid",
+		"caption":"Given the 'nameOfObjectOrSchema' is valid",
+		"meta":""
 	},
 	{
-	 "name": "When I create the credentials",
-	"value": "When I create the credentials",
-	"caption": "When I create the credentials",
-	"meta": "Scenario 'credential'"
+		"name":"When I create the aggregation of array 'nameOfArray'",
+		"value":"When I create the aggregation of array 'nameOfArray'",
+		"caption":"When I create the aggregation of array 'nameOfArray'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the issuer keypair",
-	"value": "When I create the issuer keypair",
-	"caption": "When I create the issuer keypair",
-	"meta": "Scenario 'credential'"
+		"name":"When I create the array of '15' random numbers",
+		"value":"When I create the array of '15' random numbers",
+		"caption":"When I create the array of '15' random numbers",
+		"meta":""
 	},
 	{
-	 "name": "When I verify the credential proof",
-	"value": "When I verify the credential proof",
-	"caption": "When I verify the credential proof",
-	"meta": "Scenario 'credential'"
+		"name":"When I create the array of '14' random numbers modulo '1000'",
+		"value":"When I create the array of '14' random numbers modulo '1000'",
+		"caption":"When I create the array of '14' random numbers modulo '1000'",
+		"meta":""
 	},
 	{
-	 "name": "When I add the signature to the petition",
-	"value": "When I add the signature to the petition",
-	"caption": "When I add the signature to the petition",
-	"meta": "Scenario 'petition'"
+		"name":"When I create the array of '12' random objects",
+		"value":"When I create the array of '12' random objects",
+		"caption":"When I create the array of '12' random objects",
+		"meta":""
 	},
 	{
-	 "name": "When I count the petition results",
-	"value": "When I count the petition results",
-	"caption": "When I count the petition results",
-	"meta": "Scenario 'petition'"
+		"name":"When I create the array of '13' random objects of '256' bits",
+		"value":"When I create the array of '13' random objects of '256' bits",
+		"caption":"When I create the array of '13' random objects of '256' bits",
+		"meta":""
 	},
 	{
-	 "name": "When I create a petition tally",
-	"value": "When I create a petition tally",
-	"caption": "When I create a petition tally",
-	"meta": "Scenario 'petition'"
+		"name":"When I insert the 'nameOfSimpleObject' in 'nameOfArray'",
+		"value":"When I insert the 'nameOfSimpleObject' in 'nameOfArray'",
+		"caption":"When I insert the 'nameOfSimpleObject' in 'nameOfArray'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the petition 'nameOfNewObject'",
-	"value": "When I create the petition 'nameOfNewObject'",
-	"caption": "When I create the petition 'nameOfNewObject'",
-	"meta": "Scenario 'petition'"
+		"name":"When I pick the random object in 'nameOfArray'",
+		"value":"When I pick the random object in 'nameOfArray'",
+		"caption":"When I pick the random object in 'nameOfArray'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the petition signature 'nameOfNewObject'",
-	"value": "When I create the petition signature 'nameOfNewObject'",
-	"caption": "When I create the petition signature 'nameOfNewObject'",
-	"meta": "Scenario 'petition'"
+		"name":"When I randomize the 'nameOfArray' array",
+		"value":"When I randomize the 'nameOfArray' array",
+		"caption":"When I randomize the 'nameOfArray' array",
+		"meta":""
 	},
 	{
-	 "name": "When the petition signature is just one more",
-	"value": "When the petition signature is just one more",
-	"caption": "When the petition signature is just one more",
-	"meta": "Scenario 'petition'"
+		"name":"When I remove the 'nameOfSimpleObject' from 'nameOfArray'",
+		"value":"When I remove the 'nameOfSimpleObject' from 'nameOfArray'",
+		"caption":"When I remove the 'nameOfSimpleObject' from 'nameOfArray'",
+		"meta":""
 	},
 	{
-	 "name": "When the petition signature is not a duplicate",
-	"value": "When the petition signature is not a duplicate",
-	"caption": "When the petition signature is not a duplicate",
-	"meta": "Scenario 'petition'"
+		"name":"When the 'nameOfSimpleObject' is found in 'nameOfArray'",
+		"value":"When the 'nameOfSimpleObject' is found in 'nameOfArray'",
+		"caption":"When the 'nameOfSimpleObject' is found in 'nameOfArray'",
+		"meta":""
 	},
 	{
-	 "name": "When I verify the new petition to be empty",
-	"value": "When I verify the new petition to be empty",
-	"caption": "When I verify the new petition to be empty",
-	"meta": "Scenario 'petition'"
+		"name":"When the 'nameOfSimpleObject' is not found in 'nameOfArray'",
+		"value":"When the 'nameOfSimpleObject' is not found in 'nameOfArray'",
+		"caption":"When the 'nameOfSimpleObject' is not found in 'nameOfArray'",
+		"meta":""
 	},
 	{
-	 "name": "When I verify the signature proof is correct",
-	"value": "When I verify the signature proof is correct",
-	"caption": "When I verify the signature proof is correct",
-	"meta": "Scenario 'petition'"
+		"name":"When I create the HMAC of 'nameOfSimpleObject' with key 'nameOfSimpleObject'",
+		"value":"When I create the HMAC of 'nameOfSimpleObject' with key 'nameOfSimpleObject'",
+		"caption":"When I create the HMAC of 'nameOfSimpleObject' with key 'nameOfSimpleObject'",
+		"meta":""
 	},
 	{
-	 "name": "When I create the cbor of 'nameOfComplexObject'",
-	"value": "When I create the cbor of 'nameOfComplexObject'",
-	"caption": "When I create the cbor of 'nameOfComplexObject'",
-	"meta": "Outputs CBOR of arrays, dictionaries and schemas"
+		"name":"When I create the hash of 'nameOfObject'",
+		"value":"When I create the hash of 'nameOfObject'",
+		"caption":"When I create the hash of 'nameOfObject'",
+		"meta":"Works with any object, returns sha256 hash"
 	},
 	{
-	 "name": "When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
-	"value": "When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
-	"caption": "When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
-	"meta": "Scenario 'secshare': create a shared secret with a quorum"
+		"name":"When I create the hash of 'nameOfObject' using 'sha512'",
+		"value":"When I create the hash of 'nameOfObject' using 'sha512'",
+		"caption":"When I create the hash of 'nameOfObject' using 'sha512'",
+		"meta":"Works with any object, for 'sha512' or 'sha256'"
 	},
 	{
-	 "name": "Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
-	"value": "Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
-	"caption": "Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
-	"meta": "Scenario 'secshare': loads the schema containing secret shares"
+		"name":"When I create the hash to point 'ecp' of each object in 'nameOfArray'",
+		"value":"When I create the hash to point 'ecp' of each object in 'nameOfArray'",
+		"caption":"When I create the hash to point 'ecp' of each object in 'nameOfArray'",
+		"meta":"Works with 'ecp' and 'ecp2' "
 	},
 	{
-	 "name": "When I compose the secret using  'nameOfSchemaSecretShare'",
-	"value": "When I compose the secret using  'nameOfSchemaSecretShare'",
-	"caption": "When I compose the secret using  'nameOfSchemaSecretShare'",
-	"meta": "Scenario 'secshare': composes secret shares to reconstruct the secret"
+		"name":"When I create the hashes of each object in 'nameOfArray'",
+		"value":"When I create the hashes of each object in 'nameOfArray'",
+		"caption":"When I create the hashes of each object in 'nameOfArray'",
+		"meta":"Returns hash of each element of an array "
 	},
 	{
-	 "name": "When I create the json of 'nameOfComplexObject'",
-	"value": "When I create the json of 'nameOfComplexObject'",
-	"caption": "When I create the json of 'nameOfComplexObject'",
-	"meta": "Outputs JSON of arrays, dictionaries and schemas"
+		"name":"When I create the key derivation of 'nameOfSimpleObject'",
+		"value":"When I create the key derivation of 'nameOfSimpleObject'",
+		"caption":"When I create the key derivation of 'nameOfSimpleObject'",
+		"meta":"Hash using Key Derivation (KDF)"
+	},
+	{
+		"name":"When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
+		"value":"When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
+		"caption":"When I create the key derivation of 'nameOfSimpleObject' with password 'nameOfString:password'",
+		"meta":"Hash using Password-Based Key Derivation (pbKDF)"
+	},
+	{
+		"name":"When I create the random object of '256' bits",
+		"value":"When I create the random object of '256' bits",
+		"caption":"When I create the random object of '256' bits",
+		"meta":""
+	},
+	{
+		"name":"When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
+		"value":"When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
+		"caption":"When I append 'nameOfSimpleObject' to 'nameOfSimpleObject'",
+		"meta":"Appends object (e.g. a string) to an array"
+	},
+	{
+		"name":"When I create the random 'nameOfNewObject'",
+		"value":"When I create the random 'nameOfNewObject'",
+		"caption":"When I create the random 'nameOfNewObject'",
+		"meta":""
+	},
+	{
+		"name":"When number 'nameOfNumberObject' is less or equal than 'nameOfNumberObject'",
+		"value":"When number 'nameOfNumberObject' is less or equal than 'nameOfNumberObject'",
+		"caption":"When number 'nameOfNumberObject' is less or equal than 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When number 'nameOfNumberObject' is less than 'nameOfNumberObject'",
+		"value":"When number 'nameOfNumberObject' is less than 'nameOfNumberObject'",
+		"caption":"When number 'nameOfNumberObject' is less than 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When number 'nameOfNumberObject' is more or equal than 'nameOfNumberObject'",
+		"value":"When number 'nameOfNumberObject' is more or equal than 'nameOfNumberObject'",
+		"caption":"When number 'nameOfNumberObject' is more or equal than 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When number 'nameOfNumberObject' is more than 'nameOfNumberObject'",
+		"value":"When number 'nameOfNumberObject' is more than 'nameOfNumberObject'",
+		"caption":"When number 'nameOfNumberObject' is more than 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When I rename the 'nameOfSimpleObject' to 'nameOfNewObject'",
+		"value":"When I rename the 'nameOfSimpleObject' to 'nameOfNewObject'",
+		"caption":"When I rename the 'nameOfSimpleObject' to 'nameOfNewObject'",
+		"meta":""
+	},
+	{
+		"name":"When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
+		"value":"When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
+		"caption":"When I set 'nameOfNewObject' to 'HELLO WORLD!' as 'string'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"When I set 'nameOfNewObject' to '10000' base '16'",
+		"value":"When I set 'nameOfNewObject' to '10000' base '16'",
+		"caption":"When I set 'nameOfNewObject' to '10000' base '16'",
+		"meta":""
+	},
+	{
+		"name":"When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
+		"value":"When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
+		"caption":"When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
+		"meta":""
+	},
+	{
+		"name":"When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
+		"value":"When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
+		"caption":"When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
+		"meta":""
+	},
+	{
+		"name":"When I verify 'nameOfSimpleObject' is equal to 'nameOfSimpleObject'",
+		"value":"When I verify 'nameOfSimpleObject' is equal to 'nameOfSimpleObject'",
+		"caption":"When I verify 'nameOfSimpleObject' is equal to 'nameOfSimpleObject'",
+		"meta":""
+	},
+	{
+		"name":"When I verify 'nameOfSimpleObject' is not equal to 'nameOfSimpleObject'",
+		"value":"When I verify 'nameOfSimpleObject' is not equal to 'nameOfSimpleObject'",
+		"caption":"When I verify 'nameOfSimpleObject' is not equal to 'nameOfSimpleObject'",
+		"meta":""
+	},
+	{
+		"name":"When I write number '8' in 'nameOfNewObject'",
+		"value":"When I write number '8' in 'nameOfNewObject'",
+		"caption":"When I write number '8' in 'nameOfNewObject'",
+		"meta":""
+	},
+	{
+		"name":"When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
+		"value":"When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
+		"caption":"When I create the result of 'nameOfNumberObject' + 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
+		"value":"When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
+		"caption":"When I create the result of 'nameOfNumberObject' - 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When I write string 'HELLO WORLD!' in 'nameOfNewObject'",
+		"value":"When I write string 'HELLO WORLD!' in 'nameOfNewObject'",
+		"caption":"When I write string 'HELLO WORLD!' in 'nameOfNewObject'",
+		"meta":""
+	},
+	{
+		"name":"Then print the 'nameOfObjectOrSchema'",
+		"value":"Then print the 'nameOfObjectOrSchema'",
+		"caption":"Then print the 'nameOfObjectOrSchema'",
+		"meta":""
+	},
+	{
+		"name":"Then print 'Hello world!'",
+		"value":"Then print the 'Hello world!'",
+		"caption":"Then print the 'Hello world!'",
+		"meta":""
+	},
+	{
+		"name":"Then print the 'nameOfObjectOrSchema' as 'string'",
+		"value":"Then print the 'nameOfObjectOrSchema' as 'string'",
+		"caption":"Then print the 'nameOfObjectOrSchema' as 'string'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+		"value":"Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+		"caption":"Then print 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"Then print data",
+		"value":"Then print data",
+		"caption":"Then print data",
+		"meta":""
+	},
+	{
+		"name":"Then print data as 'string'",
+		"value":"Then print data as 'string'",
+		"caption":"Then print data as 'string'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"Then print my data",
+		"value":"Then print my data",
+		"caption":"Then print my data",
+		"meta":"Nests output under JSON object named as the contract identity"
+	},
+	{
+		"name":"Then print my 'nameOfObjectOrSchema'",
+		"value":"Then print my 'nameOfObjectOrSchema'",
+		"caption":"Then print my 'nameOfObjectOrSchema'",
+		"meta":""
+	},
+	{
+		"name":"Then print my 'nameOfObjectOrSchema' as 'string'",
+		"value":"Then print my 'nameOfObjectOrSchema' as 'string'",
+		"caption":"Then print my 'nameOfObjectOrSchema' as 'string'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"Then print my 'nameOfObjectOrSchema' from 'userName'",
+		"value":"Then print my 'nameOfObjectOrSchema' from 'userName'",
+		"caption":"Then print my 'nameOfObjectOrSchema' from 'userName'",
+		"meta":""
+	},
+	{
+		"name":"Then print my data as 'string'",
+		"value":"Then print my data as 'string'",
+		"caption":"Then print my data as 'string'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+		"value":"Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+		"caption":"Then print the 'nameOfObject' as 'string' in 'nameOfComplexObject'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+	{
+		"name":"Then print the 'nameOfObject' in 'nameOfComplexObject'",
+		"value":"Then print the 'nameOfObject' in 'nameOfComplexObject'",
+		"caption":"Then print the 'nameOfObject' in 'nameOfComplexObject'",
+		"meta":""
+	},
+	{
+		"name":"When I create the keypair",
+		"value":"When I create the keypair",
+		"caption":"When I create the keypair",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I create the signature of 'nameOfObject'",
+		"value":"When I create the signature of 'nameOfObject'",
+		"caption":"When I create the signature of 'nameOfObject'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
+		"value":"When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
+		"caption":"When I decrypt the text of 'nameOfSchema:secret_message' from 'userName'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
+		"value":"When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
+		"caption":"When I decrypt the text of 'nameOfSchema:secret_message' with 'nameOfString:password'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
+		"value":"When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
+		"caption":"When I encrypt the secret message 'nameOfSchema:secret_message' with 'nameOfString:password'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
+		"value":"When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
+		"caption":"When I encrypt the secret message of 'nameOfSchema:secret_message' for 'userName'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
+		"value":"When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
+		"caption":"When I verify the 'nameOfObject' has a signature in 'nameOfSchema:signature' by 'userName'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I verify the 'nameOfObject' is signed by 'userName'",
+		"value":"When I verify the 'nameOfObject' is signed by 'userName'",
+		"caption":"When I verify the 'nameOfObject' is signed by 'userName'",
+		"meta":"Scenario 'ecdh'"
+	},
+	{
+		"name":"When I create the ephemeral ids for today",
+		"value":"When I create the ephemeral ids for today",
+		"caption":"When I create the ephemeral ids for today",
+		"meta":"Scenario 'dp3t'"
+	},
+	{
+		"name":"When I create the proximity tracing of infected ids",
+		"value":"When I create the proximity tracing of infected ids",
+		"caption":"When I create the proximity tracing of infected ids",
+		"meta":"Scenario 'dp3t'"
+	},
+	{
+		"name":"When I renew the secret day key to a new day",
+		"value":"When I renew the secret day key to a new day",
+		"caption":"When I renew the secret day key to a new day",
+		"meta":"Scenario 'dp3t'"
+	},
+	{
+		"name":"When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
+		"value":"When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
+		"caption":"When I copy 'nameOfSimpleObject' in 'nameOfDictionary'",
+		"meta":""
+	},
+	{
+		"name":"When I create the sum value 'nameOfNewObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' > 'nameOfNumberObject'",
+		"value":"When I create the sum value 'nameOfNewObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' > 'nameOfNumberObject'",
+		"caption":"When I create the sum value 'nameOfNewObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' > 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When I find the 'nameOfNumberObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' = 'nameOfNumberObject'",
+		"value":"When I find the 'nameOfNumberObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' = 'nameOfNumberObject'",
+		"caption":"When I find the 'nameOfNumberObject' for dictionaries in 'nameOfDictionary' where 'nameOfNumberObject' = 'nameOfNumberObject'",
+		"meta":""
+	},
+	{
+		"name":"When I find the max value 'nameOfNumberObject' for dictionaries in 'nameOfDictionary'",
+		"value":"When I find the max value 'nameOfNumberObject' for dictionaries in 'nameOfDictionary'",
+		"caption":"When I find the max value 'nameOfNumberObject' for dictionaries in 'nameOfDictionary'",
+		"meta":""
+	},
+	{
+		"name":"When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
+		"value":"When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
+		"caption":"When I insert 'nameOfSimpleObject' in 'nameOfDictionary'",
+		"meta":""
+	},
+	{
+		"name":"When I aggregate the verifiers",
+		"value":"When I aggregate the verifiers",
+		"caption":"When I aggregate the verifiers",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I create the credential keypair",
+		"value":"When I create the credential keypair",
+		"caption":"When I create the credential keypair",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I create the credential proof",
+		"value":"When I create the credential proof",
+		"caption":"When I create the credential proof",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I create the credential request",
+		"value":"When I create the credential request",
+		"caption":"When I create the credential request",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I create the credential signature",
+		"value":"When I create the credential signature",
+		"caption":"When I create the credential signature",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I create the credentials",
+		"value":"When I create the credentials",
+		"caption":"When I create the credentials",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I create the issuer keypair",
+		"value":"When I create the issuer keypair",
+		"caption":"When I create the issuer keypair",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I verify the credential proof",
+		"value":"When I verify the credential proof",
+		"caption":"When I verify the credential proof",
+		"meta":"Scenario 'credential'"
+	},
+	{
+		"name":"When I add the signature to the petition",
+		"value":"When I add the signature to the petition",
+		"caption":"When I add the signature to the petition",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I count the petition results",
+		"value":"When I count the petition results",
+		"caption":"When I count the petition results",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I create a petition tally",
+		"value":"When I create a petition tally",
+		"caption":"When I create a petition tally",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I create the petition 'nameOfNewObject'",
+		"value":"When I create the petition 'nameOfNewObject'",
+		"caption":"When I create the petition 'nameOfNewObject'",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I create the petition signature 'nameOfNewObject'",
+		"value":"When I create the petition signature 'nameOfNewObject'",
+		"caption":"When I create the petition signature 'nameOfNewObject'",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When the petition signature is just one more",
+		"value":"When the petition signature is just one more",
+		"caption":"When the petition signature is just one more",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When the petition signature is not a duplicate",
+		"value":"When the petition signature is not a duplicate",
+		"caption":"When the petition signature is not a duplicate",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I verify the new petition to be empty",
+		"value":"When I verify the new petition to be empty",
+		"caption":"When I verify the new petition to be empty",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I verify the signature proof is correct",
+		"value":"When I verify the signature proof is correct",
+		"caption":"When I verify the signature proof is correct",
+		"meta":"Scenario 'petition'"
+	},
+	{
+		"name":"When I create the cbor of 'nameOfComplexObject'",
+		"value":"When I create the cbor of 'nameOfComplexObject'",
+		"caption":"When I create the cbor of 'nameOfComplexObject'",
+		"meta":"Outputs CBOR of arrays, dictionaries and schemas"
+	},
+	{
+		"name":"When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
+		"value":"When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
+		"caption":"When I create the secret shares of 'nameOfSimpleObject' with '9' quorum '5'",
+		"meta":"Scenario 'secshare': create a shared secret with a quorum"
+	},
+	{
+		"name":"Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
+		"value":"Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
+		"caption":"Given I have a 'secret shares' named 'nameOfSchemaSecretShare'",
+		"meta":"Scenario 'secshare': loads the schema containing secret shares"
+	},
+	{
+		"name":"When I compose the secret using  'nameOfSchemaSecretShare'",
+		"value":"When I compose the secret using  'nameOfSchemaSecretShare'",
+		"caption":"When I compose the secret using  'nameOfSchemaSecretShare'",
+		"meta":"Scenario 'secshare': composes secret shares to reconstruct the secret"
+	},
+	{
+		"name":"When I create the json of 'nameOfComplexObject'",
+		"value":"When I create the json of 'nameOfComplexObject'",
+		"caption":"When I create the json of 'nameOfComplexObject'",
+		"meta":"Outputs JSON of arrays, dictionaries and schemas"
 	}
 ]
