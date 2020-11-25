@@ -27,7 +27,13 @@
 		"name":"Rule check version 1.0.0",
 		"value":"Rule check version 1.0.0",
 		"caption":"Rule check version 1.0.0",
-		"meta":""
+		"meta":"Used to check the version of Zencode"
+	},
+	{
+		"name":"Rule unknown ignore",
+		"value":"Rule unknown ignore",
+		"caption":"Rule unknown ignore",
+		"meta":"Required for Restroom-mw: Zenroom will ignore unknown statements"
 	},
 	{
 		"name":"Given nothing",
