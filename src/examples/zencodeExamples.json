@@ -372,15 +372,15 @@
 			"Alice":{
 				"credential_request":{
 					"c":{
-						"a":"AyoRmyxK91Q6tbsRyz9DcgfQRT/9jyvJ1jxn+3VfNl8RDIEiSxCg2n6vZbY3ZF7y6w==",
-						"b":"Ah6cmrtMBAsh+hmbX4W5QTxtJJRUy2T50Q9v8v0SC4i2RvesVPaxUylqY4LzScR8kw=="
+						"a":"AzrRluPiu1LhGgkTtSbu+LxXdq+S+ZqfNmJpM19ftlHLqhOz5lzW5Ysl+YWQXkcpzQ==",
+						"b":"AjU93eUykBZ9Yk2Bxz46qzSZFn5meimHpV6ggCpkU1FAYXfb+QHRLxNWue2asJPEXg=="
 					},
-					"commit":"AkQZOK1VTQK59NJPTovzuX4I6mp9dxNBquPy9+Ulhl3KsCZLmDSuq8g3mX8xOUagRw==",
+					"commit":"AjwsP75suT4khOIex370BdB73MT4/p2fSV6saO3Hynq+98pCuzCML8jotVDbZJ6r+Q==",
 					"pi_s":{
-						"c":"kmjFFXgpxvdl0icf6eZHWcW6ZuSQ3AAuQruaE5TG/bs=",
-						"rk":"/l64pT8h8sbRlbDX/+VCy+AirBN5svg+zZGftI6Ht/I=",
-						"rm":"IVm6gXMVwlunmC9dTDRAz1I6ko32Q+NqBXKzBj874GQ=",
-						"rr":"wAnRD4mXNY7EXsArKK+FAwnztS7NOLDGEyYSL5nInb0="
+						"c":"wk3y7OlRQGV4ajJoBQK0/G+UpvHfnCA3s3JODTOUZHI=",
+						"rk":"ZfNmO6vhmZjRy82JCcdBFX/YUcWW5F3sE9LMIVm0xv4=",
+						"rm":"j2W83+CLDtcC5qlRwd2932jC2EsCXHRJUSULOGr7I+s=",
+						"rr":"hhQEAPgIiovwdKjdNLnpDzBPOReCeUL9+6z8A+6JNBw="
 					},
 					"public":"AxSggI9xzQ/RTjH2gRyFd+QHPCTqZucAihUyETUhVdJY9vohtmcGDFmEdOTHOTCeow=="
 				}
@@ -442,16 +442,16 @@
 		"zencode":"Scenario 'credential': verify proof \nGiven that I have a valid 'verifier' inside 'MadHatter' \nand I have a valid 'credential proof' \nWhen I aggregate the verifiers \nand I verify the credential proof \nThen print 'Success: Zenroom has verified that the credentials match the verifiers!' as 'string' \n",
 		"keys":{
 			"credential_proof":{
-				"kappa":"EFpStcfpAhdGAZVBKShFqOEMDSqmik7NYR6LDgVoQZYskaY9mXwRd28N/eZ/QX+BAmXMkIWWJay8z99tFLLSB1/P50ewQ1Cpk1VQg86gg2fZMk2NE4S8qkb4YvQMsh/DDOICDKYkndcvASj4Q5hy9L6OePbwuqyd2DprOH6dcpTBVeLbhZ36ekH49GpMbBIIJhEEfllUSfpV0yBAfFwb2EpAhLnk0+SFTGQIJhzaXRyxjrwOhDzhocdR1FrcbDBr",
-				"nu":"A0tPxxY6vhhaTujENsqO2Dxuzr7ZdsgnTIuWtmdFMBL6Rq49zESBpEC/ED0qsErIDA==",
+				"kappa":"Mzu1DO4sAyN8kWZZFso4uh+MPOnrVeYPzndiDfdZZtYX090H3Qal24gt25lgWeXCTCQ85RMTMyJoBwuf8UsNSsFTDMaatFOwIhwNKtXUWJAlCS84etzrssiDf1YJMkDxJTdmUgMWTX8IzfBuKKWA7TXXfQNLU8GJwfp7u0F2kguu18egkru9Y+yIEB9Da7KKB0e9D25pUoSbFku5976N6Da6ITrJFTtQehp7ETrv5HljJju7klJDcB3Y/jcgFtAZ",
+				"nu":"Ak7Wh7NS7RS/V9y4f+qp8Whyy4ngu5RtMWrtayOhnFYx/BmYfdOr+FMCgellYeLMEA==",
 				"pi_v":{
-					"c":"0Uu+Ldk04+JSw9V0TQW2ufZuxe1v3K8jffunxxLLI0o=",
-					"rm":"eVhYT7rl2SrlH0etus5PnxL6DRnvhhf2nMpjvI+6a9c=",
-					"rr":"TO496wCVjpsUoTlKqGaTbRVXLvwrHYAgHC7sZdsLVNI="
+					"c":"bTujZmxLhvgyZAlGhep1bkpFABKNNqmampbFSTgA134=",
+					"rm":"GDMB+aiS7CTnqWQKM0Zdaj2obklDM9c7Oeax2WSpFMo=",
+					"rr":"Iy/IpWWbXGsfvLk2dV08LYNjgXuRQBuxZDDrfXIj80A="
 				},
 				"sigma_prime":{
-					"h_prime":"Aw3ZtGYgJdiAPxqNpO4jhTS2lbAeXMSlE7HLd1qKMrufREGvnoTx2QbzilE/DkO2tQ==",
-					"s_prime":"AigHHPcvR1ftxAvSEjvba9adIZnzM7+CGHrrYLa8fN4XIXkEpegY2O/ueSNCKswfLg=="
+					"h_prime":"A0hHje7Fxq18sSnqIpOOFpXuoo5By5AQ85v06G8ELkSBueJ2NqcIXDah8lckGn4v3g==",
+					"s_prime":"AknuLfJozLlwTGADWujM3p3+PXiMyFQwe4N4+o0plfvlcAB5Bd/zMln5JnMKrLsxZw=="
 				}
 			}
 		},
