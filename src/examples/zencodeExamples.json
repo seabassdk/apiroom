@@ -286,6 +286,27 @@
 		"data":""
 	},
 	{
+		"author":"Dyne.org",
+		"name":"Write data on a Sawroom's batch",
+		"zencode":"Rule unknown ignore\r\nrule check version 1.0.0\r\n\r\n#Here we define a timestamp server, we connect to it and save the output into a Zenroom object \r\nGiven that I have an endpoint named 'timeServer' \r\nGiven I have a 'number' named 'timestamp'\r\nGiven I connect to 'timeServer' and save the output into 'timestamp'\r\n\r\n# Here we define the endpoint where Sawroom can be reached\r\nGiven that I have a sawroom endpoint named 'sawroomEndpoint'\r\n\r\n# Here we define a \"context id\" that is used by Sawroom to generated the batch id, which is unique and allows you to later retrieve data.\r\n# The \"context id\" can have an arbitrary value. You can also write more than one batch at once\r\nGiven that I have an id for a sawroom context named 'myContextId1'\r\nGiven that I have an id for a sawroom context named 'myContextId2'\r\n\r\n# Here we create some random numbers\r\nWhen I create the random object of '128' bits\r\nWhen I create the array of '3' random objects of '256' bits\r\nWhen I rename the 'array' to 'myRandomArray'\r\n# Here we print the output \r\nThen print the 'myRandomArray'\r\nThen print the 'timestamp'\r\n\r\n# Here we ask Sawroom to save the data: If saving the data has succeded, Sawroom will return a batch id for each \"context id\" used\r\n# An arbitrary JSON object can be stored on chain \r\nThen I ask sawroom to save the data named 'myRandomArray' with the context id 'myContextId1'\r\nThen I ask sawroom to save the data named 'timestamp' with the context id 'myContextId2'\r\n# Currently you can not chain other Restroom-mw middlewares to the \"Sawroom\" middleware, for example you can random_object\r\n# send the output to an http endpoint or store it on a database ",
+		"keys":{
+			"sawroomEndpoint":"http://195.201.41.35",
+			"myContextId1":"andrea01-0Uu+Ldk04+JSw9V0TQW2ufZuxe1v3K8jffunxxLLI0o=",
+			"myContextId2":"andrea02-LCsmEBZblccKjrWCJi7tvg=="
+		},
+		"data":""
+	},
+	{
+		"author":"Dyne.org",
+		"name":"Read data from a Sawroom's batch",
+		"zencode":"Rule unknown ignore\r\n\r\n# Here we are definining the \"endpoint\" to connect where Sawroom is located\r\nGiven I have a 'string' named 'endpoint'\r\n\r\n# The \"batch ID\" is a unique indicator to retrieve data in Sawroom, it's returned by Sawroom when writing data \r\nAnd I have a 'string' named 'batchId1'\r\n\r\n# Here we are formatting the output of the reading \r\nAnd I have a 'string dictionary' named 'sawroom'\r\n\r\n# Here we are qctually connecting to Sawroom and retrieving the batch \r\n#\r\n# Currently you can read only one batch at a time.\r\n#\r\nAnd I connect the sawroom endpoint 'endpoint' and read the batch with id 'batchId1' and save the output into 'sawroom'\r\nThen print all data",
+		"keys":{
+			"endpoint":"http://195.201.42.48",
+			"batchId1":"a6695d564d2ca81b94a44700e5052fb947585530fa42912391205fe82c83d6ff7ef778ab73a566ea95ad73e2925fdaf1199baa22509176afe943cb5ec1cdaa09"
+		},
+		"data":""
+	},
+	{
 		"name":"separator",
 		"separator":"1",
 		"title":"Zero knowledge proof flow"
