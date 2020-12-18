@@ -305,6 +305,18 @@
 		"caption":"When I split the leftmost '3' bytes of 'nameOfSimpleObject'",
 		"meta":""
 	},
+		{
+		"name":"When I create the 'string dictionary'",
+		"value":"When I create the 'string dictionary'",
+		"caption":"When I create the 'string dictionary'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
+		{
+		"name":"When I create the 'string array'",
+		"value":"When I create the 'string array'",
+		"caption":"When I create the 'string array'",
+		"meta":"[Valid encodings: string|number|hex|bin|base64|base58|url64]"
+	},
 	{
 		"name":"When I split the rightmost '5' bytes of 'nameOfSimpleObject'",
 		"value":"When I split the rightmost '5' bytes of 'nameOfSimpleObject'",

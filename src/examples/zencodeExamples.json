@@ -302,7 +302,7 @@
 		"zencode":"Rule unknown ignore\r\n\r\n# Here we are definining the \"endpoint\" to connect where Sawroom is located\r\nGiven I have a 'string' named 'endpoint'\r\n\r\n# The \"batch ID\" is a unique indicator to retrieve data in Sawroom, it's returned by Sawroom when writing data \r\nAnd I have a 'string' named 'batchId1'\r\n\r\n# Here we are formatting the output of the reading \r\nAnd I have a 'string dictionary' named 'sawroom'\r\n\r\n# Here we are qctually connecting to Sawroom and retrieving the batch \r\n#\r\n# Currently you can read only one batch at a time.\r\n#\r\nAnd I connect the sawroom endpoint 'endpoint' and read the batch with id 'batchId1' and save the output into 'sawroom'\r\nThen print all data",
 		"keys":{
 			"endpoint":"http://195.201.42.48",
-			"batchId1":"a6695d564d2ca81b94a44700e5052fb947585530fa42912391205fe82c83d6ff7ef778ab73a566ea95ad73e2925fdaf1199baa22509176afe943cb5ec1cdaa09"
+			"batchId1":"c927aba7a0528095347cedbe1320b9e2c84e23f5823d53bce194f96e35765f774e15f97c33f52ef8bb89d097c71e18bd90f2fe5f368a88ad5856f08aa8f17b84"
 		},
 		"data":""
 	},
