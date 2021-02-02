@@ -503,7 +503,7 @@
 		"author":"Dyne.org",
 		"name":"Recompose the secret from 5 shares (out of 9)",
 		"zencode":"Scenario secshare: recompose the secret shares\r\n\r\n# Here we are loading the \"secret shares\" \r\nGiven I have a 'secret shares' named 'my5partsOfTheSharedSecret'\r\n\r\n# Here we are testing if the secret shares can be recomposed to form the password\r\n# in case the quorum isn't reached or isn't correct, Zenroom will anyway output a string,\r\n# that will be different from the original secret.\r\n# if the quorum is correct, the original secret should be printed out.\r\nwhen I compose the secret using 'my5partsOfTheSharedSecret'\r\nThen print the 'secret' as 'string'",
-		"keys":"",
+		"keys":{},
 		"data":{
 			"my5partsOfTheSharedSecret":[
 				{
