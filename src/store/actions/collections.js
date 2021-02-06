@@ -103,6 +103,7 @@ export const loadContracts = () => {
     return (dispatch, getState) => {
         dispatch(changeIsLoading(true));
         const { zenroom, auth } = getState();
+
         //check if auth valid
         if (!auth.username || !auth.token)
             return;
@@ -111,20 +112,15 @@ export const loadContracts = () => {
             username: auth.username
         };
 
-        console.log('http post request:');
         axios.post(loadContractsUri,
             username,
             { headers: { 'auth-token': auth.token } }
         )
             .then(response => {
-                console.log('RESPONSE DATA:');
-                console.log(response.data);
                 dispatch(changeIsLoading(false));
                 dispatch(changeContractCollection(response.data));
 
             }).catch(error => {
-                console.log('Loading error:');
-                console.log(error);
                 dispatch(changeIsLoading(false));
                 dispatch(changeLoadingError(error.response.data));
             })

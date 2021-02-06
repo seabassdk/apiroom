@@ -253,8 +253,6 @@ export const updateContract = (contract) => {
             { headers: { 'auth-token': auth.token } }
         )
             .then(response => {
-                console.log('received response:');
-                console.log(response);
                 dispatch(actions.changeSavingSuccess(true));
             }).catch(err => {
                 console.log('Saving error:');
@@ -357,7 +355,7 @@ export const deleteContractByIndex = (index) => {
 export const switchContractByIndex = (index) => {
 
     return (dispatch, getState) => {
-        dispatch(actions.changeIsLoading(true));
+        // dispatch(actions.changeIsLoading(true));
 
         const { auth, collections } = getState();
 
@@ -381,13 +379,13 @@ export const switchContractByIndex = (index) => {
                     return { ...element }
                 });
 
-                dispatch(actions.changeIsLoading(false));
+                // dispatch(actions.changeIsLoading(false));
                 dispatch(actions.changeContractCollection(contracCollection));
 
             }).catch(error => {
                 console.log('Loading error:');
                 console.log(error);
-                dispatch(actions.changeIsLoading(false));
+                // dispatch(actions.changeIsLoading(false));
                 dispatch(actions.changeLoadingError(error.response.data));
             })
 
@@ -414,7 +412,6 @@ export const getDocker = (obj) => {
             username: auth.username
         }
 
-        console.log('Making post request to get docker file.');
         axios.post(uri,
             payload,
             { headers: { 'auth-token': auth.token } }

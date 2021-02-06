@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { useSelector, connect } from 'react-redux';
-import { Form, Table, Spinner, OverlayTrigger, Popover, Button, Tooltip, Row } from 'react-bootstrap';
-
-import BootstrapSwitchButton from 'bootstrap-switch-button-react';
+import { Form, Table, Spinner, OverlayTrigger, Popover, Tooltip } from 'react-bootstrap';
 
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/theme-ambiance.js";
@@ -11,15 +9,19 @@ import "ace-builds/src-noconflict/mode-zencode";
 import "ace-builds/src-noconflict/mode-json5";
 
 import './UserProfile.css';
-import { loadContractsUri } from '../../constants/api';
 import * as actions from '../../store/actions/index';
 
 import { hasJsonStructure } from '../../helpers/jsonHelper';
 
 const PopoverContent = props => {
-    // const startValue = (props.mode === 'zencode') ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content
     const [contract, setContract] = useState(props.contract);
-    const [fieldValue, setFieldValue] = useState(state => props.mode === 'zencode' ? props.content : (props.content && hasJsonStructure(props.content)) ? JSON.stringify(JSON.parse(props.content), null, '\t') : props.content);
+    const [fieldValue, setFieldValue] = useState(state =>
+        props.mode === 'zencode'
+            ? props.content
+            : (props.content && hasJsonStructure(props.content))
+                ? JSON.stringify(JSON.parse(props.content), null, '\t')
+                : props.content
+    );
 
     const onContractChange = (newValue) => {
         setContract(prevState => {
@@ -91,9 +93,6 @@ const PopoverContent = props => {
 
 
 const UserProfile = props => {
-    const { userContracts } = useSelector(state => state.zenroom);
-    const [tableEmpty, setTableEmpty] = useState(true);
-    const [scrollPosition, setScrollPosition] = useState(0);
     const [exportContracts, setExportContracts] = useState({ contracts: [] });
 
     //go to edit screen with selected contract
@@ -102,28 +101,18 @@ const UserProfile = props => {
         props.onChangeUserLoaded(true);
         props.onSelectedIndex(index);
         props.history.push("/")
-
-    }
-
-    const onUpdateContractByIndexHandler = (contract, index) => {
-        console.log('The window scroll position: ' + window.pageYOffset);
-        props.onUpdateContractByIndex(contract, index);
-
-
     }
 
     useEffect(() => {
         props.onChangeLoadingError(false);
         props.onLoadContracts();
-    }, []);
+    }, [props.username]);
 
     useEffect(() => {
         if (props.docker) {
-            console.log('EXPORT DOCKER!');
             props.onDockerExport(false);
             props.onGetDocker(exportContracts)
         }
-
     }, [props.docker]);
 
     const onCheckedHandler = (e) => {
@@ -137,33 +126,8 @@ const UserProfile = props => {
         }
     }
 
-    useEffect(() => {
-        console.log('new export state:');
-        console.log(exportContracts);
-    }, [exportContracts]);
-
-    // useEffect(() => {
-    //     console.log('USEEFFECT FIRING LOCATION STATE: ');
-    //     if(props.location.state && props.location.state.updated) {
-    //         console.log('not null: ' + props.location.state.updated);
-    //         props.onChangeLoadingError(false);
-    //         props.onLoadContracts();
-    //     }
-    // }, [props.location.state]);
-
-    // useEffect(() => {
-
-    //     if (!props.contracts.length) {
-    //         props.onLoadContracts();
-    //     } else {
-    //         setTableEmpty(false);
-    //     }
-    // }, [props.contracts]);
-
     return (
         <div className={'pb-5 user-contracts pt-5'} style={{ minHeight: '80vh' }}>
-            {/* <h4 className={'mt-5'}>Saved Contracts</h4> */}
-
             {props.isLoading
                 ? (<div>
                     <Spinner animation="grow" variant="success" />
@@ -176,7 +140,7 @@ const UserProfile = props => {
                     : (<Table responsive>
                         <thead>
                             <tr>
-                            <th></th>
+                                <th></th>
                                 <th>Zencode smart contract</th>
                                 <th>Keys (-k)</th>
                                 <th>Config (-c)</th>
@@ -200,7 +164,6 @@ const UserProfile = props => {
                                         </OverlayTrigger>
                                     </div>
                                 </th>
-                                {/* <th></th> */}
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -269,34 +232,17 @@ const UserProfile = props => {
                                             index={index}
                                         />
                                     </td>
-                                    {/* <td>
-                                        <a onClick={() => loadContract(contract.db.name, contract.zencode, contract.keys, contract.db.data, contract.config, index)} style={{ color: 'black', cursor: 'pointer' }}>Edit</a>
-                                    </td> */}
                                     <td>
-                                        {/* <button type="button" className="btn btn-outline-dark" style={{ height: '1.375rem', lineHeight: '0.5', padding: '.375rem .55rem', marginRight: '2px' }}>Edit</button>
-                                    <button type="button" className="btn btn-outline-dark" style={{ height: '1.375rem', lineHeight: '0.5', padding: '.375rem .55rem' }}>Swagger</button> */}
-                                        <BootstrapSwitchButton
-                                            onlabel='ON'
-                                            offlabel='OFF'
-                                            checked={contract.switch === 'on' ? true : false}
-                                            onstyle="outline-success"
-                                            offstyle="outline-warning"
-                                            height='3'
-                                            size='xs'
-                                            offstyle="outline-secondary"
-                                            onChange={() => props.onSwitchContractByIndex(index)} />
+                                        <div className="custom-control custom-switch">
+                                            <input
+                                                type="checkbox"
+                                                className="custom-control-input"
+                                                id={'customSwitch1' + index}
+                                                onChange={() => props.onSwitchContractByIndex(index)}
+                                                checked={contract.switch === 'on' ? true : false} />
+                                            <label className="custom-control-label" htmlFor={'customSwitch1' + index}>{contract.switch === 'on' ? 'On' : 'Off'}</label>
+                                        </div>
                                     </td>
-                                    {/* <td style={{ paddingTop: '0.63rem' }}>
-                                        <a onClick={() => props.onDeleteContractByIndex(index)}>
-                                            <div style={{ cursor: 'pointer', width: '30px', paddingBottom: '4px' }}>
-                                                <img
-                                                    src={require('../../assets/images/delete.png')}
-                                                    width="100%"
-                                                    alt="Delete logo"
-                                                />
-                                            </div>
-                                        </a>
-                                    </td> */}
                                     <td>
                                         {/* <Link to={'/api/' + props.username + '/' + contract.db.file}>Link</Link> */}
                                         {contract.switch === 'on' &&
@@ -308,7 +254,7 @@ const UserProfile = props => {
                                             >Link</a>
                                         }
                                     </td>
-                                    
+
                                 </tr>)
                             })
                             }

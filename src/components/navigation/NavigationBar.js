@@ -88,7 +88,7 @@ const NavigationBar = props => {
 
                     {/* EXAMPLE BUTTON */}
                     {props.location.pathname === '/' &&
-                        <DropdownButton className={'col m-0 p-0 pl-5 d-flex justify-content-end ml-5'} id="dropdown-variants-Secondary" title="Examples" variant='info'>
+                        <DropdownButton className={'col m-0 p-0 pl-5 d-flex justify-content-end ml-5 mr-5'} id="dropdown-variants-Secondary" title="Examples" variant='info'>
                             <Fragment>
                                 {/* <Dropdown.Item key='title' style={{ color: 'rgb(108, 117, 125)' }}> */}
                                 <div style={{ color: 'rgb(108, 117, 125)', padding: '.25rem 1.5rem' }}>
@@ -99,7 +99,7 @@ const NavigationBar = props => {
                             {props.contracts.map((contract, index) => {
                                 return (
 
-                                    <Fragment>
+                                    <Fragment key={index}>
 
                                         {
                                             contract.name !== 'separator'
@@ -128,7 +128,7 @@ const NavigationBar = props => {
                     }
 
                     {/* Zenroom buttons */}
-                    < div className={'col m-0 p-0 d-flex justify-content-end'} >
+                    {/* < div className={'col m-0 p-0 d-inline-block justify-content-end'} > */}
 
                         {/* PLAY BUTTON */}
                         {
@@ -150,13 +150,13 @@ const NavigationBar = props => {
                                     : <Button variant="outline-secondary" className="mr-sm-2" onClick={() => window.alert("You must be logged in to Save")}>Create API</Button>
                                 }
 
-                                <Button className='play-button' variant="info" onClick={props.executeZenroom}>
+                                <Button className="play-button mr-sm-2" variant="info" onClick={props.executeZenroom}>
                                     Play
                                 <FontAwesomeIcon icon={faPlay} size='1x' color='white' style={{ fontSize: '12px', marginLeft: '8px', marginBottom: '2px' }} />
                                 </Button>
                             </Fragment>
                         }
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div className={'col-md-4 p-0 m-0 d-flex justify-content-end align-items-center'}>
                     {/* Settings buttons */}
@@ -198,7 +198,7 @@ const NavigationBar = props => {
 
                                                 {/* MY CONTRACTS BUTTON */}
                                                 <Link to="/profile">
-                                                    <Button variant="outline-secondary" className="mr-sm-2">My contracts</Button>
+                                                    <Button variant="outline-secondary">My contracts</Button>
                                                 </Link>
 
                                                 {/* PROFILE IMAGE DROPDOWN */}

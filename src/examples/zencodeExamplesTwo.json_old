@@ -1,0 +1,157 @@
+[
+	{
+		"author": "Dyne.org",
+		"name": "Generate a keypair",
+		"zencode": "Scenario 'ecdh': Create the keypair\nGiven that I am known as 'Alice'\nWhen I create the keypair\nThen print my data\n",
+		"keys": "",
+		"data": ""
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Generate a random cryptographic object",
+		"zencode": "rule check version 1.0.0\nScenario simple: Generate a random object\nGiven nothing\nWhen I create the random object of '128' bits\nWhen I rename the 'random_object' to 'my128BitsRandom'\nThen print the 'my128BitsRandom'\n",
+		"keys": "",
+		"data": ""
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Encrypt a message using a password",
+		"zencode": "Scenario 'ecdh': Encrypt a message with the password \nGiven that I have a 'string' named 'password' \nGiven that I have a 'string' named 'header' \nGiven that I have a 'string' named 'message' \nWhen I encrypt the secret message 'message' with 'password' \nThen print the 'secret message'",
+		"keys": {
+			"password": "myVerySecretPassword"
+		},
+		"data": {
+			"header": "A very important secret",
+			"message": "Dear Bob, your name is too short, goodbye - Alice."
+		}
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Decrypt a secret message using a password",
+		"zencode": "Scenario 'ecdh': Decrypt the message with the password \nGiven that I have a valid 'secret message' \nGiven that I have a 'string' named 'password' \nWhen I decrypt the text of 'secret message' with 'password' \nWhen I rename the 'text' to 'textDecrypted' \nThen print the 'textDecrypted' as 'string'\n",
+		"keys": {
+			"password": "myVerySecretPassword"
+		},
+		"data": {				
+			"secret_message": {
+			"checksum": "76U+nWVZBwBMbOOktCnZug==",
+			"header": "QSB2ZXJ5IGltcG9ydGFudCBzZWNyZXQ=",
+			"iv": "R+B2z2pTLkMVGFCuFHnYL5sAIeuolYmgUOdMm2AOvTI=",
+			"text": "Df8C8Kkd+ngVAi/tGUe905VPTwId4hv+iL31dgylkDaDumI3BpRO5bN1qKfSsBi2KOA="
+		  }
+		}
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Alice encrypt a message for two recipients using  public keys",
+		"zencode": "Rule check version 1.0.0 \nScenario 'ecdh': Alice encrypts a message for Bob \nGiven that I am known as 'Alice' \nGiven that I have my valid 'keypair' \nGiven that I have a valid 'public key' from 'Bob' \nGiven that I have a valid 'public key' from 'Carl'\nGiven that I have a 'string' named 'message' \nGiven that I have a 'string' named 'header' \nWhen I encrypt the secret message of 'message' for 'Bob' \nWhen I rename the 'secret message' to 'secretForBob' \nWhen I encrypt the secret message of 'message' for 'Carl'\nWhen I rename the 'secret message' to 'secretForCarl' \nThen print the 'secretForBob' \nThen print the 'secretForCarl' \n",
+		"keys": {
+			"Alice": {
+				"keypair": {
+					"private_key": "WBdsWLDno9/DNaap8cOXyQsCG182NJ0ddjLo/k05mgs=",
+					"public_key": "BNRzlJ4csYlWgycGGiK/wgoEw3OizCdx9MWg06rxUBTP5rP9qPASOW5KY8YgmNjW5k7lLpboboHrsApWsvgkMN4="
+				}
+			}
+		},
+		"data": {
+			"Bob": {
+		"public_key": "BBA0kD35T9lUHR/WhDwBmgg/vMzlu1Vb0qtBjBZ8rbhdtW3AcX6z64a59RqF6FCV5q3lpiFNTmOgA264x1cZHE0="
+	},
+	"Carl": {
+		"public_key": "BLdpLbIcpV5oQ3WWKFDmOQ/zZqTo93cT1SId8HNITgDzFeI6Y3FCBTxsKHeyY1GAbHzABsOf1Zo61FRQFLRAsc8="
+	},
+	"message": "Dear Bob and Carl, if you are reading this, then we're not friend anymore. Goodbye.",
+	"header": "Secret message for Bob and Carl"
+		}
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Bob decrypts a secret message using a-symmetric encryption",
+		"zencode": "Rule check version 1.0.0 \nScenario 'ecdh': Bob decrypts the message from Alice \nGiven that I am known as 'Bob' \nGiven I have my 'keypair' \nGiven I have a 'public key' from 'Alice' \nGiven I have a 'secret message' named 'secretForBob' \nWhen I decrypt the text of 'secretForBob' from 'Alice' \nWhen I rename the 'text' to 'textForBob' \nThen print the 'textForBob' as 'string' \nThen print the 'header' as 'string' inside 'secretForBob' \n",
+		"keys": 
+		{
+				"Bob": {
+					"keypair": {
+						"private_key": "psBF05iHz/X8WBpwitJoSsZ7BiKawrdaVfQN3AtTa6I=",
+						"public_key": "BBA0kD35T9lUHR/WhDwBmgg/vMzlu1Vb0qtBjBZ8rbhdtW3AcX6z64a59RqF6FCV5q3lpiFNTmOgA264x1cZHE0="
+					}
+				}
+			},
+		"data": 
+		{
+				"Alice": {
+					"public_key": "BNRzlJ4csYlWgycGGiK/wgoEw3OizCdx9MWg06rxUBTP5rP9qPASOW5KY8YgmNjW5k7lLpboboHrsApWsvgkMN4="
+				},
+
+			  "secretForBob": {
+				"checksum": "sxoO1vewQmL8skCmfeiFgw==",
+				"header": "U2VjcmV0IG1lc3NhZ2UgZm9yIEJvYiBhbmQgQ2FybA==",
+				"iv": "AngaB+wTbAKWFDayWE2yWVSDD1f/w+lI+LkV0B8tIyM=",
+				"text": "S2+pJNXhLgT46/ztk/XAJOWdl3jWR4svI170Me38bWHmvS3+kqZxkW2GIZJiw4C4GkdJ8MM2lvQJcP/GWM/7k+mc/XQoxI86Yu4RgCPqYJ+sKD0="
+			  },
+			  "secretForCarl": {
+				"checksum": "7cA6o2Ipf7gtlPWfZzPJGw==",
+				"header": "U2VjcmV0IG1lc3NhZ2UgZm9yIEJvYiBhbmQgQ2FybA==",
+				"iv": "nX3BsOxtLWLVldnEFhRYXtnOVgAGZXoUroTzvE9GGkQ=",
+				"text": "eVzpDLQTFwgeothE0pacc/J5prjtEMSDJn/ZDprWk3EB7LQD6Kemr2x4vcZ0bEh1nIvIWDZ+imSRL3PPcqJclH5IALjl6zhascYlC9xbibXaTJM="
+			  }
+			}
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Sign objects using public-key encryption",
+		"zencode": "Scenario 'ecdh': create the signature of an object \nGiven I am 'Alice' \nGiven I have my 'keypair' \nGiven that I have a 'string' named 'myMessage' inside 'mySecretStuff' \nGiven I have a 'string array' named 'myStringArray' \nWhen I create the signature of 'myStringArray' \nWhen I rename the 'signature' to 'myStringArray.signature' \nWhen I create the signature of 'keypair'\nWhen I rename the 'signature' to 'keypair.signature' \nWhen I create the signature of 'myMessage' \nWhen I rename the 'signature' to 'myMessage.signature' \nThen print the 'myMessage' \nThen print the 'myMessage.signature' \nThen print the 'myStringArray' \nThen print the 'myStringArray.signature' \nThen print the 'keypair' \nThen print the 'keypair.signature' \n",
+		"keys": {
+			"Alice": {
+				"keypair": {
+					   "private_key": "Aku7vkJ7K01gQehKELav3qaQfTeTMZKgK+5VhaR3Ui0=",
+						"public_key": "BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI="
+				}
+			}
+		},
+		"data": {
+			"mySecretStuff":{
+			  "myMessage": "Dear Bob, your name is too short, goodbye - Alice."
+			},
+			 "myStringArray":[
+				 "Hello World! This is my string array, element [0]",
+				 "Hello World! This is my string array, element [1]",
+				 "Hello World! This is my string array, element [2]"
+			  ]
+		}
+	},
+	{
+		"author": "Dyne.org",
+		"name": "Verify a signature using public-key encryption",
+		"zencode": "rule check version 1.0.0 \nScenario 'ecdh': Bob verifies the signature from Alice \nGiven that I am known as 'Bob' \nGiven I have a 'public key' from 'Alice' \nGiven I have a 'string' named 'myMessage' \nGiven I have a 'signature' named 'myMessage.signature'\nGiven I have a 'string array' named 'myStringArray' \nGiven I have a 'signature' named 'myStringArray.signature' \nWhen I verify the 'myMessage' has a signature in 'myMessage.signature' by 'Alice' \nWhen I verify the 'myStringArray' has a signature in 'myStringArray.signature' by 'Alice' \nThen print 'Zenroom certifies that signatures are all correct!' as 'string' \nThen print the 'myMessage'  \n",
+		"keys": {
+			"Alice": {
+					"public_key": "BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI="
+				}
+		},
+		"data": {
+			  "keypair": {
+    "private_key": "Aku7vkJ7K01gQehKELav3qaQfTeTMZKgK+5VhaR3Ui0=",
+    "public_key": "BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI="
+  },
+  "keypair.signature": {
+    "r": "UlrY1tYFXt0ClYncu51upl/wPPgGthEajxAxs8Ia/g4=",
+    "s": "rkpKyzEJ6Sg3bgyyYDqYwZH7gDnbMBO6W0+yzpmej0o="
+  },
+  "myMessage": "Dear Bob, your name is too short, goodbye - Alice.",
+  "myMessage.signature": {
+    "r": "vWerszPubruWexUib69c7IU8Dxy1iisUmMGC7h7arDw=",
+    "s": "nSjxT+JAP56HMRJjrLwwB6kP+mluYySeZcG8JPBGcpY="
+  },
+  "myStringArray": [
+    "Hello World! This is my string array, element [0]",
+    "Hello World! This is my string array, element [1]",
+    "Hello World! This is my string array, element [2]"
+  ],
+  "myStringArray.signature": {
+    "r": "B8qrQqYSWaTf5Q16mBCjY1tfsD4Cf6ZSMJTHCCV8Chg=",
+    "s": "S1/Syca6+XozVr5P9fQ6/AkQ+fJTMfwc063sbKmZ5B4="
+  }
+		}
+	}
+]

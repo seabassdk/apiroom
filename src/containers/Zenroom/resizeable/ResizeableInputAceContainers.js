@@ -118,7 +118,6 @@ const ResizeableContainer = props => {
     const cbHandleMouseUp = React.useCallback(handleMouseup, []);
 
     useEffect(() => {
-        console.log('Adding the auto completer!');
         addCompleter({
             getCompletions: function (editor, session, pos, prefix, callback) {
 

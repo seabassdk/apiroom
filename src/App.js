@@ -42,7 +42,8 @@ const App = props => {
     </Switch>
   );
 
-  if (props.isAuthenticated) {
+  const token = localStorage.getItem('token');
+  if (token) {
     routes = (
       <Switch>
         <Route path="/" exact component={Zenroom} />
@@ -83,11 +84,8 @@ const App = props => {
 
   useEffect(() => {
     props.onTryAutoSignup();
-
-
   }, []);
-  console.log('THE DISCLAIMER: ');
-  console.log(localStorage.getItem('disclaimer'));
+
   return (
     <Fragment>
 

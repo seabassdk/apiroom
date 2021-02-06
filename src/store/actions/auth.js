@@ -64,7 +64,7 @@ export const auth = (username, password, isSignup, code) => {
                 localStorage.setItem('userId', response.data.userId);
                 localStorage.setItem('username', response.data.username);
                 dispatch(authSuccess(response.data.token, response.data.userId, response.data.username));
-                // uncommoment if time dependant
+                // uncommoment if token should expire
                 // dispatch(checkAuthTimeout(response.data.expiresIn));
             })
             .catch(error => {
@@ -97,6 +97,7 @@ export const authCheckState = () => {
             // } else {
                 const userId = localStorage.getItem('userId');
                 const username = localStorage.getItem('username');
+                console.log('declaring auth success');
                 dispatch(authSuccess(token, userId, username));
                 // dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
             // }

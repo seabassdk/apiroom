@@ -1,10 +1,8 @@
 import React, { Fragment, useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button, Form, Spinner } from 'react-bootstrap';
-import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 
 import * as actions from '../../store/actions/index';
-import { CONFIG_COLLECTION } from '../../store/actions/actionTypes';
 
 const Save = props => {
     const [validated, setValidated] = useState(false);
