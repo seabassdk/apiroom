@@ -30,6 +30,10 @@ a:hover h6 {
     background-color: white!important;
 }
 
+button {
+    white-space: nowrap;
+}
+
 /* dropdown{
     display: inline-block;
     font-weight: 400;
