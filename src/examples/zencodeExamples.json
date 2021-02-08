@@ -10,10 +10,10 @@
 		"author":"Dyne.org",
 		"name":"Generate a keypair, reading identity from data",
 		"zencode":"Scenario 'ecdh': Create the keypair from a name passed from data/keys\r\n\r\n# Here we load the identity of the executor\r\nGiven my name is in a 'string' named 'myName'\r\n\r\n# Here we generate and print the keypair\r\nWhen I create the keypair\r\nThen print my data",
-		"keys":{
+		"keys":"",
+		"data":{
 			"myName":"User123456"
-		},
-		"data":""
+		}
 	},
 	{
 		"author":"Dyne.org",
