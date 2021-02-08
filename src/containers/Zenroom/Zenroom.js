@@ -26,8 +26,8 @@ const Zenroom = (props) => {
     if (props.execute) {
 
       const options = {
-        data: props.keys ? JSON.parse(JSON.stringify(props.data)) : null,
-        conf: props.keys ? JSON.parse(JSON.stringify(props.config)) : null,
+        data: props.data ? JSON.parse(JSON.stringify(props.data)) : null,
+        conf: props.config ? JSON.parse(JSON.stringify(props.config)) : null,
         keys: props.keys ? JSON.parse(JSON.stringify(props.keys)) : null,
       };
 

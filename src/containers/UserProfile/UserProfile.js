@@ -109,11 +109,24 @@ const UserProfile = props => {
     }, [props.username]);
 
     useEffect(() => {
+        // console.log('The length: ' + exportContracts.contracts.length);
+        // console.log('docker: ' + props.docker);
+        // console.log('script: ' + props.script);
+        // console.log('contractFiles: ' + props.contractFiles);
         if (props.docker) {
             props.onDockerExport(false);
-            props.onGetDocker(exportContracts)
+            exportContracts.contracts.length && props.onGetDocker(exportContracts);
         }
-    }, [props.docker]);
+        if (props.script) {
+            props.onScriptExport(false);
+            exportContracts.contracts.length && props.onGetScript(exportContracts);
+        }
+        if (props.contractFiles) {
+            props.onContractsExport(false);
+            exportContracts.contracts.length && props.onGetContractFiles(exportContracts);
+        }
+
+    }, [props.docker, props.script, props.contractFiles]);
 
     const onCheckedHandler = (e) => {
         let tmp = exportContracts.contracts;
@@ -273,7 +286,9 @@ const mapStateToProps = state => {
         isLoading: state.collections.isLoading,
         loadingError: state.collections.loadingError,
         username: state.auth.username,
-        docker: state.zenroom.dockerExport
+        docker: state.zenroom.dockerExport,
+        script: state.zenroom.scriptExport,
+        contractFiles: state.zenroom.contractsExport
     };
 }
 
@@ -290,6 +305,11 @@ const mapDispatchToProps = dispatch => {
         onSwitchContractByIndex: (index) => dispatch(actions.switchContractByIndex(index)),
         onDockerExport: (docker) => dispatch(actions.changeDockerExport(docker)),
         onGetDocker: (contracts) => dispatch(actions.getDocker(contracts)),
+        onScriptExport: (script) => dispatch(actions.changeScripExport(script)),
+        onGetScript: (contracts) => dispatch(actions.getScriptFile(contracts)),
+        onContractsExport: (contractFiles) => dispatch(actions.changeContractsExport(contractFiles)),
+        onGetContractFiles: (contracts) => dispatch(actions.getContractFiles(contracts)),
+
     }
 }
 

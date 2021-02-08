@@ -142,6 +142,8 @@ const App = props => {
             contracts={exampleContracts}
             loadContract={onLoadExampleContract}
             dockerExport={() => props.onDockerExport(true)}
+            scriptExport={() => props.onScriptExport(true)}
+            contractsExport={() => props.onContractsExport(true)}
           />
           {props.savedSuccess &&
             <Alert variant={'success'} onClose={() => props.onSavedSuccess(false)} dismissible>
@@ -200,6 +202,8 @@ const mapDispatchToProps = dispatch => {
     onDataChanged: (data) => dispatch(actions.changeData(data)),
     onConfigChanged: (config) => dispatch(actions.changeConfig(config)),
     onDockerExport: (docker) => dispatch(actions.changeDockerExport(docker)),
+    onScriptExport: (script) => dispatch(actions.changeScripExport(script)),
+    onContractsExport: (contractFiles) => dispatch(actions.changeContractsExport(contractFiles)),
 
   }
 }

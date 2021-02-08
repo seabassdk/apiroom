@@ -53,6 +53,11 @@
   font-weight: 400;
 }
 
+.dropdown-menu {
+  position: absolute;
+  left: unset!important;
+}
+
 .dropdown-menu.show {
   z-index: 1000;
 }

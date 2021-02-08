@@ -13,8 +13,8 @@ export const CONTRACT = 'CONTRACT';
 export const USER_LOADED = 'USER_LOADED';
 export const SELECTED_INDEX = 'SELECTED_INDEX';
 export const DOCKER_EXPORT = 'DOCKER_EXPORT';
-
-
+export const SCRIPT_EXPORT = 'SCRIPT_EXPORT';
+export const CONTRACTS_EXPORT = 'CONTRACTS_EXPORT';
 
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';

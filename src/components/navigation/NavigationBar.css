@@ -30,6 +30,11 @@ a:hover h6 {
     background-color: white!important;
 }
 
+.dropdown-toggle.btn.btn-secondary {
+    color: #6c757d!important;
+    background-color: white!important;
+}
+
 button {
     white-space: nowrap;
 }

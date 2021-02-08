@@ -1,7 +1,19 @@
 import axios from 'axios';
+import JSZip from 'jszip';
 import * as actionTypes from './actionTypes';
 import * as actions from './index';
-import { loadContractsUri, saveContractUri, saveTypeUri, updateContractUri, updateContractByindexUri, deleteContractByIndexUri, switchContractByIndexUri, getDockerFileUri } from '../../constants/api';
+import {
+    loadContractsUri,
+    saveContractUri,
+    saveTypeUri,
+    updateContractUri,
+    updateContractByindexUri,
+    deleteContractByIndexUri,
+    switchContractByIndexUri,
+    getDockerFileUri,
+    getRRScriptUri,
+    getContractsUri
+} from '../../constants/api';
 
 export const changeZencode = (zencode) => {
     return {
@@ -121,6 +133,20 @@ export const changeDockerExport = (dockerExport) => {
     return {
         type: actionTypes.DOCKER_EXPORT,
         dockerExport
+    }
+}
+
+export const changeScripExport = (scriptExport) => {
+    return {
+        type: actionTypes.SCRIPT_EXPORT,
+        scriptExport
+    }
+}
+
+export const changeContractsExport = (contractsExport) => {
+    return {
+        type: actionTypes.CONTRACTS_EXPORT,
+        contractsExport
     }
 }
 
@@ -394,10 +420,8 @@ export const switchContractByIndex = (index) => {
 };
 
 export const getDocker = (obj) => {
-
     return (dispatch, getState) => {
         const { auth } = getState();
-
         //check if auth valid
         if (!auth.username || !auth.token)
             return dispatch(changeSavingFailure('You must be logged in to save.'));
@@ -434,7 +458,74 @@ export const getDocker = (obj) => {
                 console.log(err);
                 // dispatch(changeSavingFailure('Failed to save! reason: ' + err));
             })
-
     }
-
 };
+
+export const getScriptFile = (obj) => {
+    return (dispatch, getState) => {
+        const { auth } = getState();
+        //check if auth valid
+        if (!auth.username || !auth.token)
+            return dispatch(changeSavingFailure('You must be logged in to save.'));
+
+        const uri = getRRScriptUri;
+        const payload = {
+            contracts: obj.contracts,
+            username: auth.username
+        }
+
+        axios.post(uri,
+            payload,
+            { headers: { 'auth-token': auth.token } }
+        )
+            .then(response => {
+                const element = document.createElement("a");
+                const file = new Blob([response.data]);
+                element.href = URL.createObjectURL(file);
+                element.download = "exportRestroom.sh";
+                document.body.appendChild(element);
+                element.click();
+                element.parentNode.removeChild(element);
+            }).catch(err => {
+                console.log('Saving error:');
+                console.log(err);
+                // dispatch(changeSavingFailure('Failed to save! reason: ' + err));
+            })
+    }
+}
+
+export const getContractFiles = (obj) => {
+    return (dispatch, getState) => {
+        const { auth } = getState();
+        //check if auth valid
+        if (!auth.username || !auth.token)
+            return dispatch(changeSavingFailure('You must be logged in to save.'));
+
+        const uri = getContractsUri;
+        const payload = {
+            contracts: obj.contracts,
+            username: auth.username
+        }
+        axios.post(uri,
+            payload,
+            { headers: { 'auth-token': auth.token } }
+        )
+            .then(async response => {
+                var zip = new JSZip();
+                response.data.forEach((file) => {
+                    zip.file(file.name, file.content);
+                })
+                const content = await zip.generateAsync({ type: "blob" })
+                const element = document.createElement("a");
+                element.href = URL.createObjectURL(content);
+                element.download = "contracts.zip";
+                document.body.appendChild(element);
+                element.click();
+                element.parentNode.removeChild(element);
+            }).catch(err => {
+                console.log('Error downloading contracts...:');
+                console.log(err);
+                // dispatch(changeSavingFailure('Failed to save! reason: ' + err));
+            })
+    }
+}

@@ -19,7 +19,11 @@ export {
     deleteContractByIndex,
     switchContractByIndex,
     changeDockerExport,
-    getDocker
+    getDocker,
+    changeScripExport,
+    changeContractsExport,
+    getScriptFile,
+    getContractFiles,
 } from './zenroom';
 export {
     auth,

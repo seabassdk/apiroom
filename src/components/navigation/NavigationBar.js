@@ -130,11 +130,11 @@ const NavigationBar = props => {
                     {/* Zenroom buttons */}
                     {/* < div className={'col m-0 p-0 d-inline-block justify-content-end'} > */}
 
-                        {/* PLAY BUTTON */}
-                        {
-                            props.location.pathname === '/' &&
-                            <Fragment>
-                                {/* <DropdownButton className='mr-4' id="dropdown-variants-Secondary" title="Examples" variant='info'>
+                    {/* PLAY BUTTON */}
+                    {
+                        props.location.pathname === '/' &&
+                        <Fragment>
+                            {/* <DropdownButton className='mr-4' id="dropdown-variants-Secondary" title="Examples" variant='info'>
                                     {props.contracts.map((contract, index) => {
                                         return (
                                             <Dropdown.Item key={index} onClick={() => { load(index) }}> {contract.name}</Dropdown.Item>
@@ -145,17 +145,17 @@ const NavigationBar = props => {
                                 </DropdownButton> */}
 
 
-                                {props.isAuthenticated
-                                    ? <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showSave}>Create API</Button>
-                                    : <Button variant="outline-secondary" className="mr-sm-2" onClick={() => window.alert("You must be logged in to Save")}>Create API</Button>
-                                }
+                            {props.isAuthenticated
+                                ? <Button variant="outline-secondary" className="mr-sm-2" onClick={props.showSave}>Create API</Button>
+                                : <Button variant="outline-secondary" className="mr-sm-2" onClick={() => window.alert("You must be logged in to Save")}>Create API</Button>
+                            }
 
-                                <Button className="play-button mr-sm-2" variant="info" onClick={props.executeZenroom}>
-                                    Play
+                            <Button className="play-button mr-sm-2" variant="info" onClick={props.executeZenroom}>
+                                Play
                                 <FontAwesomeIcon icon={faPlay} size='1x' color='white' style={{ fontSize: '12px', marginLeft: '8px', marginBottom: '2px' }} />
-                                </Button>
-                            </Fragment>
-                        }
+                            </Button>
+                        </Fragment>
+                    }
                     {/* </div> */}
                 </div>
                 <div className={'col-md-4 p-0 m-0 d-flex justify-content-end align-items-center'}>
@@ -252,7 +252,18 @@ const NavigationBar = props => {
                             >
                                 <Button variant="outline-secondary" className="mr-sm-2">Export</Button>
                             </OverlayTrigger> */}
-                            <Button variant="outline-secondary" className="mr-sm-2" onClick={() => props.dockerExport()}>Export Docker</Button>
+                            {/* <Button variant="outline-secondary" className="mr-sm-2" onClick={() => props.dockerExport()}>Export Docker</Button> */}
+                            <DropdownButton className={'col m-0 p-0 pl-5 d-flex justify-content-end mr-3'} id="dropdown-variants-Secondary" title="Export" variant='secondary'>
+                                <Dropdown.Item onClick={() => props.dockerExport()}>
+                                    To Dockerfile
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => props.scriptExport()}>
+                                    To script to setup Restroom-mw with the contracts
+                                </Dropdown.Item>
+                                <Dropdown.Item onClick={() => props.contractsExport()}>
+                                    Just the contracts
+                                </Dropdown.Item>
+                            </DropdownButton>
                             <Button variant="outline-secondary" className="mr-sm-3" onClick={() => window.open(linkToSwaggerUri + props.username, "_blank")}>Test APIs</Button>
                             <OverlayTrigger
                                 trigger="click"

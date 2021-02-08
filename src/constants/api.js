@@ -20,6 +20,10 @@ export const linkToSwaggerUri = 'http://localhost:3010/docs/'; //:username
 
 export const getDockerFileUri = 'http://localhost:3010/docker/';
 
+export const getRRScriptUri = 'http://localhost:3010/rrscript/';
+
+export const getContractsUri = 'http://localhost:3010/exportcontracts/';
+
 // FOR PRODUCTION
 // export const register = '/user/register';
 // export const login = '/user/login';
@@ -41,3 +45,7 @@ export const getDockerFileUri = 'http://localhost:3010/docker/';
 // export const linkToSwaggerUri = '/docs/'; //:username
 
 // export const getDockerFileUri = '/docker/';
+
+// export const getRRScriptUri = '/rrscript/';
+
+// export const getContractsUri = '/exportcontracts/';

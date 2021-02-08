@@ -16,7 +16,20 @@ const initialState = {
     userLoaded: false,
     userContracts: null,
     selectedIndex: null,
-    dockerExport: false
+    dockerExport: false,
+    scriptExport: false,
+    contractsExport: false
+
+};
+
+const changeContractsExport = ( state, action ) => {
+    const updatedContractsExport = {contractsExport: action.contractsExport}
+    return updateObject( state, updatedContractsExport );
+};
+
+const changeScriptExport = ( state, action ) => {
+    const updatedScriptExport = {scriptExport: action.scriptExport}
+    return updateObject( state, updatedScriptExport );
 };
 
 const changeDockerExport = ( state, action ) => {
@@ -118,6 +131,9 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.USER_LOADED: return changeUserLoaded( state, action ); 
         case actionTypes.SELECTED_INDEX: return changeSelectedIndex( state, action );
         case actionTypes.DOCKER_EXPORT: return changeDockerExport( state, action );
+        case actionTypes.SCRIPT_EXPORT: return changeScriptExport( state, action );
+        case actionTypes.CONTRACTS_EXPORT: return changeContractsExport( state, action );
+        
         
         
         
